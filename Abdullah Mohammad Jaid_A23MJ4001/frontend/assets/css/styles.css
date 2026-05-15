@@ -1,0 +1,202 @@
+:root {
+  --border: #e5e7eb;
+  --text: #111827;
+  --muted: #6b7280;
+  --bg: #ffffff;
+  --bg2: #f3f4f6;
+  /* DHL brand palette (approx.) */
+  --brand-yellow: #ffcc00;
+  --brand-red: #d40511;
+
+  --radius: 10px;
+  --radius-sm: 8px;
+  --shadow: 0 10px 25px rgba(17, 24, 39, 0.08);
+  --focus: 0 0 0 3px rgba(212, 5, 17, 0.25);
+
+  --primary: var(--brand-red);
+  --danger: #dc2626;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg2);
+  line-height: 1.45;
+}
+
+h1, h2, h3 {
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+}
+
+p { margin: 0 0 10px; }
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.nav {
+  background: var(--brand-yellow);
+  border-bottom: 2px solid var(--brand-red);
+}
+
+.nav .container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.nav a.active { font-weight: 700; color: var(--brand-red); }
+
+.nav a:focus-visible {
+  outline: 2px solid var(--brand-red);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.row { display: flex; gap: 12px; flex-wrap: wrap; }
+.row > * { flex: 1; }
+
+label { display: block; font-size: 14px; margin-bottom: 6px; color: var(--muted); }
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: var(--focus);
+}
+
+textarea { min-height: 96px; resize: vertical; }
+
+/* Make common long-form fields a bit more compact */
+#summary,
+#editSummary { min-height: 76px; }
+
+#steps,
+#editSteps { min-height: 84px; }
+
+button {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 650;
+  transition: filter 120ms ease, background-color 120ms ease, border-color 120ms ease;
+}
+button.primary { background: var(--primary); color: white; border-color: var(--primary); }
+button.danger { background: var(--danger); color: white; border-color: var(--danger); }
+
+button.primary:hover { filter: brightness(0.95); }
+button.primary:active { filter: brightness(0.90); }
+
+button:hover { filter: brightness(0.98); }
+button:active { filter: brightness(0.95); }
+
+button:focus-visible {
+  outline: none;
+  box-shadow: var(--focus);
+}
+
+.small { font-size: 13px; color: var(--muted); }
+.error { color: var(--danger); }
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 12px;
+  background: var(--bg2);
+}
+
+.badge strong { color: var(--brand-red); }
+
+.list { margin: 0; padding: 0; list-style: none; }
+.list li { padding: 10px 0; border-top: 1px solid var(--border); }
+.list li:first-child { border-top: 0; }
+
+.actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+/* Upload mode selector: render radios as square tickboxes */
+.mode-options {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.mode-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.mode-tick {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+.mode-tick:checked {
+  border-color: var(--primary);
+  background: var(--primary);
+}
+
+.mode-tick:checked::after {
+  content: "";
+  width: 8px;
+  height: 4px;
+  border-left: 2px solid var(--bg);
+  border-bottom: 2px solid var(--bg);
+  transform: rotate(-45deg);
+  margin-top: -1px;
+}
+
+.mode-tick:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}

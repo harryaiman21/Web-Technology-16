@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Upload Console</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="nav">
+    <div class="container">
+      <a href="viewer.html">Viewer</a>
+      <a href="upload.html" class="active">Upload Console</a>
+      <a href="login.html" id="logoutLink">Logout</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <h1>Create Draft</h1>
+      <p class="small">Creates a Draft article and uploads attachments (PDF/DOCX/TXT/PNG/JPG).</p>
+
+      <!-- Mode: Manual vs AI-assisted metadata generation -->
+      <div class="row" style="margin-top: 12px;">
+        <div>
+          <label>Mode</label>
+          <div class="mode-options" style="margin-top: 4px;">
+            <label class="mode-option"><input class="mode-tick" type="radio" name="mode" value="manual" /> Manual Entry</label>
+            <label class="mode-option"><input class="mode-tick" type="radio" name="mode" value="ai" checked /> AI Generate (TXT/PDF/DOCX)</label>
+          </div>
+        </div>
+      </div>
+
+      <form id="draftForm">
+        <div>
+          <label for="title">Title</label>
+          <input id="title" required />
+        </div>
+
+        <div style="margin-top: 12px;">
+          <label for="summary">Summary</label>
+          <textarea id="summary" placeholder="Optional"></textarea>
+        </div>
+
+        <div style="margin-top: 12px;">
+          <label for="steps">Steps / Content</label>
+          <textarea id="steps" placeholder="Paste messy notes or structured SOP steps"></textarea>
+        </div>
+
+        <div class="row" style="margin-top: 12px;">
+          <div>
+            <label for="tags">Tags (comma-separated)</label>
+            <input id="tags" placeholder="billing,invoice" />
+          </div>
+          <div>
+            <label for="files">Attachments</label>
+            <input id="files" type="file" multiple accept=".pdf,.docx,.txt,.png,.jpg,.jpeg" />
+            <div id="aiHint" class="small" style="display:none; margin-top: 6px;">AI mode uses exactly 1 file (TXT/PDF/DOCX or image with OCR) and will generate title/summary/tags.</div>
+          </div>
+        </div>
+
+        <div class="actions" style="margin-top: 12px;">
+          <button class="primary" type="submit">Save Draft</button>
+          <span id="status" class="small"></span>
+          <span id="error" class="error"></span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="assets/js/pages/upload.js"></script>
+</body>
+</html>

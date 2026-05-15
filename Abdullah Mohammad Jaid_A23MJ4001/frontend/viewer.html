@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KB Viewer</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="nav">
+    <div class="container">
+      <a href="viewer.html" class="active">Viewer</a>
+      <a href="upload.html">Upload Console</a>
+      <a href="login.html" id="logoutLink">Logout</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <h1>Viewer</h1>
+
+      <div class="row">
+        <div>
+          <label for="q">Search</label>
+          <input id="q" placeholder="Search title/summary/steps" />
+        </div>
+        <div>
+          <label for="creator">Creator</label>
+          <input id="creator" placeholder="e.g., editor1" />
+        </div>
+        <div>
+          <label for="status">Status</label>
+          <select id="status">
+            <option value="">Any</option>
+            <option value="draft">Draft</option>
+            <option value="reviewed">Reviewed</option>
+            <option value="published">Published</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 12px;">
+        <div>
+          <label for="tag">Tag</label>
+          <input id="tag" placeholder="e.g., billing" />
+        </div>
+        <div>
+          <label for="dateField">Date field</label>
+          <select id="dateField">
+            <option value="updated_at">Updated date</option>
+            <option value="created_at">Created date</option>
+          </select>
+        </div>
+        <div>
+          <label for="from">From</label>
+          <input id="from" type="date" />
+        </div>
+        <div>
+          <label for="to">To</label>
+          <input id="to" type="date" />
+        </div>
+        <div>
+          <label for="ordering">Sort</label>
+          <select id="ordering">
+            <option value="-updated_at">Updated (newest)</option>
+            <option value="-created_at">Created (newest)</option>
+            <option value="title">Title (A → Z)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="actions" style="margin-top: 12px;">
+        <button id="searchBtn" class="primary">Search</button>
+        <button id="prevBtn">Prev</button>
+        <button id="nextBtn">Next</button>
+        <span id="meta" class="small"></span>
+        <span id="error" class="error"></span>
+      </div>
+
+      <ul id="results" class="list" style="margin-top: 12px;"></ul>
+    </div>
+  </div>
+
+  <script type="module" src="assets/js/pages/viewer.js"></script>
+</body>
+</html>

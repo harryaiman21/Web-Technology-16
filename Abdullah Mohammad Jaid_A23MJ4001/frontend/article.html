@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Article</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="nav">
+    <div class="container">
+      <a href="viewer.html">Viewer</a>
+      <a href="upload.html">Upload Console</a>
+      <a href="login.html" id="logoutLink">Logout</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <div class="actions">
+        <h1 id="title" style="margin: 0;">Article</h1>
+        <span id="badge" class="badge"></span>
+      </div>
+      <p id="meta" class="small"></p>
+
+      <div id="editor" style="display:none;">
+        <h3>Edit (Draft/Reviewed)</h3>
+        <div>
+          <label for="editTitle">Title</label>
+          <input id="editTitle" />
+        </div>
+        <div style="margin-top: 12px;">
+          <label for="editSummary">Summary</label>
+          <textarea id="editSummary"></textarea>
+        </div>
+        <div style="margin-top: 12px;">
+          <label for="editSteps">Steps</label>
+          <textarea id="editSteps"></textarea>
+        </div>
+        <div style="margin-top: 12px;">
+          <label for="editTags">Tags</label>
+          <input id="editTags" />
+        </div>
+        <div class="actions" style="margin-top: 12px;">
+          <button id="saveBtn" class="primary">Save</button>
+          <span id="saveStatus" class="small"></span>
+        </div>
+      </div>
+
+      <div class="actions" style="margin-top: 12px;">
+        <button id="toReviewedBtn">Submit for Review</button>
+        <button id="toPublishedBtn" class="primary">Publish</button>
+        <button id="deleteBtn" class="danger">Delete Draft</button>
+        <span id="error" class="error"></span>
+      </div>
+
+      <h3 style="margin-top: 20px;">Content</h3>
+      <pre id="content" style="white-space: pre-wrap;"></pre>
+
+      <h3>Attachments</h3>
+      <ul id="attachments" class="list"></ul>
+
+      <h3>Version History</h3>
+      <ul id="revisions" class="list"></ul>
+    </div>
+  </div>
+
+  <script type="module" src="assets/js/pages/article.js"></script>
+</body>
+</html>
