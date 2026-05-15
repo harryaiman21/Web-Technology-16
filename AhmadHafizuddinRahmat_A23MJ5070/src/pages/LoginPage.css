@@ -1,0 +1,83 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+}
+
+.login-box {
+  width: 360px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.login-brand {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.login-icon { font-size: 32px; color: var(--accent); }
+.login-title { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
+.login-sub { font-size: 12px; font-family: var(--font-mono); color: var(--text-muted); }
+
+.login-form { display: flex; flex-direction: column; gap: 14px; }
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field-label { font-size: 11px; font-family: var(--font-mono); color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; }
+.field-input {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 13px;
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.field-input:focus { border-color: var(--accent); }
+.field-input::placeholder { color: var(--text-dim); }
+
+.login-error {
+  background: rgba(240,91,91,0.1);
+  border: 1px solid rgba(240,91,91,0.3);
+  border-radius: var(--radius);
+  color: var(--danger);
+  padding: 9px 12px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+}
+
+.login-btn {
+  width: 100%;
+  padding: 11px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: var(--radius);
+  transition: all 0.15s;
+  margin-top: 4px;
+}
+.login-btn:hover { background: #4a79df; }
+.login-btn.loading { opacity: 0.6; cursor: not-allowed; }
+
+.login-hint {
+  text-align: center;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--text-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
