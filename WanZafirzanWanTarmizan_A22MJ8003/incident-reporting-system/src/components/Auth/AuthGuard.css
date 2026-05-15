@@ -1,0 +1,71 @@
+/**
+ * AuthGuard Styles
+ * Loading state and spinner styling
+ */
+
+/* Auth guard loading container */
+.auth-guard-loading {
+  /* Display flex */
+  display: flex;
+  /* Align items center */
+  align-items: center;
+  /* Justify content center */
+  justify-content: center;
+  /* Full viewport height */
+  min-height: 100vh;
+  /* Background color */
+  background-color: #f8f9fa;
+}
+
+/* Loading spinner container */
+.loading-spinner-container {
+  /* Display flex column */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Align items center */
+  align-items: center;
+  /* Gap between spinner and text */
+  gap: 1rem;
+}
+
+/* Loading spinner animation */
+.loading-spinner {
+  /* Width */
+  width: 3rem;
+  /* Height */
+  height: 3rem;
+  /* Border */
+  border: 4px solid rgba(102, 126, 234, 0.1);
+  /* Border top color */
+  border-top-color: #667eea;
+  /* Border radius circle */
+  border-radius: 50%;
+  /* Animation */
+  animation: spin-loader 0.8s linear infinite;
+}
+
+/* Spinner animation keyframes */
+@keyframes spin-loader {
+  /* From: no rotation */
+  from {
+    transform: rotate(0deg);
+  }
+
+  /* To: full rotation */
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading text */
+.loading-text {
+  /* Font size */
+  font-size: 1rem;
+  /* Color */
+  color: #667eea;
+  /* Font weight */
+  font-weight: 600;
+  /* Remove default margin */
+  margin: 0;
+}

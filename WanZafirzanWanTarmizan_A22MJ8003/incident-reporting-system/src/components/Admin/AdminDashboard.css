@@ -1,0 +1,1004 @@
+/**
+ * Admin Dashboard Styles
+ * Responsive design for admin overview
+ */
+
+/* Admin dashboard container */
+.admin-dashboard {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap between sections */
+  gap: 2rem;
+  /* Padding */
+  padding: 2rem;
+  /* Width 100% */
+  width: 100%;
+  /* Min height */
+  min-height: 100%;
+  /* Background color */
+  background-color: #f8f9fa;
+  /* Box sizing border box */
+  box-sizing: border-box;
+  /* Margin 0 */
+  margin: 0;
+}
+
+/* Welcome section */
+.dashboard-welcome {
+  /* Padding */
+  padding: 2rem;
+  /* Background color */
+  background: linear-gradient(135deg, #BA0C2F 0%, #8B081F 100%);
+  /* Text color white */
+  color: white;
+  /* Border radius */
+  border-radius: 8px;
+  /* Box shadow */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Welcome heading */
+.dashboard-welcome h1 {
+  /* Margin */
+  margin: 0 0 0.5rem 0;
+  /* Font size */
+  font-size: 2.5rem;
+  /* Font weight */
+  font-weight: 700;
+  /* Letter spacing */
+  letter-spacing: 0.5px;
+  /* DHL Yellow/Golden color */
+  color: #FFCD00;
+}
+
+/* Welcome paragraph */
+.dashboard-welcome p {
+  /* Margin */
+  margin: 0;
+  /* Font size */
+  font-size: 1.1rem;
+  /* Opacity */
+  opacity: 0.95;
+}
+
+/* Section container */
+.critical-section,
+.all-incidents-section {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 1.5rem;
+}
+
+/* Section header */
+.section-header {
+  /* Display flex */
+  display: flex;
+  /* Justify content space-between */
+  justify-content: space-between;
+  /* Align items center */
+  align-items: center;
+  /* Padding bottom */
+  padding-bottom: 1rem;
+  /* Border bottom */
+  border-bottom: 2px solid #E5E5E5;
+}
+
+/* Section header h2 */
+.section-header h2 {
+  /* Margin */
+  margin: 0;
+  /* Font size */
+  font-size: 1.5rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Color DHL red */
+  color: #BA0C2F;
+}
+
+/* Incident count badge */
+.incident-count {
+  /* Background color */
+  background-color: #FFCD00;
+  /* Color */
+  color: #333;
+  /* Padding */
+  padding: 0.35rem 0.85rem;
+  /* Border radius */
+  border-radius: 20px;
+  /* Font size */
+  font-size: 0.9rem;
+  /* Font weight */
+  font-weight: 600;
+}
+
+/* Critical incidents list */
+.critical-incidents-list {
+  /* Display grid */
+  display: grid;
+  /* Grid template columns */
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  /* Gap */
+  gap: 1.5rem;
+}
+
+/* Critical incident card */
+.critical-incident-card {
+  /* Display flex */
+  display: flex;
+  /* Gap */
+  gap: 1rem;
+  /* Padding */
+  padding: 1.5rem;
+  /* Background color */
+  background-color: white;
+  /* Border */
+  border: 2px solid #E5E5E5;
+  /* Border radius */
+  border-radius: 6px;
+  /* Cursor pointer */
+  cursor: pointer;
+  /* Transition */
+  transition: all 0.3s ease;
+  /* Box shadow */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Critical incident card hover */
+.critical-incident-card:hover {
+  /* Border color red */
+  border-color: #BA0C2F;
+  /* Box shadow */
+  box-shadow: 0 8px 20px rgba(186, 12, 47, 0.15);
+  /* Transform */
+  transform: translateY(-2px);
+}
+
+/* Priority indicator */
+.priority-indicator {
+  /* Width and height */
+  width: 6px;
+  height: 100%;
+  /* Border radius */
+  border-radius: 3px;
+  /* Flex shrink 0 */
+  flex-shrink: 0;
+}
+
+/* Critical card content */
+.critical-card-content {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 0.75rem;
+  /* Flex 1 */
+  flex: 1;
+}
+
+/* Critical card header */
+.critical-card-header {
+  /* Display flex */
+  display: flex;
+  /* Justify content space-between */
+  justify-content: space-between;
+  /* Align items flex-start */
+  align-items: flex-start;
+  /* Gap */
+  gap: 0.75rem;
+}
+
+/* Critical card header h3 */
+.critical-card-header h3 {
+  /* Margin */
+  margin: 0;
+  /* Font size */
+  font-size: 1.1rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Color */
+  color: #333;
+  /* Flex 1 */
+  flex: 1;
+}
+
+/* Critical card description */
+.critical-card-description {
+  /* Margin */
+  margin: 0;
+  /* Font size */
+  font-size: 0.9rem;
+  /* Color gray */
+  color: #666;
+  /* Line height */
+  line-height: 1.5;
+}
+
+/* Critical card footer */
+.critical-card-footer {
+  /* Display flex */
+  display: flex;
+  /* Justify content space-between */
+  justify-content: space-between;
+  /* Align items center */
+  align-items: center;
+  /* Padding top */
+  padding-top: 0.75rem;
+  /* Border top */
+  border-top: 1px solid #F0F0F0;
+  /* Font size */
+  font-size: 0.85rem;
+}
+
+/* Created date */
+.created-date {
+  /* Color gray */
+  color: #999;
+}
+
+/* Filter container */
+.filter-container {
+  /* Display flex */
+  display: flex;
+  /* Gap */
+  gap: 0.75rem;
+}
+
+/* Incidents list grid */
+.incidents-list {
+  /* Display grid */
+  display: grid;
+  /* Grid template columns */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  /* Gap */
+  gap: 1.25rem;
+}
+
+/* Incident card */
+.incident-card {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 1rem;
+  /* Padding */
+  padding: 1rem;
+  /* Border */
+  border: 1px solid #E5E5E5;
+  /* Border radius */
+  border-radius: 4px;
+  /* Background color */
+  background-color: white;
+  /* Cursor pointer */
+  cursor: pointer;
+  /* Transition */
+  transition: all 0.2s ease;
+}
+
+/* Incident card hover */
+.incident-card:hover {
+  /* Shadow */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* Border color */
+  border-color: #BA0C2F;
+  /* Transform */
+  transform: translateY(-2px);
+}
+
+/* Incident card header */
+.incident-card-header {
+  /* Display flex */
+  display: flex;
+  /* Justify content space-between */
+  justify-content: space-between;
+  /* Align items flex-start */
+  align-items: flex-start;
+  /* Gap */
+  gap: 0.75rem;
+}
+
+/* Incident card title */
+.incident-card-title {
+  /* Font size */
+  font-size: 1.05rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Color */
+  color: #333;
+  /* Margin */
+  margin: 0;
+  /* Flex 1 */
+  flex: 1;
+}
+
+/* Incident card badges */
+.incident-card-badges {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 0.35rem;
+  /* Flex shrink 0 */
+  flex-shrink: 0;
+}
+
+/* Incident card description */
+.incident-card-description {
+  /* Font size */
+  font-size: 0.9rem;
+  /* Color gray */
+  color: #666;
+  /* Margin */
+  margin: 0;
+  /* Line height */
+  line-height: 1.4;
+}
+
+/* Badge styles */
+.priority-badge,
+.status-badge {
+  /* Display inline-block */
+  display: inline-block;
+  /* Padding */
+  padding: 0.35rem 0.65rem;
+  /* Border radius */
+  border-radius: 2px;
+  /* Font size */
+  font-size: 0.75rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Text transform */
+  text-transform: uppercase;
+  /* Letter spacing */
+  letter-spacing: 0.4px;
+  /* Whitespace */
+  white-space: nowrap;
+}
+
+/* Priority badge - critical */
+.priority-badge.priority-critical {
+  /* Background */
+  background-color: #FEE2E2;
+  /* Color */
+  color: #991B1B;
+}
+
+/* Priority badge - high */
+.priority-badge.priority-high {
+  /* Background */
+  background-color: #FEDBA8;
+  /* Color */
+  color: #92400e;
+}
+
+/* Priority badge - medium */
+.priority-badge.priority-medium {
+  /* Background */
+  background-color: #DBEAFE;
+  /* Color */
+  color: #1e40af;
+}
+
+/* Priority badge - low */
+.priority-badge.priority-low {
+  /* Background */
+  background-color: #DCFCE7;
+  /* Color */
+  color: #166534;
+}
+
+/* Status badges */
+.status-badge.status-draft {
+  /* Background */
+  background-color: #E5E5E5;
+  /* Color */
+  color: #666;
+}
+
+.status-badge.status-submitted {
+  /* Background */
+  background-color: #DBEAFE;
+  /* Color */
+  color: #1e40af;
+}
+
+.status-badge.status-review {
+  /* Background */
+  background-color: #FEF3C7;
+  /* Color */
+  color: #92400e;
+}
+
+.status-badge.status-resolved {
+  /* Background */
+  background-color: #DCFCE7;
+  /* Color */
+  color: #166534;
+}
+
+.status-badge.status-closed {
+  /* Background */
+  background-color: #F3F4F6;
+  /* Color */
+  color: #374151;
+}
+
+/* Tags */
+.incident-tags {
+  /* Display flex */
+  display: flex;
+  /* Flex wrap */
+  flex-wrap: wrap;
+  /* Gap */
+  gap: 0.5rem;
+}
+
+/* Tag */
+.tag {
+  /* Padding */
+  padding: 0.35rem 0.65rem;
+  /* Background */
+  background-color: #F0F0F0;
+  /* Border radius */
+  border-radius: 12px;
+  /* Font size */
+  font-size: 0.8rem;
+  /* Color */
+  color: #555;
+}
+
+/* Incident card footer */
+.incident-card-footer {
+  /* Padding top */
+  padding-top: 0.75rem;
+  /* Border top */
+  border-top: 1px solid #F0F0F0;
+  /* Font size */
+  font-size: 0.8rem;
+  /* Color gray */
+  color: #999;
+}
+
+/* Loading state */
+.incident-viewer-loading {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Align items center */
+  align-items: center;
+  /* Justify content center */
+  justify-content: center;
+  /* Gap */
+  gap: 1rem;
+  /* Padding */
+  padding: 3rem;
+  /* Text align center */
+  text-align: center;
+}
+
+/* Spinner */
+.spinner {
+  /* Width and height */
+  width: 2rem;
+  height: 2rem;
+  /* Border */
+  border: 3px solid #E5E5E5;
+  /* Border top */
+  border-top-color: #BA0C2F;
+  /* Border radius */
+  border-radius: 50%;
+  /* Animation */
+  animation: spin 0.6s linear infinite;
+}
+
+/* Spin animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error state */
+.incident-viewer-error {
+  /* Padding */
+  padding: 1.5rem;
+  /* Background */
+  background-color: #FEE2E2;
+  /* Border */
+  border: 1px solid #FECACA;
+  /* Border radius */
+  border-radius: 4px;
+  /* Text align center */
+  text-align: center;
+}
+
+.incident-viewer-error p {
+  /* Margin */
+  margin: 0;
+  /* Color */
+  color: #991B1B;
+  /* Font weight */
+  font-weight: 500;
+}
+
+/* Empty state */
+.incident-viewer-empty {
+  /* Padding */
+  padding: 2rem;
+  /* Text align center */
+  text-align: center;
+  /* Color gray */
+  color: #666;
+}
+
+.incident-viewer-empty p {
+  /* Margin */
+  margin: 0;
+  /* Font size */
+  font-size: 1rem;
+  /* Font weight */
+  font-weight: 500;
+}
+
+.empty-subtitle {
+  /* Font size smaller */
+  font-size: 0.9rem;
+  /* Color lighter */
+  color: #999;
+  /* Margin top */
+  margin-top: 0.5rem !important;
+}
+
+/* Modal styles (reuse from IncidentViewer) */
+.incident-detail-modal {
+  /* Position fixed */
+  position: fixed;
+  /* Top left right bottom 0 */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Background overlay */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Display flex */
+  display: flex;
+  /* Align items center */
+  align-items: center;
+  /* Justify content center */
+  justify-content: center;
+  /* Z index */
+  z-index: 1000;
+  /* Padding */
+  padding: 1rem;
+}
+
+/* Modal content */
+.incident-detail-content {
+  /* Position relative */
+  position: relative;
+  /* Background white */
+  background-color: white;
+  /* Border radius */
+  border-radius: 6px;
+  /* Max width */
+  max-width: 600px;
+  /* Width 100% */
+  width: 100%;
+  /* Max height */
+  max-height: 85vh;
+  /* Overflow auto */
+  overflow-y: auto;
+  /* Box shadow */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal close button */
+.modal-close-btn {
+  /* Position absolute */
+  position: absolute;
+  /* Top right */
+  top: 1rem;
+  right: 1rem;
+  /* Width height */
+  width: 2rem;
+  height: 2rem;
+  /* Border radius circle */
+  border-radius: 50%;
+  /* Background transparent */
+  background-color: transparent;
+  /* Border none */
+  border: none;
+  /* Font size */
+  font-size: 1.5rem;
+  /* Color gray */
+  color: #999;
+  /* Cursor pointer */
+  cursor: pointer;
+  /* Transition */
+  transition: all 0.2s ease;
+  /* Z index */
+  z-index: 10;
+}
+
+.modal-close-btn:hover {
+  /* Background */
+  background-color: #F0F0F0;
+  /* Color */
+  color: #333;
+}
+
+/* Modal header */
+.modal-header {
+  /* Padding */
+  padding: 2rem 2rem 1rem;
+  /* Border bottom */
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.modal-header h2 {
+  /* Font size */
+  font-size: 1.5rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Color */
+  color: #333;
+  /* Margin */
+  margin: 0 0 1rem;
+}
+
+/* Modal badges */
+.modal-badges {
+  /* Display flex */
+  display: flex;
+  /* Gap */
+  gap: 0.75rem;
+  /* Flex wrap */
+  flex-wrap: wrap;
+}
+
+/* Modal body */
+.modal-body {
+  /* Padding */
+  padding: 2rem;
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 1.5rem;
+}
+
+/* Modal section */
+.modal-section {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 0.75rem;
+}
+
+.modal-section h3 {
+  /* Font size */
+  font-size: 1rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Color DHL red */
+  color: #BA0C2F;
+  /* Margin */
+  margin: 0;
+}
+
+.modal-section p {
+  /* Font size */
+  font-size: 0.95rem;
+  /* Color */
+  color: #555;
+  /* Margin */
+  margin: 0;
+  /* Line height */
+  line-height: 1.6;
+}
+
+/* Metadata grid */
+.metadata-grid {
+  /* Display grid */
+  display: grid;
+  /* Grid template columns */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  /* Gap */
+  gap: 1rem;
+}
+
+/* Metadata item */
+.metadata-item {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 0.35rem;
+}
+
+.metadata-item label {
+  /* Font size */
+  font-size: 0.8rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Color gray */
+  color: #666;
+  /* Text transform uppercase */
+  text-transform: uppercase;
+  /* Letter spacing */
+  letter-spacing: 0.5px;
+}
+
+.metadata-item span {
+  /* Font size */
+  font-size: 0.9rem;
+  /* Color */
+  color: #333;
+}
+
+/* Metadata ID */
+.metadata-id {
+  /* Font family monospace */
+  font-family: 'Courier New', monospace;
+  /* Font size smaller */
+  font-size: 0.8rem;
+  /* Color gray */
+  color: #666;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  /* Admin dashboard */
+  .admin-dashboard {
+    /* Padding */
+    padding: 1rem;
+    /* Gap */
+    gap: 1.5rem;
+  }
+
+  /* Welcome */
+  .dashboard-welcome h1 {
+    /* Font size */
+    font-size: 1.75rem;
+    /* DHL Yellow/Golden color */
+    color: #FFCD00;
+  }
+
+  /* Critical incidents list */
+  .critical-incidents-list {
+    /* Grid template columns */
+    grid-template-columns: 1fr;
+  }
+
+  /* Incidents list */
+  .incidents-list {
+    /* Grid template columns */
+    grid-template-columns: 1fr;
+  }
+
+  /* Modal content */
+  .incident-detail-content {
+    /* Max width 100% */
+    max-width: 100%;
+    /* Max height 95vh */
+    max-height: 95vh;
+  }
+
+  /* Modal body */
+  .modal-body {
+    /* Padding */
+    padding: 1.5rem;
+  }
+
+  /* Metadata grid */
+  .metadata-grid {
+    /* Grid template columns 1fr */
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Files list */
+.files-list {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 0.75rem;
+}
+
+/* File item */
+.file-item {
+  /* Display flex */
+  display: flex;
+  /* Align items center */
+  align-items: center;
+  /* Gap */
+  gap: 1rem;
+  /* Padding */
+  padding: 0.75rem;
+  /* Background color */
+  background-color: #F9FAFB;
+  /* Border */
+  border: 1px solid #E5E7EB;
+  /* Border radius */
+  border-radius: 4px;
+  /* Transition */
+  transition: all 0.2s ease;
+}
+
+/* File item hover */
+.file-item:hover {
+  /* Background color */
+  background-color: #F3F4F6;
+  /* Border color */
+  border-color: #BA0C2F;
+  /* Box shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* File icon */
+.file-icon {
+  /* Font size */
+  font-size: 1.5rem;
+  /* Flex shrink 0 */
+  flex-shrink: 0;
+}
+
+/* File info */
+.file-info {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 0.25rem;
+  /* Flex 1 */
+  flex: 1;
+}
+
+/* File name */
+.file-name {
+  /* Margin 0 */
+  margin: 0;
+  /* Font size */
+  font-size: 0.95rem;
+  /* Font weight */
+  font-weight: 500;
+  /* Color */
+  color: #333;
+  /* Word break */
+  word-break: break-word;
+}
+
+/* File meta */
+.file-meta {
+  /* Margin 0 */
+  margin: 0;
+  /* Font size */
+  font-size: 0.8rem;
+  /* Color gray */
+  color: #999;
+}
+
+/* File actions */
+.file-actions {
+  /* Display flex */
+  display: flex;
+  /* Gap */
+  gap: 0.5rem;
+  /* Flex shrink 0 */
+  flex-shrink: 0;
+}
+
+/* File preview button */
+.file-preview-btn,
+.file-download-btn {
+  /* Padding */
+  padding: 0.4rem 0.8rem;
+  /* Background color */
+  background-color: #BA0C2F;
+  /* Color white */
+  color: white;
+  /* Border none */
+  border: none;
+  /* Border radius */
+  border-radius: 2px;
+  /* Font size */
+  font-size: 0.8rem;
+  /* Font weight */
+  font-weight: 500;
+  /* Cursor pointer */
+  cursor: pointer;
+  /* Transition */
+  transition: all 0.2s ease;
+}
+
+/* File preview button */
+.file-preview-btn {
+  /* Background color yellow/accent */
+  background-color: #FFCD00;
+  /* Color dark */
+  color: #333;
+}
+
+/* Hover states */
+.file-preview-btn:hover {
+  /* Background color darker yellow */
+  background-color: #FFB81C;
+}
+
+.file-download-btn:hover {
+  /* Background color darker red */
+  background-color: #8B081F;
+}
+
+/* File preview modal */
+.file-preview-modal {
+  /* Position fixed */
+  position: fixed;
+  /* Top left right bottom 0 */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Background overlay */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Display flex */
+  display: flex;
+  /* Align items center */
+  align-items: center;
+  /* Justify content center */
+  justify-content: center;
+  /* Z index */
+  z-index: 2000;
+  /* Padding */
+  padding: 1rem;
+}
+
+/* File preview content */
+.file-preview-content {
+  /* Position relative */
+  position: relative;
+  /* Background white */
+  background-color: white;
+  /* Border radius */
+  border-radius: 6px;
+  /* Max width */
+  max-width: 800px;
+  /* Width 100% */
+  width: 100%;
+  /* Max height */
+  max-height: 90vh;
+  /* Overflow auto */
+  overflow-y: auto;
+  /* Box shadow */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* File preview body */
+.file-preview-body {
+  /* Padding */
+  padding: 2rem;
+  /* Display flex */
+  display: flex;
+  /* Align items center */
+  align-items: center;
+  /* Justify content center */
+  justify-content: center;
+}
