@@ -1,6 +1,6 @@
 {
-  "buildCommand": "cd incident-reporting-system && npm install && npm run build",
-  "outputDirectory": "incident-reporting-system/dist",
+  "buildCommand": "cd WanZafirzanWanTarmizan_A22MJ8003 && npm install && npm run build",
+  "outputDirectory": "WanZafirzanWanTarmizan_A22MJ8003/dist",
   "rewrites": [
     {
       "source": "/((?!api/).*)",

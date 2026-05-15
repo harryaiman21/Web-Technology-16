@@ -141,7 +141,7 @@ Email/Drive → UiPath RPA → Vercel API → Supabase DB → React Dashboard
 ## Project Structure
 
 ```
-incident-reporting-system/
+WanZafirzanWanTarmizan_A22MJ8003/
 ├── src/
 │   ├── components/    (LoginForm, AdminDashboard, IncidentViewer, etc)
 │   ├── services/      (incidentService, fileService, authService)
@@ -161,7 +161,7 @@ vercel.json           (Deployment configuration)
 
 **Start the frontend:**
 ```bash
-cd incident-reporting-system
+cd WanZafirzanWanTarmizan_A22MJ8003
 npm install
 npm run dev
 ```
@@ -799,8 +799,8 @@ Result: ✅ HTTP 201, incident_id: 24cbc4a8-e5ae-454c-b22d-8f740ea80bf4
 
 **Frontend Deployment (Vercel):**
 1. Code pushed to GitHub main branch
-2. Vercel auto-deploys: `cd incident-reporting-system && npm install && npm run build`
-3. Output directory: `incident-reporting-system/dist`
+2. Vercel auto-deploys: `cd WanZafirzanWanTarmizan_A22MJ8003 && npm install && npm run build`
+3. Output directory: `WanZafirzanWanTarmizan_A22MJ8003/dist`
 4. Live URL: https://wan-zafirzan-dhl-challenge2026-scen.vercel.app
 
 **Backend Deployment (Vercel Serverless):**
@@ -988,4 +988,3 @@ All components are production-ready and actively processing real incident data.
 **Project Completion Date:** 15 May 2026  
 **Total Development Time:** 2 weeks  
 **Status:** ✅ COMPLETE & DEPLOYED
-
