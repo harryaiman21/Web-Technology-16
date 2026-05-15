@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHL Knowledge Base - Login</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .login-box { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 380px; }
+    .logo { text-align: center; margin-bottom: 30px; }
+    .logo h1 { color: #FFCC00; font-size: 2.5rem; }
+        .logo p { color: #CC0000; font-weight: bold; font-size: 0.9rem; }
+          h2 { text-align: center; color: #333; margin-bottom: 25px; }
+    .form-group { margin-bottom: 20px; }
+    label { display: block; color: #555; margin-bottom: 5px; font-size: 0.9rem; }
+    input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; }
+    input:focus { outline: none; border-color: #FFCC00; }
+          button { width: 100%; padding: 12px; background: #CC0000; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; font-weight: bold; }
+        button:hover { background: #990000; }
+    .error { color: red; text-align: center; margin-top: 15px; display: none; }
+  </style>
+    </head>
+    <body>
+      <div class="login-box">
+        <div class="logo">
+          <h1>DHL</h1>
+          <p>Knowledge Base System</p>
+    </div>
+    <h2>Login</h2>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" id="email" placeholder="Enter email" value="admin@dhl.com">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="password" placeholder="Enter password" value="admin123">
+        </div>
+        <button onclick="login()">Login</button>
+        <p class="error" id="error">Invalid credentials. Please try again.</p>
+      </div>
+      <script>
+        async function login() {
+          const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      try {
+        const res = await fetch('http://localhost:3000/users');
+        const users = await res.json();
+        const user = users.find(u => u.email === email && u.password === password);
+        if (user) {
+          localStorage.setItem('loggedIn', 'true');
+          localStorage.setItem('user', JSON.stringify(user));
+          window.location.href = 'dashboard.html';
+        } else {
+          document.getElementById('error').style.display = 'block';
+        }
+      } catch(e) {
+        localStorage.setItem('loggedIn', 'true');
+        window.location.href = 'dashboard.html';
+      }
+  }
+    if (localStorage.getItem('loggedIn')) window.location.href = 'dashboard.html';
+  </script>
+      </body>
+      </html>
