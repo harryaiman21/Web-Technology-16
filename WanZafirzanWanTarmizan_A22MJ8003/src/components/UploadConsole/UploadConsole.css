@@ -1,0 +1,945 @@
+/**
+ * Upload Console Styles
+ * Styling for file upload interface with drag-drop support
+ * Responsive design with mobile-first approach
+ */
+
+/* Main container */
+.upload-console-container {
+  /* Display flex to enable flex children */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Flex: 1 to fill remaining space after topbar */
+  flex: 1;
+  /* Padding */
+  padding: 2rem;
+  /* Max width */
+  max-width: 1000px;
+  /* Margin auto for centering */
+  margin: 0 auto;
+  /* Width 100% */
+  width: 100%;
+  /* Background color */
+  background: #f8f9fa;
+  /* Overflow auto for scrolling */
+  overflow: auto;
+}
+
+/* Console header */
+.console-header {
+  /* Margin bottom */
+  margin-bottom: 2rem;
+  /* Text align center */
+  text-align: center;
+}
+
+/* Console title */
+.console-title {
+  /* Font size */
+  font-size: 1.8rem;
+  /* Font weight */
+  font-weight: 700;
+  /* Color */
+  color: #1e3a5f;
+  /* Margin */
+  margin: 0 0 0.5rem 0;
+}
+
+/* Console subtitle */
+.console-subtitle {
+  /* Font size */
+  font-size: 0.95rem;
+  /* Color */
+  color: #666;
+  /* Margin */
+  margin: 0;
+}
+
+/* Console content */
+.console-content {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap between elements */
+  gap: 1.5rem;
+}
+
+/* Error banner */
+.error-banner {
+  /* Background color */
+  background-color: #fee2e2;
+  /* Border left */
+  border-left: 4px solid #dc2626;
+  /* Padding */
+  padding: 1rem;
+  /* Border radius */
+  border-radius: 6px;
+  /* Display flex */
+  display: flex;
+  /* Align items */
+  align-items: flex-start;
+  /* Gap */
+  gap: 0.75rem;
+}
+
+/* Error icon */
+.error-icon {
+  /* Font size */
+  font-size: 1.25rem;
+  /* Flex shrink */
+  flex-shrink: 0;
+}
+
+/* Error banner paragraph */
+.error-banner p {
+  /* Margin */
+  margin: 0;
+  /* Color */
+  color: #dc2626;
+  /* Font size */
+  font-size: 0.95rem;
+}
+
+/* Success banner */
+.success-banner {
+  /* Background color */
+  background-color: #dcfce7;
+  /* Border left */
+  border-left: 4px solid #16a34a;
+  /* Padding */
+  padding: 1rem;
+  /* Border radius */
+  border-radius: 6px;
+  /* Display flex */
+  display: flex;
+  /* Align items */
+  align-items: center;
+  /* Gap */
+  gap: 0.75rem;
+}
+
+/* Success icon */
+.success-icon {
+  /* Font size */
+  font-size: 1.25rem;
+  /* Flex shrink */
+  flex-shrink: 0;
+}
+
+/* Success banner paragraph */
+.success-banner p {
+  /* Margin */
+  margin: 0;
+  /* Color */
+  color: #16a34a;
+  /* Font size */
+  font-size: 0.95rem;
+}
+
+/* Drop zone */
+.drop-zone {
+  /* Border */
+  border: 2px dashed #d1d5db;
+  /* Border radius */
+  border-radius: 8px;
+  /* Padding */
+  padding: 3rem;
+  /* Text align */
+  text-align: center;
+  /* Cursor */
+  cursor: pointer;
+  /* Transition */
+  transition: all 0.3s ease;
+  /* Background color */
+  background-color: #f9fafb;
+}
+
+/* Drop zone hover state */
+.drop-zone:hover {
+  /* Border color */
+  border-color: #667eea;
+  /* Background color */
+  background-color: #f3f4f8;
+}
+
+/* Drop zone dragging state */
+.drop-zone.dragging {
+  /* Border color */
+  border-color: #667eea;
+  /* Background color */
+  background-color: #ede9fe;
+  /* Box shadow */
+  box-shadow: inset 0 0 10px rgba(102, 126, 234, 0.1);
+}
+
+/* Drop zone content */
+.drop-zone-content {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Align items */
+  align-items: center;
+  /* Gap */
+  gap: 1rem;
+}
+
+/* Drop icon */
+.drop-icon {
+  /* Font size */
+  font-size: 3rem;
+}
+
+/* Drop title */
+.drop-title {
+  /* Font size */
+  font-size: 1.2rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Color */
+  color: #1e3a5f;
+  /* Margin */
+  margin: 0;
+}
+
+/* Drop description */
+.drop-description {
+  /* Font size */
+  font-size: 0.9rem;
+  /* Color */
+  color: #666;
+  /* Margin */
+  margin: 0;
+}
+
+/* Files section */
+.files-section {
+  /* Display */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 1rem;
+}
+
+/* Section title */
+.section-title {
+  /* Font size */
+  font-size: 1.1rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Color */
+  color: #1e3a5f;
+  /* Margin */
+  margin: 0;
+  /* Border bottom */
+  border-bottom: 2px solid #e5e7eb;
+  /* Padding bottom */
+  padding-bottom: 0.5rem;
+}
+
+/* Files list */
+.files-list {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 0.75rem;
+  /* Max height */
+  max-height: 400px;
+  /* Overflow */
+  overflow-y: auto;
+}
+
+/* File item */
+.file-item {
+  /* Display flex */
+  display: flex;
+  /* Align items */
+  align-items: center;
+  /* Gap */
+  gap: 1rem;
+  /* Padding */
+  padding: 1rem;
+  /* Background color */
+  background-color: #f9fafb;
+  /* Border */
+  border: 1px solid #e5e7eb;
+  /* Border radius */
+  border-radius: 6px;
+  /* Transition */
+  transition: all 0.3s ease;
+}
+
+/* File item success status */
+.file-item.status-success {
+  /* Background color */
+  background-color: #f0fdf4;
+  /* Border color */
+  border-color: #86efac;
+}
+
+/* File item error status */
+.file-item.status-error {
+  /* Background color */
+  background-color: #fef2f2;
+  /* Border color */
+  border-color: #fca5a5;
+}
+
+/* File item duplicate status */
+.file-item.status-duplicate {
+  /* Background color */
+  background-color: #fffbeb;
+  /* Border color */
+  border-color: #fcd34d;
+}
+
+/* File preview */
+.file-preview {
+  /* Width */
+  width: 60px;
+  /* Height */
+  height: 60px;
+  /* Flex shrink */
+  flex-shrink: 0;
+  /* Display flex */
+  display: flex;
+  /* Align items */
+  align-items: center;
+  /* Justify content */
+  justify-content: center;
+  /* Background color */
+  background-color: white;
+  /* Border */
+  border: 1px solid #d1d5db;
+  /* Border radius */
+  border-radius: 4px;
+  /* Overflow */
+  overflow: hidden;
+}
+
+/* File preview image */
+.file-preview img {
+  /* Width */
+  width: 100%;
+  /* Height */
+  height: 100%;
+  /* Object fit */
+  object-fit: cover;
+}
+
+/* File icon */
+.file-icon {
+  /* Font size */
+  font-size: 1.8rem;
+}
+
+/* File details */
+.file-details {
+  /* Flex grow */
+  flex-grow: 1;
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 0.25rem;
+}
+
+/* File name */
+.file-name {
+  /* Font size */
+  font-size: 0.95rem;
+  /* Font weight */
+  font-weight: 500;
+  /* Color */
+  color: #1e3a5f;
+  /* Margin */
+  margin: 0;
+  /* Word break */
+  word-break: break-word;
+}
+
+/* File size */
+.file-size {
+  /* Font size */
+  font-size: 0.8rem;
+  /* Color */
+  color: #999;
+  /* Margin */
+  margin: 0;
+}
+
+/* File error */
+.file-error {
+  /* Font size */
+  font-size: 0.8rem;
+  /* Color */
+  color: #dc2626;
+  /* Margin */
+  margin: 0;
+}
+
+/* File status */
+.file-status {
+  /* Display flex */
+  display: flex;
+  /* Align items */
+  align-items: center;
+  /* Justify content */
+  justify-content: center;
+  /* Min width */
+  min-width: 100px;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 0.25rem;
+}
+
+/* Status badge */
+.status-badge {
+  /* Font size */
+  font-size: 0.8rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Padding */
+  padding: 0.25rem 0.75rem;
+  /* Border radius */
+  border-radius: 12px;
+  /* White space */
+  white-space: nowrap;
+}
+
+/* Status badge pending */
+.status-badge.pending {
+  /* Background color */
+  background-color: #dbeafe;
+  /* Color */
+  color: #0c4a6e;
+}
+
+/* Status badge success */
+.status-badge.success {
+  /* Background color */
+  background-color: #dcfce7;
+  /* Color */
+  color: #15803d;
+}
+
+/* Status badge error */
+.status-badge.error {
+  /* Background color */
+  background-color: #fee2e2;
+  /* Color */
+  color: #dc2626;
+}
+
+/* Status badge duplicate */
+.status-badge.duplicate {
+  /* Background color */
+  background-color: #fef3c7;
+  /* Color */
+  color: #b45309;
+}
+
+/* Progress bar */
+.progress-bar {
+  /* Width */
+  width: 80px;
+  /* Height */
+  height: 4px;
+  /* Background color */
+  background-color: #e5e7eb;
+  /* Border radius */
+  border-radius: 2px;
+  /* Overflow */
+  overflow: hidden;
+}
+
+/* Progress fill */
+.progress-fill {
+  /* Height */
+  height: 100%;
+  /* Background color */
+  background-color: #667eea;
+  /* Transition */
+  transition: width 0.3s ease;
+}
+
+/* Status text */
+.status-text {
+  /* Font size */
+  font-size: 0.75rem;
+  /* Color */
+  color: #666;
+}
+
+/* File remove button */
+.file-remove {
+  /* Background transparent */
+  background: transparent;
+  /* Border none */
+  border: none;
+  /* Color */
+  color: #dc2626;
+  /* Font size */
+  font-size: 1.2rem;
+  /* Cursor pointer */
+  cursor: pointer;
+  /* Padding */
+  padding: 0.25rem;
+  /* Transition */
+  transition: all 0.2s ease;
+}
+
+/* File remove hover state */
+.file-remove:hover:not(:disabled) {
+  /* Color */
+  color: #991b1b;
+  /* Transform */
+  transform: scale(1.2);
+}
+
+/* File remove disabled state */
+.file-remove:disabled {
+  /* Opacity */
+  opacity: 0.5;
+  /* Cursor not allowed */
+  cursor: not-allowed;
+}
+
+/* Details section */
+.details-section {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 1.5rem;
+  /* Padding */
+  padding: 1.5rem;
+  /* Background color */
+  background-color: #f9fafb;
+  /* Border */
+  border: 1px solid #e5e7eb;
+  /* Border radius */
+  border-radius: 6px;
+}
+
+/* Form group */
+.form-group {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 0.5rem;
+}
+
+/* Form label */
+.form-label {
+  /* Font size */
+  font-size: 0.95rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Color */
+  color: #333;
+}
+
+/* Required indicator */
+.required-indicator {
+  /* Color red */
+  color: #dc2626;
+  /* Margin left */
+  margin-left: 0.25rem;
+}
+
+/* Form input */
+.form-input {
+  /* Padding */
+  padding: 0.75rem 1rem;
+  /* Border */
+  border: 1px solid #d1d5db;
+  /* Border radius */
+  border-radius: 6px;
+  /* Font size */
+  font-size: 1rem;
+  /* Font family */
+  font-family: inherit;
+  /* Transition */
+  transition: all 0.3s ease;
+}
+
+/* Form input focus */
+.form-input:focus {
+  /* Outline none */
+  outline: none;
+  /* Border color blue */
+  border-color: #667eea;
+  /* Box shadow */
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Form input disabled */
+.form-input:disabled {
+  /* Background color */
+  background-color: #f3f4f6;
+  /* Opacity */
+  opacity: 0.6;
+  /* Cursor not allowed */
+  cursor: not-allowed;
+}
+
+/* Form textarea */
+.form-textarea {
+  /* Padding */
+  padding: 0.75rem 1rem;
+  /* Border */
+  border: 1px solid #d1d5db;
+  /* Border radius */
+  border-radius: 6px;
+  /* Font size */
+  font-size: 1rem;
+  /* Font family */
+  font-family: inherit;
+  /* Resize */
+  resize: vertical;
+  /* Transition */
+  transition: all 0.3s ease;
+}
+
+/* Form textarea focus */
+.form-textarea:focus {
+  /* Outline none */
+  outline: none;
+  /* Border color blue */
+  border-color: #667eea;
+  /* Box shadow */
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Form textarea disabled */
+.form-textarea:disabled {
+  /* Background color */
+  background-color: #f3f4f6;
+  /* Opacity */
+  opacity: 0.6;
+  /* Cursor not allowed */
+  cursor: not-allowed;
+}
+
+/* Form select */
+.form-select {
+  /* Padding */
+  padding: 0.75rem 1rem;
+  /* Border */
+  border: 1px solid #d1d5db;
+  /* Border radius */
+  border-radius: 6px;
+  /* Font size */
+  font-size: 1rem;
+  /* Font family */
+  font-family: inherit;
+  /* Transition */
+  transition: all 0.3s ease;
+}
+
+/* Form select focus */
+.form-select:focus {
+  /* Outline none */
+  outline: none;
+  /* Border color blue */
+  border-color: #667eea;
+  /* Box shadow */
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Form select disabled */
+.form-select:disabled {
+  /* Background color */
+  background-color: #f3f4f6;
+  /* Opacity */
+  opacity: 0.6;
+  /* Cursor not allowed */
+  cursor: not-allowed;
+}
+
+/* Tag input container */
+.tag-input-container {
+  /* Display flex */
+  display: flex;
+  /* Gap */
+  gap: 0.5rem;
+}
+
+/* Add tag button */
+.add-tag-btn {
+  /* Padding */
+  padding: 0.75rem 1.5rem;
+  /* Background color */
+  background-color: #667eea;
+  /* Color white */
+  color: white;
+  /* Border none */
+  border: none;
+  /* Border radius */
+  border-radius: 6px;
+  /* Font size */
+  font-size: 0.95rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Cursor pointer */
+  cursor: pointer;
+  /* Transition */
+  transition: all 0.3s ease;
+  /* White space */
+  white-space: nowrap;
+}
+
+/* Add tag button hover */
+.add-tag-btn:hover:not(:disabled) {
+  /* Background color */
+  background-color: #5a67d8;
+}
+
+/* Add tag button disabled */
+.add-tag-btn:disabled {
+  /* Opacity */
+  opacity: 0.5;
+  /* Cursor not allowed */
+  cursor: not-allowed;
+}
+
+/* Tags list */
+.tags-list {
+  /* Display flex */
+  display: flex;
+  /* Flex wrap */
+  flex-wrap: wrap;
+  /* Gap */
+  gap: 0.5rem;
+  /* Margin top */
+  margin-top: 0.5rem;
+}
+
+/* Tag */
+.tag {
+  /* Display flex */
+  display: flex;
+  /* Align items */
+  align-items: center;
+  /* Gap */
+  gap: 0.5rem;
+  /* Padding */
+  padding: 0.5rem 0.75rem;
+  /* Background color */
+  background-color: white;
+  /* Border */
+  border: 1px solid #d1d5db;
+  /* Border radius */
+  border-radius: 20px;
+  /* Font size */
+  font-size: 0.9rem;
+}
+
+/* Tag remove button */
+.tag-remove {
+  /* Background transparent */
+  background: transparent;
+  /* Border none */
+  border: none;
+  /* Color */
+  color: #666;
+  /* Font size */
+  font-size: 1rem;
+  /* Cursor pointer */
+  cursor: pointer;
+  /* Padding */
+  padding: 0;
+  /* Transition */
+  transition: all 0.2s ease;
+}
+
+/* Tag remove hover */
+.tag-remove:hover {
+  /* Color */
+  color: #dc2626;
+}
+
+/* Action buttons */
+.action-buttons {
+  /* Display flex */
+  display: flex;
+  /* Gap */
+  gap: 1rem;
+  /* Flex wrap */
+  flex-wrap: wrap;
+  /* Justify content */
+  justify-content: center;
+}
+
+/* Button */
+.btn {
+  /* Padding */
+  padding: 0.75rem 1.5rem;
+  /* Border none */
+  border: none;
+  /* Border radius */
+  border-radius: 6px;
+  /* Font size */
+  font-size: 1rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Cursor pointer */
+  cursor: pointer;
+  /* Transition */
+  transition: all 0.3s ease;
+  /* Display flex */
+  display: flex;
+  /* Align items */
+  align-items: center;
+  /* Justify content */
+  justify-content: center;
+  /* Gap */
+  gap: 0.5rem;
+}
+
+/* Primary button */
+.btn-primary {
+  /* Background color blue */
+  background-color: #667eea;
+  /* Color white */
+  color: white;
+}
+
+/* Primary button hover */
+.btn-primary:hover:not(:disabled) {
+  /* Background color */
+  background-color: #5a67d8;
+  /* Box shadow */
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+/* Primary button disabled */
+.btn-primary:disabled {
+  /* Opacity */
+  opacity: 0.6;
+  /* Cursor not allowed */
+  cursor: not-allowed;
+}
+
+/* Secondary button */
+.btn-secondary {
+  /* Background color */
+  background-color: #e5e7eb;
+  /* Color */
+  color: #333;
+}
+
+/* Secondary button hover */
+.btn-secondary:hover:not(:disabled) {
+  /* Background color */
+  background-color: #d1d5db;
+}
+
+/* Secondary button disabled */
+.btn-secondary:disabled {
+  /* Opacity */
+  opacity: 0.5;
+  /* Cursor not allowed */
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.spinner {
+  /* Width height */
+  width: 1rem;
+  height: 1rem;
+  /* Border */
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  /* Border top color */
+  border-top-color: white;
+  /* Border radius */
+  border-radius: 50%;
+  /* Animation */
+  animation: spin 0.6s linear infinite;
+}
+
+/* Spin animation */
+@keyframes spin {
+  /* From: no rotation */
+  from {
+    transform: rotate(0deg);
+  }
+
+  /* To: full rotation */
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mobile responsive design */
+@media (max-width: 480px) {
+  /* Container */
+  .upload-console-container {
+    /* Padding */
+    padding: 1rem;
+  }
+
+  /* Title */
+  .console-title {
+    /* Font size */
+    font-size: 1.4rem;
+  }
+
+  /* Drop zone */
+  .drop-zone {
+    /* Padding */
+    padding: 2rem 1rem;
+  }
+
+  /* File item */
+  .file-item {
+    /* Flex direction column */
+    flex-direction: column;
+    /* Align items stretch */
+    align-items: stretch;
+  }
+
+  /* File status */
+  .file-status {
+    /* Justify content space-between */
+    justify-content: space-between;
+  }
+
+  /* Action buttons */
+  .action-buttons {
+    /* Flex direction column */
+    flex-direction: column;
+  }
+
+  /* Button */
+  .btn {
+    /* Width 100% */
+    width: 100%;
+  }
+}
+
+/* Tablet and larger responsive design */
+@media (min-width: 768px) {
+  /* Container */
+  .upload-console-container {
+    /* Padding */
+    padding: 2.5rem;
+  }
+
+  /* Drop zone */
+  .drop-zone {
+    /* Padding */
+    padding: 4rem;
+  }
+}

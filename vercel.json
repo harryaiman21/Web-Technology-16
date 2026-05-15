@@ -1,0 +1,10 @@
+{
+  "buildCommand": "cd WanZafirzanWanTarmizan_A22MJ8003 && npm install && npm run build",
+  "outputDirectory": "WanZafirzanWanTarmizan_A22MJ8003/dist",
+  "rewrites": [
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
