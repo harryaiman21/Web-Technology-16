@@ -1,0 +1,6 @@
+{
+  "Name": "IncidentReportSystem",
+  "ProjectType": "Tests",
+  "Description": "incident report system second attempt",
+  "MainFile": "Main.xaml"
+}

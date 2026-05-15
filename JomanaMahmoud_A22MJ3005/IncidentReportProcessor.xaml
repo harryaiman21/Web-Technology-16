@@ -1,0 +1,824 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="IncidentProcessor" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugae="clr-namespace:UiPath.GSuite.Activities.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugam="clr-namespace:UiPath.GSuite.Activities.Models;assembly=UiPath.GSuite.Activities" xmlns:ugdm="clr-namespace:UiPath.GSuite.Drive.Models;assembly=UiPath.GSuite" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usaa="clr-namespace:UiPath.Shared.Activities.AttachedProperties;assembly=UiPath.GSuite.Activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:uwah="clr-namespace:UiPath.Web.Activities.Http;assembly=UiPath.Web.Activities" xmlns:uwahm="clr-namespace:UiPath.Web.Activities.Http.Models;assembly=UiPath.Web.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="UiPathEventConnector" Type="InArgument(x:String)" />
+    <x:Property Name="UiPathEvent" Type="InArgument(x:String)" />
+    <x:Property Name="UiPathEventObjectType" Type="InArgument(x:String)" />
+    <x:Property Name="UiPathEventObjectId" Type="InArgument(x:String)" />
+    <x:Property Name="UiPathAdditionalEventData" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:IncidentProcessor.UiPathEventConnector>
+    <InArgument x:TypeArguments="x:String" />
+  </this:IncidentProcessor.UiPathEventConnector>
+  <this:IncidentProcessor.UiPathEvent>
+    <InArgument x:TypeArguments="x:String" />
+  </this:IncidentProcessor.UiPathEvent>
+  <this:IncidentProcessor.UiPathEventObjectType>
+    <InArgument x:TypeArguments="x:String" />
+  </this:IncidentProcessor.UiPathEventObjectType>
+  <this:IncidentProcessor.UiPathEventObjectId>
+    <InArgument x:TypeArguments="x:String" />
+  </this:IncidentProcessor.UiPathEventObjectId>
+  <this:IncidentProcessor.UiPathAdditionalEventData>
+    <InArgument x:TypeArguments="x:String" />
+  </this:IncidentProcessor.UiPathAdditionalEventData>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>IncidentProcessor_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>Internal</x:String>
+      <x:String>Microsoft.CodeAnalysis</x:String>
+      <x:String>Microsoft.CodeAnalysis.Diagnostics</x:String>
+      <x:String>Microsoft.CodeAnalysis.Diagnostics.Telemetry</x:String>
+      <x:String>Microsoft.CodeAnalysis.Emit</x:String>
+      <x:String>Microsoft.CodeAnalysis.FlowAnalysis</x:String>
+      <x:String>Microsoft.CodeAnalysis.Operations</x:String>
+      <x:String>Microsoft.CodeAnalysis.Text</x:String>
+      <x:String>Microsoft.CodeAnalysis.VisualBasic</x:String>
+      <x:String>Microsoft.CodeAnalysis.VisualBasic.Syntax</x:String>
+      <x:String>Microsoft.CSharp</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>Microsoft.VisualBasic.FileIO</x:String>
+      <x:String>Microsoft.Win32.SafeHandles</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json.Serialization</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.DurableInstancing</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Hosting</x:String>
+      <x:String>System.Activities.ParallelTracking</x:String>
+      <x:String>System.Activities.Persistence</x:String>
+      <x:String>System.Activities.Runtime</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Activities.Runtime.DurableInstancing</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Statements.Tracking</x:String>
+      <x:String>System.Activities.Tracking</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Buffers</x:String>
+      <x:String>System.Buffers.Binary</x:String>
+      <x:String>System.Buffers.Text</x:String>
+      <x:String>System.CodeDom</x:String>
+      <x:String>System.CodeDom.Compiler</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Concurrent</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.ComponentModel.Design</x:String>
+      <x:String>System.ComponentModel.Design.Serialization</x:String>
+      <x:String>System.Configuration.Assemblies</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Diagnostics.CodeAnalysis</x:String>
+      <x:String>System.Diagnostics.Contracts</x:String>
+      <x:String>System.Diagnostics.SymbolStore</x:String>
+      <x:String>System.Diagnostics.Tracing</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.IO.Enumeration</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Linq.Expressions.Interpreter</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>System.Net.Cache</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Net.NetworkInformation</x:String>
+      <x:String>System.Net.Security</x:String>
+      <x:String>System.Net.Sockets</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Reflection.Emit</x:String>
+      <x:String>System.Reflection.Metadata</x:String>
+      <x:String>System.Resources</x:String>
+      <x:String>System.Runtime</x:String>
+      <x:String>System.Runtime.CompilerServices</x:String>
+      <x:String>System.Runtime.ConstrainedExecution</x:String>
+      <x:String>System.Runtime.ExceptionServices</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.InteropServices.ComTypes</x:String>
+      <x:String>System.Runtime.InteropServices.Marshalling</x:String>
+      <x:String>System.Runtime.InteropServices.ObjectiveC</x:String>
+      <x:String>System.Runtime.Intrinsics</x:String>
+      <x:String>System.Runtime.Intrinsics.Arm</x:String>
+      <x:String>System.Runtime.Intrinsics.Wasm</x:String>
+      <x:String>System.Runtime.Intrinsics.X86</x:String>
+      <x:String>System.Runtime.Loader</x:String>
+      <x:String>System.Runtime.Remoting</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Runtime.Versioning</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Security.Authentication</x:String>
+      <x:String>System.Security.Authentication.ExtendedProtection</x:String>
+      <x:String>System.Security.Cryptography</x:String>
+      <x:String>System.Security.Permissions</x:String>
+      <x:String>System.Security.Principal</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Text.Unicode</x:String>
+      <x:String>System.Threading</x:String>
+      <x:String>System.Threading.Tasks</x:String>
+      <x:String>System.Threading.Tasks.Sources</x:String>
+      <x:String>System.Timers</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Xml.Resolvers</x:String>
+      <x:String>System.Xml.Schema</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Xml.XPath</x:String>
+      <x:String>System.Xml.Xsl</x:String>
+      <x:String>System.Xml.Xsl.Runtime</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.GSuite</x:String>
+      <x:String>UiPath.GSuite.Activities</x:String>
+      <x:String>UiPath.GSuite.Activities.Drive.Enums</x:String>
+      <x:String>UiPath.GSuite.Activities.Drive.Filters</x:String>
+      <x:String>UiPath.GSuite.Activities.Enums</x:String>
+      <x:String>UiPath.GSuite.Activities.Filters</x:String>
+      <x:String>UiPath.GSuite.Activities.Models</x:String>
+      <x:String>UiPath.GSuite.Drive.Enums</x:String>
+      <x:String>UiPath.GSuite.Drive.Models</x:String>
+      <x:String>UiPath.GSuite.Models</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Sdk.Activities</x:String>
+      <x:String>UiPath.Sdk.Activities.DependencyInjection</x:String>
+      <x:String>UiPath.Sdk.Activities.DependencyInjection.Contracts</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>UiPath.Web.Activities.Http</x:String>
+      <x:String>UiPath.Web.Activities.Http.Models</x:String>
+      <x:String>UiPath.Web.Activities.JSON.Models</x:String>
+      <x:String>UiPath.Workflow.Runtime</x:String>
+      <x:String>UiPath.Web</x:String>
+      <x:String>Microsoft</x:String>
+      <x:String>UiPath.Shared.Telemetry</x:String>
+      <x:String>System.Net.Http</x:String>
+      <x:String>System.Net.Http.Headers</x:String>
+      <x:String>Google.Apis.PeopleService.v1.Data</x:String>
+      <x:String>Google.Apis.Requests</x:String>
+      <x:String>Google.Apis.PeopleService.v1</x:String>
+      <x:String>Google.Apis</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CodeAnalysis</AssemblyReference>
+      <AssemblyReference>Microsoft.CodeAnalysis.CSharp</AssemblyReference>
+      <AssemblyReference>Microsoft.CodeAnalysis.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Registry</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.Concurrent</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Diagnostics.Process</AssemblyReference>
+      <AssemblyReference>System.Diagnostics.StackTrace</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.IO.MemoryMappedFiles</AssemblyReference>
+      <AssemblyReference>System.IO.Pipes</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Net.HttpListener</AssemblyReference>
+      <AssemblyReference>System.Net.Http</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.Net.NameResolution</AssemblyReference>
+      <AssemblyReference>System.Net.NetworkInformation</AssemblyReference>
+      <AssemblyReference>System.Net.Ping</AssemblyReference>
+      <AssemblyReference>System.Net.Primitives</AssemblyReference>
+      <AssemblyReference>System.Net.Requests</AssemblyReference>
+      <AssemblyReference>System.Net.Security</AssemblyReference>
+      <AssemblyReference>System.Net.ServicePoint</AssemblyReference>
+      <AssemblyReference>System.Net.Sockets</AssemblyReference>
+      <AssemblyReference>System.Net.WebClient</AssemblyReference>
+      <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
+      <AssemblyReference>System.Net.WebProxy</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Private.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Resources.Writer</AssemblyReference>
+      <AssemblyReference>System.Runtime.CompilerServices.VisualC</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Claims</AssemblyReference>
+      <AssemblyReference>System.Security.Cryptography</AssemblyReference>
+      <AssemblyReference>System.Security.Cryptography.Pkcs</AssemblyReference>
+      <AssemblyReference>System.Security.Cryptography.ProtectedData</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Security.Principal.Windows</AssemblyReference>
+      <AssemblyReference>System.Text.Encoding.CodePages</AssemblyReference>
+      <AssemblyReference>System.Text.Encodings.Web</AssemblyReference>
+      <AssemblyReference>System.Text.Json</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.Threading</AssemblyReference>
+      <AssemblyReference>System.Threading.AccessControl</AssemblyReference>
+      <AssemblyReference>System.Threading.Tasks.Parallel</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms.Design</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xml.XPath.XDocument</AssemblyReference>
+      <AssemblyReference>UiPath.Cryptography.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Validation</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>System.Net.Http.WinHttpHandler</AssemblyReference>
+      <AssemblyReference>Microsoft.Extensions.DependencyModel</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>Google.Apis.PeopleService.v1</AssemblyReference>
+      <AssemblyReference>Google.Apis.Core</AssemblyReference>
+      <AssemblyReference>Google.Apis</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="1024,6544.8" sap2010:WorkflowViewState.IdRef="Sequence_389">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="localFilePath" />
+      <Variable x:TypeArguments="x:String" Name="fileContent" />
+      <Variable x:TypeArguments="x:String" Name="openAIRequestBody" />
+      <Variable x:TypeArguments="uwahm:HttpResponseSummary" Name="openAIHttpResponse" />
+      <Variable x:TypeArguments="x:String" Name="openAIResponse" />
+      <Variable x:TypeArguments="njl:JObject" Name="openAIJson" />
+      <Variable x:TypeArguments="x:String" Name="extractedJson" />
+      <Variable x:TypeArguments="njl:JObject" Name="incidentJson" />
+      <Variable x:TypeArguments="x:String" Name="trackingId" />
+      <Variable x:TypeArguments="x:String" Name="customerName" />
+      <Variable x:TypeArguments="x:String" Name="issueSummary" />
+      <Variable x:TypeArguments="x:String" Name="priority" />
+      <Variable x:TypeArguments="x:String" Name="incidentStatus" />
+      <Variable x:TypeArguments="x:String" Name="supabaseRequestBody" />
+      <Variable x:TypeArguments="uwahm:HttpResponseSummary" Name="supabaseHttpResponse" />
+      <Variable x:TypeArguments="x:String" Name="supabaseResponse" />
+      <Variable x:TypeArguments="ugdm:GDriveRemoteItem[]" Name="retrievedFiles" />
+      <Variable x:TypeArguments="ugdm:GDriveRemoteItem" Name="currentGDriveRemoteItem" />
+      <Variable x:TypeArguments="x:String" Name="initialSupabaseBody" />
+      <Variable x:TypeArguments="uwahm:HttpResponseSummary" Name="initialSupabaseResponse" />
+      <Variable x:TypeArguments="x:String" Name="incidentRecordId" />
+      <Variable x:TypeArguments="ugdm:GDriveLocalItem" Name="downloadedGDriveFile" />
+      <Variable x:TypeArguments="x:Int32" Name="openAIHttpResponse_StatusCode" />
+      <Variable x:TypeArguments="x:Int32" Name="supabaseHttpResponse_StatusCode" />
+      <Variable x:TypeArguments="x:Boolean" Name="isDuplicate" />
+      <Variable x:TypeArguments="x:String" Name="duplicateCheckResponse" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ManualTrigger Result="{x:Null}" DisplayName="Manual Trigger" sap:VirtualizedContainerService.HintSize="1024,78.4" sap2010:WorkflowViewState.IdRef="ManualTrigger_19" />
+    <uga:GetFileListConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Filter="{x:Null}" FolderIdBackup="{x:Null}" ManualEntryLocation="{x:Null}" QueryFilter="{x:Null}" AllLabels="W10=" AuthScopesInvalid="False" BrowserLocation="https://drive.google.com/drive/folders/1oy4VapzSSqBH8akC_j0kcnYZWLFZOhL2" ConnectionId="6b996de0-f380-4d36-949a-b40543f4b552" DisplayName="Get all files from the &quot;Incident Reporting System&quot; folder in Google Drive." FilterSelectionMode="ConditionBuilder" sap:VirtualizedContainerService.HintSize="1024,184.8" sap2010:WorkflowViewState.IdRef="GetFileListConnections_18" LocationFriendlyName="Incident Reporting System" LocationInputMode="Browse" MaxResults="200" Result="[retrievedFiles]" StarredOnly="False" UseConnectionService="True" WhatToReturn="Files">
+      <usaa:AutopilotCustomInit.CustomInit>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <InArgument x:TypeArguments="x:String" x:Key="LocationFriendlyName">Incident Reporting System</InArgument>
+        </scg:Dictionary>
+      </usaa:AutopilotCustomInit.CustomInit>
+      <uga:GetFileListConnections.FilterSelectionBackup>
+        <usau:BackupSlot x:TypeArguments="ugae:FilterMode" StoredValue="ConditionBuilder">
+          <usau:BackupSlot.BackupValues>
+            <scg:Dictionary x:TypeArguments="ugae:FilterMode, scg:List(x:Object)" />
+          </usau:BackupSlot.BackupValues>
+        </usau:BackupSlot>
+      </uga:GetFileListConnections.FilterSelectionBackup>
+      <uga:GetFileListConnections.Item>
+        <ugam:DriveItemArgument ConnectionDescriptor="{x:Null}" DriveId="{x:Null}" Existing="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" BrowserId="https://drive.google.com/drive/folders/1oy4VapzSSqBH8akC_j0kcnYZWLFZOhL2" ConnectionKey="6b996de0-f380-4d36-949a-b40543f4b552" FriendlyName="Incident Reporting System" FullPathHint="Incident Reporting System" InputMode="Browse">
+          <ugam:DriveItemArgument.Backup>
+            <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" StoredValue="Browse">
+              <usau:BackupSlot.BackupValues>
+                <scg:Dictionary x:TypeArguments="ugade:EDriveItemMode, scg:List(x:Object)" />
+              </usau:BackupSlot.BackupValues>
+            </usau:BackupSlot>
+          </ugam:DriveItemArgument.Backup>
+          <ugam:DriveItemArgument.ParentIdFullPathHint>
+            <InArgument x:TypeArguments="x:String">
+              <Literal x:TypeArguments="x:String" Value="" />
+            </InArgument>
+          </ugam:DriveItemArgument.ParentIdFullPathHint>
+        </ugam:DriveItemArgument>
+      </uga:GetFileListConnections.Item>
+    </uga:GetFileListConnections>
+    <ui:ForEach x:TypeArguments="ugdm:GDriveRemoteItem" CurrentIndex="{x:Null}" DisplayName="Iterate through each file retrieved from Google Drive." sap:VirtualizedContainerService.HintSize="1024,6258.4" sap2010:WorkflowViewState.IdRef="ForEach`1_18" Values="[retrievedFiles]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="ugdm:GDriveRemoteItem">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ugdm:GDriveRemoteItem" Name="currentGDriveRemoteItem" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1022.4,6136.8" sap2010:WorkflowViewState.IdRef="Sequence_388">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Check if this file has already been processed in Supabase." sap:VirtualizedContainerService.HintSize="988.8,174.4" sap2010:WorkflowViewState.IdRef="Assign_204">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[duplicateCheckResponse]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[(Function(c As System.Net.Http.HttpClient) If(c.DefaultRequestHeaders.TryAddWithoutValidation("apikey", "sb_secret_jgI2aOUb7H2rZPpSOmZo9A_l4uM4fWA") AndAlso c.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", "Bearer sb_secret_jgI2aOUb7H2rZPpSOmZo9A_l4uM4fWA"), c.GetAsync("https://mnjmvmhswrtzgoycecio.supabase.co/rest/v1/incidents?drive_id=eq." + currentGDriveRemoteItem.Id + "&amp;select=id&amp;limit=1").GetAwaiter().GetResult().Content.ReadAsStringAsync().GetAwaiter().GetResult(), "[]"))(New System.Net.Http.HttpClient() With {.Timeout = System.TimeSpan.FromSeconds(15)})]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="Set isDuplicate flag based on the Supabase lookup result." sap:VirtualizedContainerService.HintSize="988.8,174.4" sap2010:WorkflowViewState.IdRef="Assign_205">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[isDuplicate]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">[Not String.IsNullOrWhiteSpace(duplicateCheckResponse) AndAlso Not Equals(duplicateCheckResponse.Trim(), "[]")]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <If Condition="[Not isDuplicate]" DisplayName="Skip if this file has already been processed." sap:VirtualizedContainerService.HintSize="988.8,5728" sap2010:WorkflowViewState.IdRef="If_24">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="987.2,4041.6" sap2010:WorkflowViewState.IdRef="Sequence_370">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="953.6,3981.6" sap2010:WorkflowViewState.IdRef="Sequence_369">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="920,3898.4" sap2010:WorkflowViewState.IdRef="Sequence_368">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="886.4,3815.2" sap2010:WorkflowViewState.IdRef="Sequence_367">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="852.8,3732" sap2010:WorkflowViewState.IdRef="Sequence_366">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="819.2,3648.8" sap2010:WorkflowViewState.IdRef="Sequence_365">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="785.6,3565.6" sap2010:WorkflowViewState.IdRef="Sequence_364">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="752,3482.4" sap2010:WorkflowViewState.IdRef="Sequence_363">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="718.4,3399.2" sap2010:WorkflowViewState.IdRef="Sequence_362">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="684.8,3316" sap2010:WorkflowViewState.IdRef="Sequence_361">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="651.2,3232.8" sap2010:WorkflowViewState.IdRef="Sequence_360">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="617.6,3149.6" sap2010:WorkflowViewState.IdRef="Sequence_359">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="584,3066.4" sap2010:WorkflowViewState.IdRef="Sequence_358">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="550.4,2983.2" sap2010:WorkflowViewState.IdRef="Sequence_357">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="516.8,2900" sap2010:WorkflowViewState.IdRef="Sequence_356">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="483.2,2816.8" sap2010:WorkflowViewState.IdRef="Sequence_355">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <Sequence DisplayName="Process new file" sap:VirtualizedContainerService.HintSize="449.6,2733.6" sap2010:WorkflowViewState.IdRef="Sequence_354">
+                                                  <Sequence.Variables>
+                                                    <Variable x:TypeArguments="x:String" Name="fileCreationDate" />
+                                                  </Sequence.Variables>
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <Assign DisplayName="Generate a unique record ID for the incident." sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="Assign_206">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[incidentRecordId]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">[Guid.NewGuid().ToString()]</InArgument>
+                                                    </Assign.Value>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Assign>
+                                                  <Assign DisplayName="Create the initial request body to set the incident status to &quot;In Progress&quot; in Supabase." sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="Assign_207">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[initialSupabaseBody]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">[New Newtonsoft.Json.Linq.JObject(New Newtonsoft.Json.Linq.JProperty("id", incidentRecordId), New Newtonsoft.Json.Linq.JProperty("drive_id", currentGDriveRemoteItem.Id), New Newtonsoft.Json.Linq.JProperty("file_path", currentGDriveRemoteItem.Name), New Newtonsoft.Json.Linq.JProperty("status", "In Progress"), New Newtonsoft.Json.Linq.JProperty("source", "google_drive"), New Newtonsoft.Json.Linq.JProperty("created_at", currentGDriveRemoteItem.CreationDate.GetValueOrDefault(DateTime.UtcNow).ToString("yyyy-MM-dd"))).ToString()]</InArgument>
+                                                    </Assign.Value>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Assign>
+                                                  <uwah:NetHttpRequest BasicAuthPassword="{x:Null}" BasicAuthSecurePassword="{x:Null}" BasicAuthUsername="{x:Null}" BinaryPayload="{x:Null}" ClientCertPassword="{x:Null}" ClientCertPath="{x:Null}" ClientCertSecurePassword="{x:Null}" Cookies="{x:Null}" CustomNegotiatedAuthCredentials="{x:Null}" FilePath="{x:Null}" FormData="{x:Null}" LocalFiles="{x:Null}" OAuthToken="{x:Null}" OutputFileName="{x:Null}" OutputFileTargetFolder="{x:Null}" Parameters="{x:Null}" PathResource="{x:Null}" ProxyConfiguration="{x:Null}" ResourceFiles="{x:Null}" AuthenticationType="None" ContinueOnError="True" DisableSslVerification="True" DisplayName="Insert a new record into Supabase with &quot;In Progress&quot; status." EnableCookies="True" FileOverwrite="AutoRename" FollowRedirects="True" FormDataParts="[New List(Of UiPath.Web.Activities.Http.Models.FormDataPart)() From {&#xA;                New UiPath.Web.Activities.Http.Models.FileFormDataPart(),&#xA;                New UiPath.Web.Activities.Http.Models.BinaryFormDataPart(),&#xA;                New UiPath.Web.Activities.Http.Models.TextFormDataPart()&#xA;            }]" Headers="[New Dictionary(Of String, String)() From {&#xA;                {&quot;apikey&quot;, &quot;sb_secret_jgI2aOUb7H2rZPpSOmZo9A_l4uM4fWA&quot;},&#xA;                {&quot;Authorization&quot;, &quot;Bearer sb_secret_jgI2aOUb7H2rZPpSOmZo9A_l4uM4fWA&quot;},&#xA;                {&quot;Content-Type&quot;, &quot;application/json&quot;},&#xA;                {&quot;Prefer&quot;, &quot;return=minimal&quot;}&#xA;            }]" sap:VirtualizedContainerService.HintSize="416,432.8" sap2010:WorkflowViewState.IdRef="NetHttpRequest_18" InitialDelay="500" MaxRedirects="3" MaxRetryAfterDelay="30000" Method="POST" Multiplier="2" PreferRetryAfterValue="True" RequestBodyType="Text" RequestUrl="https://mnjmvmhswrtzgoycecio.supabase.co/rest/v1/incidents" Result="[initialSupabaseResponse]" RetryCount="3" RetryPolicyType="Basic" RetryStatusCodes="[New List (Of HttpStatusCode) From { }]" SaveRawRequestResponse="False" SaveResponseAsFile="False" TextPayload="[initialSupabaseBody]" TextPayloadContentType="application/json" TextPayloadEncoding="UTF-8" TlsProtocol="Automatic" UseJitter="True" UseOsNegotiatedAuthCredentials="True">
+                                                    <uwah:NetHttpRequest.TimeoutInMiliseconds>
+                                                      <InArgument x:TypeArguments="s:Nullable(x:Int32)">
+                                                        <Literal x:TypeArguments="s:Nullable(x:Int32)" Value="10000" />
+                                                      </InArgument>
+                                                    </uwah:NetHttpRequest.TimeoutInMiliseconds>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </uwah:NetHttpRequest>
+                                                  <uga:DownloadFileConnections BrowserFileId="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" FileFriendlyName="{x:Null}" ManualEntryFileId="{x:Null}" ManualFileId="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" ConflictResolution="Rename" ConnectionId="6b996de0-f380-4d36-949a-b40543f4b552" DestinationPath="[Path.GetTempPath()]" DisplayName="Download the current file from Google Drive to a temporary folder." DownloadDocumentAs="Word" DownloadDrawingAs="Jpeg" DownloadPresentationAs="Ppt" DownloadSpreadsheetAs="Xlsx" File="[currentGDriveRemoteItem]" FileInputMode="UseExisting" sap:VirtualizedContainerService.HintSize="416,184.8" sap2010:WorkflowViewState.IdRef="DownloadFileConnections_18" NewResult="[downloadedGDriveFile]" UseConnectionService="True">
+                                                    <uga:DownloadFileConnections.FileIdBackup>
+                                                      <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" x:Name="__ReferenceID0" StoredValue="UseExisting">
+                                                        <usau:BackupSlot.BackupValues>
+                                                          <scg:Dictionary x:TypeArguments="ugade:EDriveItemMode, scg:List(x:Object)" />
+                                                        </usau:BackupSlot.BackupValues>
+                                                      </usau:BackupSlot>
+                                                    </uga:DownloadFileConnections.FileIdBackup>
+                                                    <uga:DownloadFileConnections.Item>
+                                                      <ugam:DriveItemArgument Backup="{x:Reference __ReferenceID0}" BrowserId="{x:Null}" ConnectionDescriptor="{x:Null}" ConnectionKey="{x:Null}" DriveId="{x:Null}" FriendlyName="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" Existing="[currentGDriveRemoteItem]" InputMode="UseExisting">
+                                                        <ugam:DriveItemArgument.FullPathHint>
+                                                          <InArgument x:TypeArguments="x:String">
+                                                            <Literal x:TypeArguments="x:String" Value="" />
+                                                          </InArgument>
+                                                        </ugam:DriveItemArgument.FullPathHint>
+                                                        <ugam:DriveItemArgument.ParentIdFullPathHint>
+                                                          <InArgument x:TypeArguments="x:String">
+                                                            <Literal x:TypeArguments="x:String" Value="" />
+                                                          </InArgument>
+                                                        </ugam:DriveItemArgument.ParentIdFullPathHint>
+                                                      </ugam:DriveItemArgument>
+                                                    </uga:DownloadFileConnections.Item>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </uga:DownloadFileConnections>
+                                                  <Assign DisplayName="Get the local file path of the downloaded file." sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="Assign_208">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[localFilePath]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">[downloadedGDriveFile.LocalPath]</InArgument>
+                                                    </Assign.Value>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Assign>
+                                                  <ui:ReadTextFile File="{x:Null}" Content="[fileContent]" DisplayName="Read the text content from the downloaded file." FileName="[localFilePath]" sap:VirtualizedContainerService.HintSize="416,123.2" sap2010:WorkflowViewState.IdRef="ReadTextFile_18">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:ReadTextFile>
+                                                  <Assign DisplayName="Get the customer name from the incident JSON." sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="Assign_209">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[customerName]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String" xml:space="preserve">[If(RegularExpressions.Regex.IsMatch(fileContent, "(?im)(?:Regards|Sincerely|Thanks|From|Name):\s*([A-Z][a-z]+(?:\s[A-Z][a-z]+)*)"),
+    RegularExpressions.Regex.Match(fileContent, "(?im)(?:Regards|Sincerely|Thanks|From|Name):\s*([A-Z][a-z]+(?:\s[A-Z][a-z]+)*)").Groups(1).Value.Trim,
+    "Unknown Customer"
+)]</InArgument>
+                                                    </Assign.Value>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Assign>
+                                                  <Assign DisplayName="Get the tracking ID from the incident JSON." sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="Assign_210">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[trackingId]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">[If(RegularExpressions.Regex.IsMatch(fileContent, "\b(MY|WB|COD|TRK|INC|REF)-?[\w\d-]+\b"), RegularExpressions.Regex.Match(fileContent, "\b(MY|WB|COD|TRK|INC|REF)-?[\w\d-]+\b").Value, "PENDING")]</InArgument>
+                                                    </Assign.Value>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Assign>
+                                                  <Assign DisplayName="Get the issue summary from the incident JSON." sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="Assign_211">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[issueSummary]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">[If(RegularExpressions.Regex.IsMatch(fileContent, "(?&lt;=Subject:\s).*(?=\r?\n)"), (((((RegularExpressions.Regex.Match(fileContent, "(?&lt;=Subject:\s).*(?=\r?\n)").Value.Trim()))))), ((((((If(RegularExpressions.Regex.IsMatch(fileContent, "(?&lt;=\d\]:\s).*(?=\r?\n)"), (((((RegularExpressions.Regex.Match(fileContent, "(?&lt;=\d\]:\s).*(?=\r?\n)").Value.Trim()))))), ((((((If(RegularExpressions.Regex.IsMatch(fileContent, "(?&lt;=(Issue:|Problem:)\s).*(?=\r?\n)"), (((((RegularExpressions.Regex.Match(fileContent, "(?&lt;=(Issue:|Problem:)\s).*(?=\r?\n)").Value.Trim()))))), "General Incident Reported - " &amp; trackingId)))))))))))))))]</InArgument>
+                                                    </Assign.Value>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Assign>
+                                                  <Assign DisplayName="Get the priority from the incident JSON." sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="Assign_212">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[priority]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String" xml:space="preserve">[If(RegularExpressions.Regex.IsMatch(fileContent, "(?i)(police|legal|urgent|lethal|negligence|cancel|refund|social media|hostile)"), 
+    "High", 
+    If(RegularExpressions.Regex.IsMatch(fileContent, "(?i)(status|update|checking|inquiry|general|question)"), 
+        "Low", 
+        "Medium"
+    )
+)]</InArgument>
+                                                    </Assign.Value>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Assign>
+                                                  <Assign DisplayName="Build the request body to update the Supabase record with the analyzed data." sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="Assign_213">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[supabaseRequestBody]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">[(New Newtonsoft.Json.Linq.JObject(New Newtonsoft.Json.Linq.JProperty("tracking_id", trackingId), New Newtonsoft.Json.Linq.JProperty("customer_name", customerName), New Newtonsoft.Json.Linq.JProperty("issue_summary", issueSummary), New Newtonsoft.Json.Linq.JProperty("priority", priority), New Newtonsoft.Json.Linq.JProperty("status", "Completed"), New Newtonsoft.Json.Linq.JProperty("incident_text", fileContent))).ToString()]</InArgument>
+                                                    </Assign.Value>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Assign>
+                                                  <Assign DisplayName="Update the Supabase record with the completed status and analyzed data." sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="Assign_214">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[supabaseResponse]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">[(Function(c As System.Net.Http.HttpClient) If(c.DefaultRequestHeaders.TryAddWithoutValidation("apikey", "sb_secret_jgI2aOUb7H2rZPpSOmZo9A_l4uM4fWA") AndAlso c.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", "Bearer sb_secret_jgI2aOUb7H2rZPpSOmZo9A_l4uM4fWA") AndAlso c.DefaultRequestHeaders.TryAddWithoutValidation("Prefer", "return=representation"), c.SendAsync(New System.Net.Http.HttpRequestMessage(New System.Net.Http.HttpMethod("PATCH"), String.Format("https://mnjmvmhswrtzgoycecio.supabase.co/rest/v1/incidents?id=eq.{0}", incidentRecordId)) With {.Content = New System.Net.Http.StringContent(supabaseRequestBody, System.Text.Encoding.UTF8, "application/json")}).GetAwaiter().GetResult().Content.ReadAsStringAsync().GetAwaiter().GetResult(), "HEADER_ERROR"))(New System.Net.Http.HttpClient() With {.Timeout = System.TimeSpan.FromSeconds(30)})]</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:LogMessage DisplayName="Log the Supabase update status and response." sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_47" Level="Info" Message="[String.Format(&quot;Supabase Status: {0} | Response: {1}&quot;, supabaseHttpResponse_StatusCode, supabaseResponse)]" />
+                                                  <ui:LogMessage DisplayName="Log a success message with the processing details." sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_48" Level="Info" Message="[String.Format(&quot;Processed: {0} | Customer: {1} | Priority: {2}&quot;, currentGDriveRemoteItem.Name, customerName, priority)]">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:LogMessage>
+                                                </Sequence>
+                                              </Sequence>
+                                            </Sequence>
+                                          </Sequence>
+                                        </Sequence>
+                                      </Sequence>
+                                    </Sequence>
+                                  </Sequence>
+                                </Sequence>
+                              </Sequence>
+                            </Sequence>
+                          </Sequence>
+                        </Sequence>
+                      </Sequence>
+                    </Sequence>
+                  </Sequence>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="987.2,1556.8" sap2010:WorkflowViewState.IdRef="Sequence_387">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="953.6,1496.8" sap2010:WorkflowViewState.IdRef="Sequence_386">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="920,1413.6" sap2010:WorkflowViewState.IdRef="Sequence_385">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="886.4,1330.4" sap2010:WorkflowViewState.IdRef="Sequence_384">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="852.8,1247.2" sap2010:WorkflowViewState.IdRef="Sequence_383">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="819.2,1164" sap2010:WorkflowViewState.IdRef="Sequence_382">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="785.6,1080.8" sap2010:WorkflowViewState.IdRef="Sequence_381">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="752,997.6" sap2010:WorkflowViewState.IdRef="Sequence_380">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="718.4,914.4" sap2010:WorkflowViewState.IdRef="Sequence_379">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="684.8,831.2" sap2010:WorkflowViewState.IdRef="Sequence_378">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="651.2,748" sap2010:WorkflowViewState.IdRef="Sequence_377">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="617.6,664.8" sap2010:WorkflowViewState.IdRef="Sequence_376">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="584,581.6" sap2010:WorkflowViewState.IdRef="Sequence_375">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="550.4,498.4" sap2010:WorkflowViewState.IdRef="Sequence_374">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="516.8,415.2" sap2010:WorkflowViewState.IdRef="Sequence_373">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="483.2,332" sap2010:WorkflowViewState.IdRef="Sequence_372">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <Sequence DisplayName="Log duplicate skip" sap:VirtualizedContainerService.HintSize="449.6,248.8" sap2010:WorkflowViewState.IdRef="Sequence_371">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:LogMessage DisplayName="Log that this file was skipped as a duplicate." sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_49" Level="Warn" Message="[&quot;[DUPLICATE SKIPPED] &quot; &amp; currentGDriveRemoteItem.Name &amp; &quot; has already been processed - skipping.&quot;]" />
+                                                </Sequence>
+                                              </Sequence>
+                                            </Sequence>
+                                          </Sequence>
+                                        </Sequence>
+                                      </Sequence>
+                                    </Sequence>
+                                  </Sequence>
+                                </Sequence>
+                              </Sequence>
+                            </Sequence>
+                          </Sequence>
+                        </Sequence>
+                      </Sequence>
+                    </Sequence>
+                  </Sequence>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+  </Sequence>
+</Activity>

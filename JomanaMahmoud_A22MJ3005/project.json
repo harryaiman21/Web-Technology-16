@@ -1,0 +1,87 @@
+{
+  "name": "IncidentReportSystem",
+  "projectId": "8302560a-200e-4d22-823a-9c779cfa43a4",
+  "description": "incident report system second attempt",
+  "main": "Main.xaml",
+  "dependencies": {
+    "UiPath.Cryptography.Activities": "[2.0.0]",
+    "UiPath.Database.Activities": "[2.1.0-preview]",
+    "UiPath.GSuite.Activities": "[3.9.0-preview]",
+    "UiPath.System.Activities": "[26.2.4]",
+    "UiPath.Testing.Activities": "[25.10.2]",
+    "UiPath.WebAPI.Activities": "[2.5.0-preview]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "26.0.192.0",
+  "projectVersion": "1.0.0",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "workflowSerialization": "NewtonsoftJson",
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Tests",
+    "libraryOptions": {
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "3c2457b8-84eb-4536-aa34-9477dd0cfee1",
+        "testCaseType": "TestCase",
+        "fileName": "TestCase.xaml"
+      }
+    ],
+    "saveToCloud": false
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "IncidentProcessor.xaml",
+      "uniqueId": "f29862d8-3f25-4923-bd94-89a4239d2d53",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "DHLProcessor.xaml",
+      "uniqueId": "0ea05c14-a361-4b60-a7a4-80e86368674a",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "9e4a4d67-1d16-4caf-89c4-1e8ad68ef8d8",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "IncidentReportProcessor.xaml",
+      "uniqueId": "989e3eb4-d7db-455d-b4da-fb462845b0f7",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Windows"
+}
