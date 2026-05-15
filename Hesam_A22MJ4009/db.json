@@ -1,0 +1,403 @@
+{
+  "users": [
+    {
+      "id": "user-1",
+      "username": "admin",
+      "password": "admin123",
+      "role": "admin",
+      "name": "Admin User"
+    },
+    {
+      "id": "user-2",
+      "username": "editor",
+      "password": "editor123",
+      "role": "editor",
+      "name": "DHL Editor"
+    },
+    {
+      "id": "user-3",
+      "username": "uipath-bot",
+      "password": "uipath123",
+      "role": "bot",
+      "name": "UiPath Bot"
+    }
+  ],
+  "articles": [
+    {
+      "id": "7cbd5cb9-a079-4c2d-bbee-7b619e3216c6",
+      "title": "Resolving Invalid Routing Code for Shipments",
+      "summary": "This SOP outlines the steps to resolve issues related to invalid routing codes for shipments. It provides guidance on refreshing shipment data and escalating to IT if necessary.",
+      "steps": [
+        "Step 1: Verify the shipment details, ensuring the country code is set to MY (Malaysia) and not SG (Singapore).",
+        "Step 2: Refresh the shipment data in the system and log out of the application.",
+        "Step 3: Reprocess the shipment to check if the issue is resolved. If the problem persists, raise a ticket to IT and include a screenshot of the error."
+      ],
+      "tags": [
+        "shipment",
+        "routing code",
+        "IT support"
+      ],
+      "category": "System",
+      "rawInput": "Hey team shipment 784512 got stuck again. System says Invalid Routing Code. Last time we refreshed the shipment data, logged out and reprocessed. Make sure country code is MY not SG. If still fails raise ticket to IT with screenshot.",
+      "source": "manual",
+      "status": "Published",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:07:02.362Z",
+          "by": "admin"
+        },
+        {
+          "status": "Reviewed",
+          "changedAt": "2026-05-15T14:07:16.154Z",
+          "by": "admin"
+        },
+        {
+          "status": "Published",
+          "changedAt": "2026-05-15T14:07:21.278Z",
+          "by": "admin"
+        }
+      ],
+      "createdBy": "admin",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:07:02.362Z",
+      "updatedAt": "2026-05-15T14:07:21.278Z",
+      "updatedBy": "admin"
+    },
+    {
+      "id": "06175c2f-1b17-4fcf-9a4c-01d2a021e098",
+      "title": "Correcting Invalid Customer Address",
+      "summary": "This SOP outlines the procedure for correcting an invalid customer address due to a missing postcode. It provides step-by-step instructions to ensure the address is validated and the booking can proceed smoothly.",
+      "steps": [
+        "Step 1: Manually add the missing postcode to the customer address.",
+        "Step 2: Revalidate the address to ensure it is complete and accurate.",
+        "Step 3: Save the updated address and continue with the booking process."
+      ],
+      "tags": [
+        "address correction",
+        "postcode",
+        "booking"
+      ],
+      "category": "General",
+      "rawInput": "Customer address invalid. Team chat says postcode missing. Fix: Add postcode manually, Revalidate address, Save and continue booking.",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:09:53.318Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:09:53.318Z",
+      "updatedAt": "2026-05-15T14:09:53.318Z"
+    },
+    {
+      "id": "4557556b-66fb-4b2e-86ea-8bc163d9f697",
+      "title": "Customer Credit Approval and Onboarding Process",
+      "summary": "This SOP outlines the procedures for approving customer credit and onboarding new customers. It ensures a standardized approach to evaluating creditworthiness and integrating new clients into the system.",
+      "steps": [
+        "Step 1: Gather necessary documentation from the customer, including financial statements and credit history.",
+        "Step 2: Evaluate the customer's creditworthiness based on the provided documentation and internal criteria.",
+        "Step 3: Approve or deny the credit application and communicate the decision to the customer.",
+        "Step 4: If approved, initiate the onboarding process by entering customer information into the system and providing necessary training or resources."
+      ],
+      "tags": [
+        "Customer Service",
+        "Credit Approval",
+        "Onboarding"
+      ],
+      "category": "General",
+      "rawInput": "Word Document: Customer Credit Approval and New Customer Onboarding Process.docx. Please convert the key procedures from this document into a structured SOP.",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:09:58.145Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:09:58.145Z",
+      "updatedAt": "2026-05-15T14:09:58.145Z"
+    },
+    {
+      "id": "f9b80804-f4d4-4f01-badc-4c02c0ee7288",
+      "title": "User Authorization for Module Access",
+      "summary": "This SOP outlines the steps to resolve the AUTH_401 error code, which indicates that a user is not authorized to access a specific module. It provides guidance on verifying user group access and re-establishing session credentials.",
+      "steps": [
+        "Step 1: Check the Active Directory (AD) group access for the user.",
+        "Step 2: Ensure that the user is a member of the OPS_FWD_ROLE group.",
+        "Step 3: Logout of the system and log back in to refresh access permissions."
+      ],
+      "tags": [
+        "Authorization",
+        "Error Resolution",
+        "User Access"
+      ],
+      "category": "System",
+      "rawInput": "Error Code: AUTH_401 User not authorized to access module. Resolution: - Check AD group access - User must be in OPS_FWD_ROLE - Logout and login again",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:10:01.311Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:10:01.311Z",
+      "updatedAt": "2026-05-15T14:10:01.311Z"
+    },
+    {
+      "id": "c6906fd9-4f8e-43f0-bc92-7317520922fe",
+      "title": "Troubleshooting Label Printing Issues",
+      "summary": "This SOP outlines the steps to resolve common label printing problems, particularly those related to printer cache issues. It provides a systematic approach to restart the printer service, clear the print queue, and ensure optimal printing quality.",
+      "steps": [
+        "Step 1: Restart the printer service to refresh the printer's connection.",
+        "Step 2: Clear the print queue to remove any stuck print jobs.",
+        "Step 3: Reprint the label to check if the issue is resolved.",
+        "Step 4: If the label is still unclear, replace the toner cartridge."
+      ],
+      "tags": [
+        "printing",
+        "troubleshooting",
+        "labels"
+      ],
+      "category": "System",
+      "rawInput": "Label not printing properly. Usually printer cache issue. Restart printer service, Clear queue, Reprint label. If still blur, change toner.",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:10:04.474Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:10:04.474Z",
+      "updatedAt": "2026-05-15T14:10:04.474Z"
+    },
+    {
+      "id": "7936d204-df9a-4614-a4e7-8b2c2556de34",
+      "title": "New Staff Setup Procedure",
+      "summary": "This SOP outlines the steps required to set up new staff members within the organization. It includes the creation of accounts, granting access to necessary systems, and sharing relevant documentation.",
+      "steps": [
+        "Step 1: Create Active Directory (AD) account for the new staff member.",
+        "Step 2: Provide access to the company email account.",
+        "Step 3: Assign SAP and CW1 roles to the new staff member.",
+        "Step 4: Share the Standard Operating Procedure (SOP) folder with the new staff member.",
+        "Step 5: Note that delays may occur if the SAP request is not approved."
+      ],
+      "tags": [
+        "staff onboarding",
+        "account setup",
+        "system access"
+      ],
+      "category": "General",
+      "rawInput": "New staff setup steps: ✔ Create AD account ✔ Give email access ✔ SAP + CW1 role ✔ Share SOP folder Delay usually because SAP request not approved",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:10:09.597Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:10:09.597Z",
+      "updatedAt": "2026-05-15T14:10:09.597Z"
+    },
+    {
+      "id": "7b87cc47-7ccc-4c35-8181-11d1352b8c84",
+      "title": "POD Upload Procedure",
+      "summary": "This SOP outlines the steps to successfully upload Proof of Delivery (POD) images, addressing common issues such as file size limitations. It provides guidance on image format preferences and post-upload actions to ensure successful processing.",
+      "steps": [
+        "Step 1: Compress the image file before uploading to ensure it meets size requirements.",
+        "Step 2: Use JPEG format for better compatibility; PNG files may not upload successfully.",
+        "Step 3: After uploading the image, refresh the screen twice to confirm the upload was successful."
+      ],
+      "tags": [
+        "POD",
+        "upload",
+        "image compression"
+      ],
+      "category": "System",
+      "rawInput": "POD upload failed again 😓 Error msg: “File size too large” Just compress the image before uploading. JPEG works better than PNG. After upload, refresh screen twice.",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:10:13.855Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:10:13.855Z",
+      "updatedAt": "2026-05-15T14:10:13.855Z"
+    },
+    {
+      "id": "680378f0-d44d-4098-8ec6-c109e8705a18",
+      "title": "Conversion of Key Procedures from Document to SOP",
+      "summary": "This SOP outlines the process for converting key procedures from a Word document into a structured Standard Operating Procedure (SOP). It ensures that all relevant information is accurately captured and formatted for clarity and ease of use.",
+      "steps": [
+        "Step 1: Open the Word document containing the key procedures.",
+        "Step 2: Identify and extract the relevant procedures and information.",
+        "Step 3: Format the extracted information into a structured SOP format."
+      ],
+      "tags": [
+        "SOP",
+        "Document Conversion",
+        "Procedure Extraction"
+      ],
+      "category": "General",
+      "rawInput": "Word Document: SOP.docx. Please convert the key procedures from this document into a structured SOP.",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:10:19.374Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:10:19.374Z",
+      "updatedAt": "2026-05-15T14:10:19.374Z"
+    },
+    {
+      "id": "d9f6e398-ec4f-4fcf-8dda-690270b4d494",
+      "title": "Booking Checklist for Shipments",
+      "summary": "This SOP outlines the essential steps for preparing a booking checklist for shipments. It ensures that all necessary information is verified and confirmed before proceeding with the pickup process.",
+      "steps": [
+        "Step 1: Verify the customer purchase order (PO) for accuracy.",
+        "Step 2: Confirm the correct incoterms are applied.",
+        "Step 3: Ensure the pickup date is confirmed with the customer."
+      ],
+      "tags": [
+        "booking",
+        "checklist",
+        "shipping"
+      ],
+      "category": "Delivery",
+      "rawInput": "Uo ial Booking ChecklistECustomeg POX Correct incotermB Pickup date confirmed @Welght Scineosweriziiagpiisiy felted 5",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:10:26.930Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:10:26.930Z",
+      "updatedAt": "2026-05-15T14:10:26.930Z"
+    },
+    {
+      "id": "9c11db42-04f4-47d9-9ad6-ece4f22466ba",
+      "title": "Resolving Shipment Routing Code Issues",
+      "summary": "This SOP outlines the steps to take when a shipment is stuck due to an invalid routing code. It provides a clear process for refreshing the shipment ID and reprocessing the shipment to ensure timely delivery.",
+      "steps": [
+        "Step 1: Identify the shipment with the invalid routing code in the system.",
+        "Step 2: Log out of the system to refresh the session.",
+        "Step 3: Log back in and reprocess the shipment ID to correct the routing code."
+      ],
+      "tags": [
+        "shipment",
+        "routing code",
+        "reprocessing"
+      ],
+      "category": "System",
+      "rawInput": "Hey teamishipmentiz845 12igotstuckiadainssystem saysginvaiid Routing Code last time this happened we refreshed theishipmentidatallogged outand reprocessed YAlsol",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:10:32.884Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:10:32.884Z",
+      "updatedAt": "2026-05-15T14:10:32.884Z"
+    }
+  ],
+  "duplicateHashes": [
+    {
+      "id": "70f79d6b-c9b0-47b9-bc12-813b5bacda76",
+      "hash": "107d7dc6994e897f238e9d963b2ff0a9",
+      "checkedAt": "2026-05-15T14:09:46.378Z"
+    },
+    {
+      "id": "fa2dfef6-b06d-4af4-8ed1-1fd2a24a8cc2",
+      "hash": "a05481855d46eafc10ab6c3d4ad87912",
+      "checkedAt": "2026-05-15T14:09:53.399Z"
+    },
+    {
+      "id": "45645cdf-7ced-4919-82df-8878e4149803",
+      "hash": "2876dddb201d20b42b09dbea54842444",
+      "checkedAt": "2026-05-15T14:09:58.220Z"
+    },
+    {
+      "id": "fe1a6ab3-6881-4428-805c-f1e6c2532dcb",
+      "hash": "f476c2415b1ad81bff8ffdb4b9eda739",
+      "checkedAt": "2026-05-15T14:10:01.343Z"
+    },
+    {
+      "id": "f2d740a4-69c5-4878-9472-6149654e7ab9",
+      "hash": "e7ef88c7266c1d0e37a94a923707a4bb",
+      "checkedAt": "2026-05-15T14:10:04.509Z"
+    },
+    {
+      "id": "18f92972-302f-4948-9a5e-71dec7cb5875",
+      "hash": "9518109ccf5fece0e222ae08f51d5f1f",
+      "checkedAt": "2026-05-15T14:10:09.626Z"
+    },
+    {
+      "id": "4b9c4ead-d645-4265-8c1c-8a167e4ab264",
+      "hash": "5efd4261d6cb2e14ddf1c4d26fbba76c",
+      "checkedAt": "2026-05-15T14:10:13.914Z"
+    },
+    {
+      "id": "9b107725-a47e-46d3-b856-a960be8f70c4",
+      "hash": "7edefe7ee8e9e4a600ce662eaa77604f",
+      "checkedAt": "2026-05-15T14:10:19.406Z"
+    },
+    {
+      "id": "b721b1a6-bc5b-4108-ac1e-c32b2ac090e1",
+      "hash": "72b3e03e2073dabca6b25b7f58281e33",
+      "checkedAt": "2026-05-15T14:10:26.960Z"
+    }
+  ],
+  "logs": [
+    {
+      "id": "4191c3a8-4645-4a97-918d-86e883619937",
+      "message": "DHL KB Automation Run - 15/05/2026 22:10 | ======================== | Created: 9 | Duplicates Skipped: 0 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T14:10:33.028Z"
+    },
+    {
+      "id": "ca4bc4e7-3551-49ec-b109-76d2440ef97b",
+      "message": "DHL KB Automation Run - 15/05/2026 22:11 | ======================== | Created: 0 | Duplicates Skipped: 9 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T14:11:46.893Z"
+    }
+  ]
+}
