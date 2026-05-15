@@ -2,7 +2,11 @@
 
 Wan Zafirzan (A22MJ8003) - SECJ 3483: Web Technology
 
+Live Demo: https://wan-zafirzan-dhl-challenge2026-scen.vercel.app
+
 Youtube Demo: https://youtu.be/TrEike76N4o?si=PQU1QQUZrcKSACXw
+
+Github Repository: https://github.com/Zaphyrzan/Wan-Zafirzan-DHL-Challenge2026-Scenario2
 
 ## UiPath Automation
 
