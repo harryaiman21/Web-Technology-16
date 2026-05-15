@@ -1,0 +1,766 @@
+/**
+ * Incident Viewer Styles
+ * Responsive design for incident list, filters, and detail modal
+ */
+
+/* Main incident viewer container */
+.incident-viewer {
+  /* Display flex column */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap between sections */
+  gap: 1.5rem;
+  /* Padding */
+  padding: 1.5rem;
+  /* Height */
+  min-height: 100%;
+}
+
+/* Incident viewer header */
+.incident-viewer-header {
+  /* Padding bottom */
+  padding-bottom: 1rem;
+  /* Border bottom */
+  border-bottom: 1px solid #E5E5E5;
+}
+
+/* Incident viewer title */
+.incident-viewer-title {
+  /* Font size */
+  font-size: 1.5rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Color - DHL Red */
+  color: #BA0C2F;
+  /* Margin */
+  margin: 0;
+  /* Margin bottom */
+  margin-bottom: 0.5rem;
+}
+
+/* Incident viewer subtitle */
+.incident-viewer-subtitle {
+  /* Font size */
+  font-size: 0.9rem;
+  /* Color gray */
+  color: #666;
+  /* Margin */
+  margin: 0;
+}
+
+/* Controls section */
+.incident-controls {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 1rem;
+}
+
+/* Search box */
+.search-box {
+  /* Display flex */
+  display: flex;
+  /* Align items */
+  align-items: center;
+  /* Gap */
+  gap: 0.75rem;
+  /* Padding */
+  padding: 0.75rem 1rem;
+  /* Border */
+  border: 1px solid #D0D0D0;
+  /* Border radius */
+  border-radius: 2px;
+  /* Background color */
+  background-color: #FAFAFA;
+}
+
+/* Search icon */
+.search-icon {
+  /* Font size */
+  font-size: 1.1rem;
+  /* Color gray */
+  color: #999;
+  /* Flex shrink 0 */
+  flex-shrink: 0;
+}
+
+/* Search input */
+.search-input {
+  /* Border none */
+  border: none;
+  /* Background none */
+  background: none;
+  /* Outline none */
+  outline: none;
+  /* Font size */
+  font-size: 1rem;
+  /* Font family inherit */
+  font-family: inherit;
+  /* Flex 1 */
+  flex: 1;
+  /* Padding 0 */
+  padding: 0;
+}
+
+/* Search input placeholder */
+.search-input::placeholder {
+  /* Color gray */
+  color: #999;
+}
+
+/* Filters row */
+.filters-row {
+  /* Display flex */
+  display: flex;
+  /* Gap */
+  gap: 0.75rem;
+  /* Flex wrap */
+  flex-wrap: wrap;
+}
+
+/* Filter select */
+.filter-select {
+  /* Padding */
+  padding: 0.65rem 0.75rem;
+  /* Border */
+  border: 1px solid #D0D0D0;
+  /* Border radius */
+  border-radius: 2px;
+  /* Background color */
+  background-color: white;
+  /* Font size */
+  font-size: 0.95rem;
+  /* Font family inherit */
+  font-family: inherit;
+  /* Cursor pointer */
+  cursor: pointer;
+  /* Transition */
+  transition: all 0.2s ease;
+  /* Flex 1 - grow on small screens */
+  flex: 1;
+  /* Min width */
+  min-width: 120px;
+}
+
+/* Filter select focus */
+.filter-select:focus {
+  /* Outline none */
+  outline: none;
+  /* DHL Red border */
+  border-color: #BA0C2F;
+  /* Subtle shadow */
+  box-shadow: 0 0 0 2px rgba(186, 12, 47, 0.1);
+}
+
+/* Sort direction button */
+.sort-direction-btn {
+  /* Padding */
+  padding: 0.65rem 0.85rem;
+  /* Border */
+  border: 1px solid #D0D0D0;
+  /* Border radius */
+  border-radius: 2px;
+  /* Background color */
+  background-color: white;
+  /* Font size */
+  font-size: 1.1rem;
+  /* Cursor pointer */
+  cursor: pointer;
+  /* Transition */
+  transition: all 0.2s ease;
+}
+
+/* Sort button hover */
+.sort-direction-btn:hover {
+  /* Background color */
+  background-color: #FAFAFA;
+  /* Border color */
+  border-color: #BA0C2F;
+}
+
+/* Incidents list */
+.incidents-list {
+  /* Display grid */
+  display: grid;
+  /* Grid template columns */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* Gap */
+  gap: 1.25rem;
+}
+
+/* Incident card */
+.incident-card {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 1rem;
+  /* Padding */
+  padding: 1rem;
+  /* Border */
+  border: 1px solid #E5E5E5;
+  /* Border radius */
+  border-radius: 4px;
+  /* Background color */
+  background-color: white;
+  /* Cursor pointer */
+  cursor: pointer;
+  /* Transition */
+  transition: all 0.2s ease;
+}
+
+/* Incident card hover */
+.incident-card:hover {
+  /* Shadow */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* Border color */
+  border-color: #BA0C2F;
+  /* Transform */
+  transform: translateY(-2px);
+}
+
+/* Sender on card */
+.incident-card-sender {
+  margin: 0;
+  color: #9f1239;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Incident card header */
+.incident-card-header {
+  /* Display flex */
+  display: flex;
+  /* Justify content space-between */
+  justify-content: space-between;
+  /* Align items flex-start */
+  align-items: flex-start;
+  /* Gap */
+  gap: 0.75rem;
+}
+
+/* Incident card title */
+.incident-card-title {
+  /* Font size */
+  font-size: 1.1rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Color */
+  color: #333;
+  /* Margin */
+  margin: 0;
+  /* Flex 1 */
+  flex: 1;
+}
+
+/* Incident card badges */
+.incident-card-badges {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 0.5rem;
+  /* Flex shrink 0 */
+  flex-shrink: 0;
+}
+
+/* Incident card description */
+.incident-card-description {
+  /* Font size */
+  font-size: 0.9rem;
+  /* Color gray */
+  color: #666;
+  /* Margin */
+  margin: 0;
+  /* Line height */
+  line-height: 1.4;
+}
+
+/* Incident tags */
+.incident-tags {
+  /* Display flex */
+  display: flex;
+  /* Flex wrap */
+  flex-wrap: wrap;
+  /* Gap */
+  gap: 0.5rem;
+}
+
+/* Tag */
+.tag {
+  /* Padding */
+  padding: 0.35rem 0.75rem;
+  /* Background color */
+  background-color: #F0F0F0;
+  /* Border radius */
+  border-radius: 12px;
+  /* Font size */
+  font-size: 0.85rem;
+  /* Color */
+  color: #555;
+}
+
+/* Incident card footer */
+.incident-card-footer {
+  /* Padding top */
+  padding-top: 0.75rem;
+  /* Border top */
+  border-top: 1px solid #F0F0F0;
+  /* Font size */
+  font-size: 0.85rem;
+  /* Color gray */
+  color: #999;
+}
+
+/* Badge - generic */
+.badge {
+  /* Display inline-block */
+  display: inline-block;
+  /* Padding */
+  padding: 0.35rem 0.75rem;
+  /* Border radius */
+  border-radius: 2px;
+  /* Font size */
+  font-size: 0.8rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Text transform uppercase */
+  text-transform: uppercase;
+  /* Letter spacing */
+  letter-spacing: 0.5px;
+}
+
+/* Status badge - draft */
+.status-badge.status-draft {
+  /* Background color */
+  background-color: #E5E5E5;
+  /* Color */
+  color: #666;
+}
+
+/* Status badge - submitted */
+.status-badge.status-submitted {
+  /* Background color blue */
+  background-color: #DBEAFE;
+  /* Color blue */
+  color: #1e40af;
+}
+
+/* Status badge - under review */
+.status-badge.status-review {
+  /* Background color yellow */
+  background-color: #FEF3C7;
+  /* Color orange */
+  color: #92400e;
+}
+
+/* Status badge - resolved */
+.status-badge.status-resolved {
+  /* Background color green */
+  background-color: #DCFCE7;
+  /* Color green */
+  color: #166534;
+}
+
+/* Status badge - closed */
+.status-badge.status-closed {
+  /* Background color gray */
+  background-color: #F3F4F6;
+  /* Color gray */
+  color: #374151;
+}
+
+/* Priority badge - critical */
+.priority-badge.priority-critical {
+  /* Background color red */
+  background-color: #FEE2E2;
+  /* Color red */
+  color: #991B1B;
+}
+
+/* Priority badge - high */
+.priority-badge.priority-high {
+  /* Background color orange */
+  background-color: #FEDBA8;
+  /* Color orange */
+  color: #92400e;
+}
+
+/* Priority badge - medium */
+.priority-badge.priority-medium {
+  /* Background color blue */
+  background-color: #DBEAFE;
+  /* Color blue */
+  color: #1e40af;
+}
+
+/* Priority badge - low */
+.priority-badge.priority-low {
+  /* Background color green */
+  background-color: #DCFCE7;
+  /* Color green */
+  color: #166534;
+}
+
+/* Loading state */
+.incident-viewer-loading {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Align items center */
+  align-items: center;
+  /* Justify content center */
+  justify-content: center;
+  /* Gap */
+  gap: 1rem;
+  /* Padding */
+  padding: 3rem;
+  /* Text align center */
+  text-align: center;
+}
+
+/* Spinner */
+.spinner {
+  /* Width and height */
+  width: 2rem;
+  height: 2rem;
+  /* Border */
+  border: 3px solid #E5E5E5;
+  /* Border top color */
+  border-top-color: #BA0C2F;
+  /* Border radius */
+  border-radius: 50%;
+  /* Animation */
+  animation: spin 0.6s linear infinite;
+}
+
+/* Spinner animation */
+@keyframes spin {
+  /* From: no rotation */
+  from {
+    transform: rotate(0deg);
+  }
+
+  /* To: full rotation */
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error state */
+.incident-viewer-error {
+  /* Padding */
+  padding: 1.5rem;
+  /* Background color */
+  background-color: #FEE2E2;
+  /* Border */
+  border: 1px solid #FECACA;
+  /* Border radius */
+  border-radius: 4px;
+  /* Text align center */
+  text-align: center;
+}
+
+/* Error state paragraph */
+.incident-viewer-error p {
+  /* Margin */
+  margin: 0;
+  /* Color */
+  color: #991B1B;
+  /* Font weight */
+  font-weight: 500;
+}
+
+/* Empty state */
+.incident-viewer-empty {
+  /* Padding */
+  padding: 2rem;
+  /* Text align center */
+  text-align: center;
+  /* Color gray */
+  color: #666;
+}
+
+/* Empty state paragraph */
+.incident-viewer-empty p {
+  /* Margin */
+  margin: 0;
+  /* Font size */
+  font-size: 1rem;
+  /* Font weight */
+  font-weight: 500;
+}
+
+/* Empty subtitle */
+.empty-subtitle {
+  /* Font size */
+  font-size: 0.9rem;
+  /* Color */
+  color: #999;
+  /* Margin top */
+  margin-top: 0.5rem;
+}
+
+/* Detail modal overlay */
+.incident-detail-modal {
+  /* Position fixed */
+  position: fixed;
+  /* Top, left, right, bottom 0 */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Background color with opacity */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Display flex */
+  display: flex;
+  /* Align items center */
+  align-items: center;
+  /* Justify content center */
+  justify-content: center;
+  /* Z index */
+  z-index: 1000;
+  /* Padding */
+  padding: 1rem;
+}
+
+/* Modal content */
+.incident-detail-content {
+  /* Position relative */
+  position: relative;
+  /* Background color white */
+  background-color: white;
+  /* Border radius */
+  border-radius: 6px;
+  /* Max width */
+  max-width: 600px;
+  /* Width 100% */
+  width: 100%;
+  /* Max height */
+  max-height: 85vh;
+  /* Overflow auto */
+  overflow-y: auto;
+  /* Box shadow */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal close button */
+.modal-close-btn {
+  /* Position absolute */
+  position: absolute;
+  /* Top and right positioning */
+  top: 1rem;
+  right: 1rem;
+  /* Width and height */
+  width: 2rem;
+  height: 2rem;
+  /* Border radius circle */
+  border-radius: 50%;
+  /* Background color */
+  background-color: transparent;
+  /* Border none */
+  border: none;
+  /* Font size */
+  font-size: 1.5rem;
+  /* Color gray */
+  color: #999;
+  /* Cursor pointer */
+  cursor: pointer;
+  /* Transition */
+  transition: all 0.2s ease;
+  /* Z index */
+  z-index: 10;
+}
+
+/* Modal close button hover */
+.modal-close-btn:hover {
+  /* Background color */
+  background-color: #F0F0F0;
+  /* Color */
+  color: #333;
+}
+
+/* Modal header */
+.modal-header {
+  /* Padding */
+  padding: 2rem 2rem 1rem;
+  /* Border bottom */
+  border-bottom: 1px solid #E5E5E5;
+}
+
+/* Modal header title */
+.modal-header h2 {
+  /* Font size */
+  font-size: 1.5rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Color */
+  color: #333;
+  /* Margin */
+  margin: 0 0 1rem;
+}
+
+/* Modal badges container */
+.modal-badges {
+  /* Display flex */
+  display: flex;
+  /* Gap */
+  gap: 0.75rem;
+  /* Flex wrap */
+  flex-wrap: wrap;
+}
+
+/* Modal body */
+.modal-body {
+  /* Padding */
+  padding: 2rem;
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 1.5rem;
+}
+
+/* Modal section */
+.modal-section {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 0.75rem;
+}
+
+/* Modal section title */
+.modal-section h3 {
+  /* Font size */
+  font-size: 1rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Color - DHL Red */
+  color: #BA0C2F;
+  /* Margin */
+  margin: 0;
+}
+
+/* Modal section paragraph */
+.modal-section p {
+  /* Font size */
+  font-size: 0.95rem;
+  /* Color */
+  color: #555;
+  /* Margin */
+  margin: 0;
+  /* Line height */
+  line-height: 1.6;
+}
+
+/* Metadata grid */
+.metadata-grid {
+  /* Display grid */
+  display: grid;
+  /* Grid template columns */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  /* Gap */
+  gap: 1rem;
+}
+
+/* Metadata item */
+.metadata-item {
+  /* Display flex */
+  display: flex;
+  /* Flex direction column */
+  flex-direction: column;
+  /* Gap */
+  gap: 0.35rem;
+}
+
+/* Metadata label */
+.metadata-item label {
+  /* Font size */
+  font-size: 0.85rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Color gray */
+  color: #666;
+  /* Text transform uppercase */
+  text-transform: uppercase;
+  /* Letter spacing */
+  letter-spacing: 0.5px;
+}
+
+/* Metadata value */
+.metadata-item value {
+  /* Font size */
+  font-size: 0.95rem;
+  /* Color */
+  color: #333;
+  /* Word break */
+  word-break: break-word;
+}
+
+/* Metadata ID - monospace font */
+.metadata-id {
+  /* Font family monospace */
+  font-family: 'Courier New', monospace;
+  /* Font size smaller */
+  font-size: 0.85rem;
+  /* Color gray */
+  color: #666;
+}
+
+/* Mobile responsive - tablets and below */
+@media (max-width: 768px) {
+  /* Incident viewer */
+  .incident-viewer {
+    /* Padding */
+    padding: 1rem;
+    /* Gap */
+    gap: 1rem;
+  }
+
+  /* Filters row */
+  .filters-row {
+    /* Flex direction column */
+    flex-direction: column;
+  }
+
+  /* Filter select */
+  .filter-select {
+    /* Width 100% */
+    width: 100%;
+  }
+
+  /* Incidents list */
+  .incidents-list {
+    /* Grid template columns */
+    grid-template-columns: 1fr;
+  }
+
+  /* Modal content */
+  .incident-detail-content {
+    /* Max width 100% */
+    max-width: 100%;
+    /* Max height 95vh */
+    max-height: 95vh;
+  }
+
+  /* Modal body */
+  .modal-body {
+    /* Padding */
+    padding: 1.5rem;
+  }
+
+  /* Metadata grid */
+  .metadata-grid {
+    /* Grid template columns 1fr */
+    grid-template-columns: 1fr;
+  }
+}
