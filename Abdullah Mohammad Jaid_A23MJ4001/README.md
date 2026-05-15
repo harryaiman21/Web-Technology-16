@@ -1,5 +1,7 @@
 # DHL Challenge – Knowledge Base Automation (Scenario 1)
 
+**Before running this please configure .env file. It's a public repo that's why I cannot upload my api key here.**
+
 Plain HTML/CSS/JS frontend + Django REST Framework backend for a Knowledge Base workflow (Draft → Reviewed → Published) with file uploads, search/filter viewer, and revision history.
 
 Manual uploads can also do backend text extraction for TXT/DOCX and PDFs with a text layer (OCR for scanned PDFs/images is not included).
