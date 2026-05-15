@@ -126,7 +126,7 @@ export async function getIncidentById(id: string): Promise<Incident> {
     // Return the incident
     return data as Incident;
   } catch (error) {
-    console.error(`Error fetching incident ${id}:`, error);
+    console.error('Error fetching incident:', id, error);
     throw error;
   }
 }
