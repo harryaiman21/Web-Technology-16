@@ -141,8 +141,6 @@ npm run dev
 - Full incident information
 - Status history tracking
 - Edit description
-- Change status:
-  - Draft → Reviewed → Published
 - View attachments
 - Metadata display
 
