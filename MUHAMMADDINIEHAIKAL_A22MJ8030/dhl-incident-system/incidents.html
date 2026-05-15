@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Incidents</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadIncidents()">
+
+<div class="sidebar">
+     <img src="https://cdn.worldvectorlogo.com/logos/dhl-1.svg" class="sidebar-logo">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="create.html">Create Incident</a>
+    <a href="incidents.html" class="active">Incidents</a>
+    <a href="reports.html">Reports</a>  
+    <a href="index.html">Logout</a>
+</div>
+
+<div class="main">
+    <div class="table-container">
+        <h2>Incident Management</h2>
+
+        <div style="display:flex; gap:10px; margin-bottom:20px; align-items: center;">
+            <input type="text" id="search" placeholder="Search by ID or Title..." onkeyup="filterIncidents()" 
+                   style="padding:10px; border-radius:5px; border:1px solid #ccc; width:250px;">
+            
+            <select id="filterPrio" onchange="filterIncidents()" style="padding:10px; border-radius:5px; border:1px solid #ccc; width:180px; cursor:pointer;">
+                <option value="All">All Priorities</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+                <option value="Critical">Critical</option>
+            </select>
+
+            <select id="filterStatus" onchange="filterIncidents()" style="padding:10px; border-radius:5px; border:1px solid #ccc; width:180px; cursor:pointer;">
+                <option value="All">All Status</option>
+                <option value="Pending">Pending</option>
+                <option value="Under Review">Under Review</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Resolved">Resolved</option>
+            </select>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align:center; width: 10%;">ID</th>
+                    <th style="text-align:center; width: 18%;">Title</th>
+                    <th style="text-align:center; width: 12%;">Priority</th>
+                    <th style="text-align:center; width: 12%;">Status</th>
+                    <th style="text-align:center; width: 14%;">Department</th>
+                    <th style="text-align:center; width: 14%;">Reporter</th>
+                    <th style="text-align:center; width: 20%;">Action</th>
+                </tr>
+            </thead>
+            <tbody id="incidentTable"></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

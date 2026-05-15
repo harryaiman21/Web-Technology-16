@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reports</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    /* Design Kotak Summary */
+    .summary-box {
+        margin: 20px 0;
+        padding: 20px;
+        background: white;
+        border-radius: 12px;
+        border: 1px solid #eee;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .summary-item {
+        padding: 10px;
+        border-left: 4px solid #ffcc00; /* Warna DHL */
+        background: #fafafa;
+    }
+
+    /* Print Logic - Sidebar hilang & Table jadi lebar */
+    @media print {
+        .sidebar { display: none !important; }
+        .main { margin-left: 0 !important; width: 100% !important; background: white !important; padding: 0 !important; }
+        button { display: none !important; }
+        .table-container { box-shadow: none !important; border: none !important; width: 100% !important; max-width: 100% !important; }
+        table { width: 100% !important; border-collapse: collapse !important; table-layout: auto !important; }
+        th, td { border: 1px solid #ddd !important; padding: 8px !important; font-size: 12px !important; }
+        body { background: white !important; }
+    }
+</style>
+</head>
+<body onload="initReport()">
+
+<div class="sidebar">
+    <img src="https://cdn.worldvectorlogo.com/logos/dhl-1.svg" class="sidebar-logo">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="create.html">Create Incident</a>
+    <a href="incidents.html">Incidents</a>
+    <a href="reports.html" class="active">Reports</a>  
+    <a href="index.html">Logout</a>
+</div>
+
+<div class="main">
+    <div class="table-container">
+        <h2 id="reportTitle">DHL Incident Summary Report</h2>
+
+        <div style="margin-bottom: 20px;">
+            <button onclick="generateReport()" style="background:#007bff; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">Refresh Data</button>
+            <button onclick="printReport()" style="background:#28a745; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">Print Report (PDF)</button>
+        </div>
+
+        <div id="reportSummary" class="summary-box">
+            Loading data...
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align:center;">ID</th>
+                    <th style="text-align:center;">Title</th>
+                    <th style="text-align:center;">Priority</th>
+                    <th style="text-align:center;">Status</th>
+                    <th style="text-align:center;">Department</th>
+                    <th style="text-align:center;">Reporter</th> </tr>
+            </thead>
+            <tbody id="incidentTable"></tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+let allIncidents = [];
+
+async function initReport() {
+    await generateReport();
+}
+
+async function loadData() {
+    try {
+        const res = await fetch('http://localhost:3000/incidents');
+        return await res.json();
+    } catch (error) {
+        console.error("Error loading data:", error);
+        return [];
+    }
+}
+
+function getPriorityStyleLocal(prio) {
+    if (prio === "Critical") return "background: #fee2e2; color: #b91c1c; border: 1px solid #f87171;";
+    if (prio === "High") return "background: #ffedd5; color: #c2410c; border: 1px solid #fb923c;";
+    if (prio === "Medium") return "background: #fef9c3; color: #a16207; border: 1px solid #facc15;";
+    if (prio === "Low") return "background: #dbeafe; color: #1d4ed8; border: 1px solid #60a5fa;";
+    return "";
+}
+
+function getStatusStyleLocal(status) {
+    if (status === "Pending") return "background: #fef9c3; color: #a16207; border: 1px solid #facc15;";
+    if (status === "Under Review" || status === "In Progress") return "background: #dbeafe; color: #1d4ed8; border: 1px solid #60a5fa;";
+    if (status === "Resolved") return "background: #dcfce7; color: #15803d; border: 1px solid #4ade80;";
+    return "";
+}
+
+async function generateReport() {
+    allIncidents = await loadData();
+    const table = document.getElementById("incidentTable");
+    const summary = document.getElementById("reportSummary");
+    table.innerHTML = "";
+
+    if (allIncidents.length === 0) {
+        summary.innerHTML = "No data available in the system.";
+        return;
+    }
+
+    let pending = 0, resolved = 0, critical = 0, high = 0, medium = 0, low = 0;
+
+    allIncidents.forEach(i => {
+        table.innerHTML += `
+            <tr>
+                <td style="text-align:center;">${i.id}</td>
+                <td style="text-align:center; font-weight:bold;">${i.title}</td>
+                <td style="text-align:center;">
+                    <div style="padding:5px; border-radius:5px; font-weight:bold; font-size:11px; display:inline-block; min-width:80px; ${getPriorityStyleLocal(i.priority)}">
+                        ${i.priority}
+                    </div>
+                </td>
+                <td style="text-align:center;">
+                    <div style="padding:5px; border-radius:5px; font-weight:bold; font-size:11px; display:inline-block; min-width:80px; ${getStatusStyleLocal(i.status)}">
+                        ${i.status}
+                    </div>
+                </td>
+                <td style="text-align:center;">${i.department}</td>
+                <td style="text-align:center;">${i.reporter || '-'}</td> </tr>
+        `;
+
+        if(i.status === "Pending") pending++;
+        if(i.status === "Resolved") resolved++;
+        if(i.priority === "Critical") critical++;
+        if(i.priority === "High") high++;
+        if(i.priority === "Medium") medium++;
+        if(i.priority === "Low") low++;
+    });
+
+    summary.innerHTML = `
+        <h3 style="margin-top:0;">Incident Summary Report</h3>
+        <div class="summary-grid">
+            <div class="summary-item"><b>Total Incidents:</b><br>${allIncidents.length}</div>
+            <div class="summary-item"><b>Pending:</b><br>${pending}</div>
+            <div class="summary-item"><b>Resolved:</b><br>${resolved}</div>
+            <div class="summary-item" style="border-left-color: red;"><b>Critical:</b><br>${critical}</div>
+            <div class="summary-item" style="border-left-color: orange;"><b>High:</b><br>${high}</div>
+            <div class="summary-item" style="border-left-color: #1d4ed8;"><b>Low:</b><br>${low}</div>
+        </div>
+    `;
+}
+
+function printReport() {
+    window.print();
+}
+</script>
+</body>
+</html>

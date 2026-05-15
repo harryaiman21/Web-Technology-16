@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Incident</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <img src="https://cdn.worldvectorlogo.com/logos/dhl-1.svg" class="sidebar-logo">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="create.html" class="active">Create Incident</a>
+    <a href="incidents.html">Incidents</a>
+    <a href="reports.html">Reports</a>  
+    <a href="index.html">Logout</a>
+</div>
+
+<div class="main">
+    <div class="form-container">
+        <h2>Create New Incident</h2>
+
+       <input type="text" id="title" placeholder="Incident Title">
+    
+    <input type="text" id="incidentId" placeholder="Incident ID (Example: DHL-001)">
+
+    <textarea id="description" placeholder="Description"></textarea>
+
+        <select id="priority">
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+            <option>Critical</option>
+        </select>
+
+        <select id="status">
+            <option>Pending</option>
+            <option>Under Review</option>
+            <option>In Progress</option>
+            <option>Resolved</option>
+        </select>
+
+        <input type="text" id="department" placeholder="Department">
+        <input type="text" id="reporter" placeholder="Reporter Name">
+
+        <button onclick="createIncident()">Submit Incident</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

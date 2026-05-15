@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <img src="https://cdn.worldvectorlogo.com/logos/dhl-1.svg" class="sidebar-logo">
+    <a href="dashboard.html" class="active">Dashboard</a>
+    <a href="create.html">Create Incident</a>
+    <a href="incidents.html">Incidents</a>
+    <a href="reports.html">Reports</a>  
+    <a href="index.html">Logout</a>
+</div>
+
+<div class="main">
+    <div class="topbar">
+        <h2>Dashboard</h2>
+    </div>
+
+    <div class="cards">
+        <div class="card"><h3>Total Incidents</h3><p id="total">0</p></div>
+        <div class="card"><h3>Pending</h3><p id="pending">0</p></div>
+        <div class="card"><h3>Resolved</h3><p id="resolved">0</p></div>
+        <div class="card"><h3>Critical</h3><p id="critical">0</p></div>
+    </div>
+
+    <div class="table-container">
+        <h3>Recent Incidents</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align:center;">ID</th>
+                    <th style="text-align:center;">Title</th>
+                    <th style="text-align:center;">Priority</th>
+                    <th style="text-align:center;">Status</th>
+                    <th style="text-align:center;">Department</th>
+                    <th style="text-align:center;">Reporter</th>
+                </tr>
+            </thead>
+            <tbody id="recentTable"></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

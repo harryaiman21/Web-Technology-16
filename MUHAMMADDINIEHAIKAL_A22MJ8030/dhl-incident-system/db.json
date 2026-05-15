@@ -1,0 +1,15 @@
+{
+  "incidents": [
+    {
+      "id": "ib9UIqtLL3s",
+      "title": "Broken Glass",
+      "description": "",
+      "priority": "Critical",
+      "status": "In Progress",
+      "department": "Security",
+      "reporter": "Haikal",
+      "date": "5/15/2026"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
