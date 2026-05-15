@@ -4,6 +4,8 @@ Wan Zafirzan (A22MJ8003) - SECJ 3483: Web Technology
 
 Youtube Demo: https://youtu.be/TrEike76N4o?si=PQU1QQUZrcKSACXw
 
+Github Repository: https://github.com/Zaphyrzan/Wan-Zafirzan-DHL-Challenge2026-Scenario2
+
 ## UiPath Automation
 
 The UiPath project is stored in the `Resource/` folder. Use it to test the email and Google Drive connectors for the incident automation flow before pushing updates.
