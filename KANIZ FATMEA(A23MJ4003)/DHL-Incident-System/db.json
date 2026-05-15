@@ -1,0 +1,23 @@
+{
+  "incidents": [
+    {
+      "id": 1,
+      "title": "Late Delivery - Order #DHL78234",
+      "description": "Customer reported that parcel has not arrived after 7 business days.",
+      "type": "late_delivery",
+      "priority": "high",
+      "status": "Reviewed",
+      "department": "Delivery Operations",
+      "creator": "admin",
+      "creator_name": "System Admin",
+      "created_at": "2026-04-28T09:00:00Z",
+      "updated_at": "2026-04-29T11:00:00Z",
+      "tags": ["delivery", "delay"],
+      "attachments": [],
+      "status_history": []
+    }
+  ],
+  "users": [
+    { "id": 1, "username": "admin", "password": "admin123", "role": "admin", "name": "System Admin" }
+  ]
+}

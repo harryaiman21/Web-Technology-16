@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DHL | Incident Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ── Navbar ──────────────────────────────── -->
+<nav class="navbar">
+  <div class="navbar-brand">
+    <span class="dhl-logo">DHL</span>
+    <span class="separator">|</span>
+    <span>Incident System</span>
+  </div>
+  <div class="navbar-nav">
+    <a href="dashboard.html" class="nav-link active">📋 Dashboard</a>
+    <a href="submit.html"    class="nav-link">➕ New Incident</a>
+ <a href="rpa-logs.html"  class="nav-link">🤖 RPA Logs</a>   
+  </div>
+  <div class="navbar-right">
+    <div id="user-info"></div>
+    <button class="btn btn-ghost btn-sm" id="logout-btn">Sign Out</button>
+  </div>
+</nav>
+
+<!-- ── Main Content ─────────────────────────── -->
+<div class="page-content">
+
+  <!-- Page header -->
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Incident Dashboard</h1>
+      <p class="page-subtitle">Monitor and manage all DHL incident reports in real time</p>
+    </div>
+    <a href="submit.html" class="btn btn-primary">
+      ＋ New Incident
+    </a>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="stats-grid stagger">
+    <div class="stat-card total">
+      <div class="stat-number" id="stat-total">—</div>
+      <div class="stat-label">Total</div>
+    </div>
+    <div class="stat-card draft">
+      <div class="stat-number" id="stat-draft">—</div>
+      <div class="stat-label">Draft</div>
+    </div>
+    <div class="stat-card reviewed">
+      <div class="stat-number" id="stat-reviewed">—</div>
+      <div class="stat-label">Reviewed</div>
+    </div>
+    <div class="stat-card resolved">
+      <div class="stat-number" id="stat-resolved">—</div>
+      <div class="stat-label">Resolved</div>
+    </div>
+    <div class="stat-card critical">
+      <div class="stat-number" id="stat-critical">—</div>
+      <div class="stat-label">Critical</div>
+    </div>
+  </div>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar fade-in">
+    <input type="text"   id="search-input"    class="search-input" placeholder="🔍  Search by title, description, tag…" />
+    <select id="filter-status">
+      <option value="">All Statuses</option>
+      <option value="Draft">Draft</option>
+      <option value="Reviewed">Reviewed</option>
+      <option value="Resolved">Resolved</option>
+    </select>
+    <select id="filter-priority">
+      <option value="">All Priorities</option>
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+      <option value="critical">Critical</option>
+    </select>
+    <select id="filter-type">
+      <option value="">All Types</option>
+      <option value="late_delivery">Late Delivery</option>
+      <option value="address_issue">Address Issue</option>
+      <option value="damaged_parcel">Damaged Parcel</option>
+      <option value="system_error">System Error</option>
+      <option value="complaint">Complaint</option>
+    </select>
+    <input type="date" id="filter-date" title="Filter by creation date" />
+    <button class="btn btn-ghost btn-sm" id="clear-filters">✕ Clear</button>
+  </div>
+
+  <!-- Incidents Table -->
+  <div class="table-wrap fade-in">
+    <div class="table-header">
+      <span class="section-label">Incidents</span>
+      <span class="table-count" id="row-count">Loading…</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Incident</th>
+          <th>Type</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Department</th>
+          <th>Reported By</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody id="incident-tbody">
+        <tr>
+          <td colspan="7">
+            <div class="loading-wrap">
+              <div class="spinner"></div>
+              <p style="color:var(--text-muted);margin-top:12px;">Loading incidents…</p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- /page-content -->
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>

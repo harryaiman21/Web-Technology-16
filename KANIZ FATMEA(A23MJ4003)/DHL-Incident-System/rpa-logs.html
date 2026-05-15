@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DHL | RPA Logs</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <style>
+    .run-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px 24px; margin-bottom:14px; animation:fadeIn 0.3s ease; }
+    .run-card.completed { border-left:3px solid var(--success); }
+    .run-card.partial   { border-left:3px solid var(--warning); }
+    .run-card.failed    { border-left:3px solid var(--danger);  }
+    .run-header { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:10px; }
+    .run-time   { font-family:var(--font-head); font-size:16px; font-weight:700; }
+    .run-stats  { display:flex; gap:8px; flex-wrap:wrap; }
+    .pill { display:inline-flex; align-items:center; gap:4px; padding:3px 10px; border-radius:999px; font-size:12px; font-weight:600; }
+    .pill-c { background:rgba(34,197,94,0.12);  color:var(--success); border:1px solid rgba(34,197,94,0.3); }
+    .pill-u { background:rgba(56,189,248,0.12); color:var(--info);    border:1px solid rgba(56,189,248,0.3); }
+    .pill-d { background:rgba(245,158,11,0.12); color:var(--warning); border:1px solid rgba(245,158,11,0.3); }
+    .pill-f { background:rgba(239,68,68,0.12);  color:var(--danger);  border:1px solid rgba(239,68,68,0.3); }
+    .log-box { background:var(--bg); border:1px solid var(--border); border-radius:6px; padding:12px; font-family:monospace; font-size:12px; color:var(--text-muted); white-space:pre-wrap; max-height:180px; overflow-y:auto; margin-top:10px; display:none; }
+    .log-box.open { display:block; }
+    .toggle-btn { background:none; border:none; color:var(--text-dim); font-size:12px; cursor:pointer; margin-top:6px; font-family:var(--font-body); }
+    .toggle-btn:hover { color:var(--yellow); }
+    .sum-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:12px; margin-bottom:28px; }
+    .sum-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px; text-align:center; }
+    .sum-num   { font-family:var(--font-head); font-size:32px; font-weight:800; line-height:1; margin-bottom:4px; }
+    .sum-label { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-brand">
+    <span class="dhl-logo">DHL</span>
+    <span class="separator">|</span>
+    <span>Incident System</span>
+  </div>
+  <div class="navbar-nav">
+    <a href="dashboard.html"  class="nav-link">📋 Dashboard</a>
+    <a href="submit.html"     class="nav-link">➕ New Incident</a>
+    <a href="rpa-logs.html"   class="nav-link active">🤖 RPA Logs</a>
+  </div>
+  <div class="navbar-right">
+    <div id="user-info"></div>
+    <button class="btn btn-ghost btn-sm" id="logout-btn">Sign Out</button>
+  </div>
+</nav>
+
+<div class="page-content">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">🤖 RPA Execution Logs</h1>
+      <p class="page-subtitle">History of all UiPath automation runs</p>
+    </div>
+    <button class="btn btn-primary" id="refresh-btn">↻ Refresh</button>
+  </div>
+
+  <div class="sum-grid">
+    <div class="sum-card"><div class="sum-num" id="s-runs"    style="color:var(--yellow)">—</div><div class="sum-label">Total Runs</div></div>
+    <div class="sum-card"><div class="sum-num" id="s-created" style="color:var(--success)">—</div><div class="sum-label">Created</div></div>
+    <div class="sum-card"><div class="sum-num" id="s-updated" style="color:var(--info)">—</div><div class="sum-label">Updated</div></div>
+    <div class="sum-card"><div class="sum-num" id="s-dupes"   style="color:var(--warning)">—</div><div class="sum-label">Duplicates</div></div>
+    <div class="sum-card"><div class="sum-num" id="s-failed"  style="color:var(--danger)">—</div><div class="sum-label">Failed</div></div>
+  </div>
+
+  <div id="logs-container">
+    <div class="loading-wrap"><div class="spinner"></div></div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script>
+
+// ── EmailJS Setup ──────────────────────────
+emailjs.init('uNQXWUuWXeCZMFkc9'); // ← replace with your key
+
+// ── Alert Helper ───────────────────────────
+function showAlert(msg, type = 'info') {
+  const el = document.createElement('div');
+  el.className = `alert alert-${type}`;
+  el.textContent = msg;
+  el.style.cssText = 'position:fixed;top:80px;right:20px;z-index:999;min-width:300px;padding:12px 16px;border-radius:8px;';
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 4000);
+}
+
+// ── Send Email ─────────────────────────────
+async function sendSummaryEmail(log) {
+  try {
+    await emailjs.send(
+      'service_ez2qpkh',    // ← replace
+      'template_2jc6yi7',   // ← replace
+      {
+        to_email:   'fatemakaniz@graduate.utm.my', // ← replace
+        run_date:   new Date(log.run_at).toLocaleString('en-GB'),
+        created:    log.created    || 0,
+        updated:    log.updated    || 0,
+        duplicates: log.duplicates || 0,
+        failed:     log.failed     || 0,
+        log_text:   log.log_text   || 'No log available'
+      }
+    );
+    showAlert('✅ Summary email sent!', 'success');
+  } catch (err) {
+    showAlert('❌ Email failed: ' + err.text, 'danger');
+    console.error(err);
+  }
+}
+
+// ── Helpers ────────────────────────────────
+function formatDT(iso) {
+  if (!iso) return '—';
+  return new Date(iso).toLocaleString('en-GB', {
+    day:'2-digit', month:'short', year:'numeric',
+    hour:'2-digit', minute:'2-digit'
+  });
+}
+
+function toggleLog(i) {
+  const el  = document.getElementById(`log-${i}`);
+  const btn = el.previousElementSibling;
+  el.classList.toggle('open');
+  btn.textContent = el.classList.contains('open') ? '▼ Hide log' : '▶ Show log';
+}
+
+function cardClass(log) {
+  if ((log.failed||0) > 0 && (log.created||0) === 0) return 'failed';
+  if ((log.failed||0) > 0) return 'partial';
+  return 'completed';
+}
+
+// ── Load Logs ──────────────────────────────
+async function loadLogs() {
+  const container = document.getElementById('logs-container');
+  container.innerHTML = '<div class="loading-wrap"><div class="spinner"></div></div>';
+
+  try {
+    const logs = await api.getRpaLogs();
+
+    document.getElementById('s-runs').textContent    = logs.length;
+    document.getElementById('s-created').textContent = logs.reduce((a,l) => a+(l.created||0), 0);
+    document.getElementById('s-updated').textContent = logs.reduce((a,l) => a+(l.updated||0), 0);
+    document.getElementById('s-dupes').textContent   = logs.reduce((a,l) => a+(l.duplicates||0), 0);
+    document.getElementById('s-failed').textContent  = logs.reduce((a,l) => a+(l.failed||0), 0);
+
+    if (!logs.length) {
+      container.innerHTML = `
+        <div style="text-align:center;padding:60px;color:var(--text-dim)">
+          <div style="font-size:40px;margin-bottom:12px">🤖</div>
+          <p style="font-size:16px;margin-bottom:6px;">No RPA runs yet</p>
+          <small>Press F5 in UiPath Studio to run the bot</small>
+        </div>`;
+      return;
+    }
+
+    container.innerHTML = logs.map((log, i) => `
+      <div class="run-card ${cardClass(log)}">
+        <div class="run-header">
+          <div>
+            <div class="run-time">🕐 ${formatDT(log.run_at)}</div>
+            <div style="font-size:12px;color:var(--text-muted);margin-top:3px;">
+              Files found: ${log.files_found||0} · Status: <strong>${log.status||'completed'}</strong>
+            </div>
+          </div>
+          <div class="run-stats">
+            <span class="pill pill-c">✅ ${log.created||0} created</span>
+            <span class="pill pill-u">🔄 ${log.updated||0} updated</span>
+            <span class="pill pill-d">♻️ ${log.duplicates||0} dupes</span>
+            <span class="pill pill-f">❌ ${log.failed||0} failed</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:10px;align-items:center;">
+          ${log.log_text ? `
+            <button class="toggle-btn" onclick="toggleLog(${i})">▶ Show log</button>
+          ` : ''}
+          <button
+            onclick='sendSummaryEmail(${JSON.stringify(log)})'
+            class="btn btn-ghost btn-sm">
+            📧 Email Summary
+          </button>
+        </div>
+        ${log.log_text ? `
+          <div class="log-box" id="log-${i}">${log.log_text}</div>
+        ` : ''}
+      </div>
+    `).join('');
+
+  } catch (err) {
+    container.innerHTML = `
+      <div style="text-align:center;padding:60px;color:var(--danger)">
+        <p>⚠️ Cannot load logs</p>
+        <small>${err.message}</small>
+      </div>`;
+    console.error(err);
+  }
+}
+
+// ── Init ───────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  if (!requireAuth()) return;
+  renderUserHeader();
+  loadLogs();
+  document.getElementById('refresh-btn').addEventListener('click', loadLogs);
+});
+
+</script>
+
+</body>
+</html>

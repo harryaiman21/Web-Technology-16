@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DHL | Incident System — Login</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Extra login-page styles */
+    .login-btn-row { margin-top: 8px; }
+    .login-btn-row .btn { width: 100%; justify-content: center; padding: 14px; font-size: 16px; letter-spacing: 0.05em; }
+  </style>
+</head>
+<body>
+
+<div class="login-page">
+  <div class="login-box">
+
+    <!-- Logo -->
+    <div class="login-logo">
+      <div class="dhl-logo">DHL</div>
+      <div class="login-logo-text">
+        <h2>GFS Asia Pacific</h2>
+        <p>Digital Automation Center</p>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <h1 class="login-title">Incident System</h1>
+    <p class="login-sub">Sign in to access the reporting dashboard</p>
+
+    <!-- Alert area -->
+    <div id="login-alert" class="alert alert-danger" style="display:none;"></div>
+
+    <!-- Login Form -->
+    <form id="login-form" novalidate>
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username" autocomplete="username" />
+        <div class="form-error" id="err-username">Please enter your username.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password" />
+        <div class="form-error" id="err-password">Please enter your password.</div>
+      </div>
+
+      <div class="login-btn-row">
+        <button type="submit" class="btn btn-primary btn-lg" id="login-btn">
+          Sign In →
+        </button>
+      </div>
+
+    </form>
+
+    <!-- Demo credentials hint -->
+    <div class="demo-box">
+      <strong>Demo Credentials</strong>
+      <p>Admin&nbsp;&nbsp;&nbsp;&nbsp;→ <code>admin</code> / <code>admin123</code></p>
+      <p>Reviewer → <code>reviewer</code> / <code>review123</code></p>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  // If already logged in, skip login page
+  if (getCurrentUser()) {
+    window.location.href = 'dashboard.html';
+  }
+
+  const form      = document.getElementById('login-form');
+  const loginBtn  = document.getElementById('login-btn');
+  const alertBox  = document.getElementById('login-alert');
+
+  function showAlert(msg) {
+    alertBox.textContent = msg;
+    alertBox.style.display = 'block';
+  }
+
+  function clearErrors() {
+    alertBox.style.display = 'none';
+    document.getElementById('err-username').classList.remove('show');
+    document.getElementById('err-password').classList.remove('show');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    clearErrors();
+
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    // Basic validation
+    let valid = true;
+    if (!username) {
+      document.getElementById('err-username').classList.add('show');
+      valid = false;
+    }
+    if (!password) {
+      document.getElementById('err-password').classList.add('show');
+      valid = false;
+    }
+    if (!valid) return;
+
+    // Disable button while checking
+    loginBtn.disabled = true;
+    loginBtn.textContent = 'Signing in…';
+
+    try {
+      const user = await api.findUser(username, password);
+      if (user) {
+        saveSession(user);
+        window.location.href = 'dashboard.html';
+      } else {
+        showAlert('❌ Incorrect username or password. Please try again.');
+        loginBtn.disabled = false;
+        loginBtn.textContent = 'Sign In →';
+      }
+    } catch (err) {
+      showAlert('⚠️ Cannot connect to server. Make sure JSON Server is running on port 3000.');
+      loginBtn.disabled = false;
+      loginBtn.textContent = 'Sign In →';
+    }
+  });
+</script>
+
+</body>
+</html>

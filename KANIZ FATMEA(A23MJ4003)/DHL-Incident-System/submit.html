@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DHL | New Incident Report</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+<!-- ──────────────────────────────────────────
+     NAVBAR
+────────────────────────────────────────── -->
+<nav class="navbar">
+
+  <div class="navbar-brand">
+    <span class="dhl-logo">DHL</span>
+    <span class="separator">|</span>
+    <span>Incident System</span>
+  </div>
+
+  <div class="navbar-nav">
+    <a href="dashboard.html" class="nav-link">📋 Dashboard</a>
+    <a href="submit.html" class="nav-link active">➕ New Incident</a>
+    <a href="rpa-logs.html" class="nav-link">🤖 RPA Logs</a>
+  </div>
+
+  <div class="navbar-right">
+    <div id="user-info"></div>
+    <button class="btn btn-ghost btn-sm" id="logout-btn">
+      Sign Out
+    </button>
+  </div>
+
+</nav>
+
+<!-- ──────────────────────────────────────────
+     PAGE CONTENT
+────────────────────────────────────────── -->
+<div class="page-content">
+
+  <a href="dashboard.html" class="back-link">
+    ← Back to Dashboard
+  </a>
+
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">New Incident Report</h1>
+      <p class="page-subtitle">
+        Fill in the information below to create a new DHL incident report
+      </p>
+    </div>
+  </div>
+
+  <!-- ALERT -->
+  <div id="form-alert" class="alert" style="display:none;"></div>
+
+  <div class="submit-grid">
+
+    <!-- ──────────────────────────────────────
+         LEFT SIDE
+    ────────────────────────────────────── -->
+    <div>
+
+      <form id="incident-form" novalidate>
+
+        <!-- BASIC INFO -->
+        <div class="card" style="margin-bottom:20px;">
+
+          <div class="section-label">
+            Basic Information
+          </div>
+
+          <div class="form-group">
+
+            <label for="title">
+              Incident Title *
+            </label>
+
+            <input
+              type="text"
+              id="title"
+              maxlength="120"
+              placeholder="e.g. Late Delivery – Order #DHL12345"
+            />
+
+            <div class="form-error" id="err-title">
+              Please enter an incident title.
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="description">
+              Description *
+            </label>
+
+            <textarea
+              id="description"
+              rows="5"
+              placeholder="Describe what happened, affected shipment, tracking number, timeline, and customer impact..."
+            ></textarea>
+
+            <div class="form-error" id="err-description">
+              Please provide a description.
+            </div>
+
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+
+            <div class="form-group" style="margin-bottom:0;">
+
+              <label for="type">
+                Incident Type *
+              </label>
+
+              <select id="type">
+
+                <option value="">
+                  — Select type —
+                </option>
+
+                <option value="late_delivery">
+                  Late Delivery
+                </option>
+
+                <option value="address_issue">
+                  Address Issue
+                </option>
+
+                <option value="damaged_parcel">
+                  Damaged Parcel
+                </option>
+
+                <option value="system_error">
+                  System Error
+                </option>
+
+                <option value="complaint">
+                  Customer Complaint
+                </option>
+
+              </select>
+
+              <div class="form-error" id="err-type">
+                Please select an incident type.
+              </div>
+
+            </div>
+
+            <div class="form-group" style="margin-bottom:0;">
+
+              <label for="priority">
+                Priority *
+              </label>
+
+              <select id="priority">
+
+                <option value="">
+                  — Select priority —
+                </option>
+
+                <option value="low">
+                  Low
+                </option>
+
+                <option value="medium">
+                  Medium
+                </option>
+
+                <option value="high">
+                  High
+                </option>
+
+                <option value="critical">
+                  Critical
+                </option>
+
+              </select>
+
+              <div class="form-error" id="err-priority">
+                Please select a priority level.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- ASSIGNMENT -->
+        <div class="card" style="margin-bottom:20px;">
+
+          <div class="section-label">
+            Assignment & Tags
+          </div>
+
+          <div class="form-group">
+
+            <label for="department">
+              Department *
+            </label>
+
+            <input
+              type="text"
+              id="department"
+              placeholder="e.g. Delivery Operations"
+            />
+
+            <div class="form-error" id="err-department">
+              Please enter a department.
+            </div>
+
+          </div>
+
+          <div class="form-group" style="margin-bottom:0;">
+
+            <label>
+              Tags
+              <span style="font-weight:400;text-transform:none;letter-spacing:0;">
+                (press Enter or comma to add)
+              </span>
+            </label>
+
+            <div
+              class="tags-input-wrap"
+              id="tags-wrap"
+              onclick="document.getElementById('tags-input').focus()"
+            >
+
+              <input
+                type="text"
+                id="tags-input"
+                placeholder="Add a tag..."
+              />
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- FILE UPLOAD -->
+        <div class="card" style="margin-bottom:24px;">
+
+          <div class="section-label">
+            Attachments
+          </div>
+
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">
+            Upload screenshots, customer emails, PDFs, notes, or supporting documents.
+          </p>
+
+          <div class="file-upload-area" id="drop-zone">
+
+            <div class="upload-icon">
+              📎
+            </div>
+
+            <p>
+              Drag & drop files here or
+              <strong style="color:var(--yellow);">
+                click to browse
+              </strong>
+            </p>
+
+            <small>
+              Supported:
+              .txt, .pdf, .docx, .jpg, .png, .csv
+              — Max 10MB each
+            </small>
+
+            <input
+              type="file"
+              id="file-input"
+              multiple
+              accept=".txt,.pdf,.docx,.doc,.jpg,.jpeg,.png,.csv,.json"
+            />
+
+          </div>
+
+          <div id="file-list" class="file-list"></div>
+
+        </div>
+
+        <!-- BUTTONS -->
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+
+          <button
+            type="button"
+            class="btn btn-ghost btn-lg"
+            id="ai-btn"
+          >
+            🤖 AI Suggest
+          </button>
+
+          <button
+            type="submit"
+            class="btn btn-primary btn-lg"
+            id="submit-btn"
+          >
+            Submit Incident Report
+          </button>
+
+          <a
+            href="dashboard.html"
+            class="btn btn-ghost btn-lg"
+          >
+            Cancel
+          </a>
+
+        </div>
+
+      </form>
+
+    </div>
+
+    <!-- ──────────────────────────────────────
+         RIGHT SIDE
+    ────────────────────────────────────── -->
+    <div>
+
+      <!-- WORKFLOW -->
+      <div class="card info-card" style="margin-bottom:16px;">
+
+        <div class="section-label">
+          Incident Workflow
+        </div>
+
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">
+          Every incident progresses through the following workflow stages:
+        </p>
+
+        <ul class="timeline">
+
+          <li class="timeline-item">
+
+            <div class="timeline-dot draft"></div>
+
+            <div class="timeline-status" style="color:var(--text-muted)">
+              Draft
+            </div>
+
+            <div class="timeline-note">
+              Incident submitted and waiting for review
+            </div>
+
+          </li>
+
+          <li class="timeline-item">
+
+            <div class="timeline-dot reviewed"></div>
+
+            <div class="timeline-status" style="color:var(--info)">
+              Reviewed
+            </div>
+
+            <div class="timeline-note">
+              Assigned to the responsible department
+            </div>
+
+          </li>
+
+          <li class="timeline-item" style="margin-bottom:0;">
+
+            <div class="timeline-dot resolved"></div>
+
+            <div class="timeline-status" style="color:var(--success)">
+              Resolved
+            </div>
+
+            <div class="timeline-note">
+              Issue resolved and incident closed
+            </div>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+      <!-- PRIORITY GUIDE -->
+      <div class="card">
+
+        <div class="section-label">
+          Priority Guide
+        </div>
+
+        <div class="info-row">
+
+          <span class="info-key">
+            <span class="badge badge-low">LOW</span>
+          </span>
+
+          <span class="info-value" style="font-size:12px;">
+            Minor issue with minimal operational impact
+          </span>
+
+        </div>
+
+        <div class="info-row">
+
+          <span class="info-key">
+            <span class="badge badge-medium">MEDIUM</span>
+          </span>
+
+          <span class="info-value" style="font-size:12px;">
+            Moderate delivery or service impact
+          </span>
+
+        </div>
+
+        <div class="info-row">
+
+          <span class="info-key">
+            <span class="badge badge-high">HIGH</span>
+          </span>
+
+          <span class="info-value" style="font-size:12px;">
+            Urgent customer-impacting incident
+          </span>
+
+        </div>
+
+        <div class="info-row">
+
+          <span class="info-key">
+            <span class="badge badge-critical">CRITICAL</span>
+          </span>
+
+          <span class="info-value" style="font-size:12px;">
+            Immediate action required
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ──────────────────────────────────────────
+     SCRIPTS
+────────────────────────────────────────── -->
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/submit.js"></script>
+
+</body>
+</html>

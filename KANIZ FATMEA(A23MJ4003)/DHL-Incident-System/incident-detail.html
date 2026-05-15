@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DHL | Incident Detail</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ── Navbar ──────────────────────────────── -->
+<nav class="navbar">
+  <div class="navbar-brand">
+    <span class="dhl-logo">DHL</span>
+    <span class="separator">|</span>
+    <span>Incident System</span>
+  </div>
+  <div class="navbar-nav">
+    <a href="dashboard.html" class="nav-link">📋 Dashboard</a>
+    <a href="submit.html"    class="nav-link">➕ New Incident</a>
+    <a href="rpa-logs.html"  class="nav-link">🤖 RPA Logs</a>
+  </div>
+  <div class="navbar-right">
+    <div id="user-info"></div>
+    <button class="btn btn-ghost btn-sm" id="logout-btn">Sign Out</button>
+  </div>
+</nav>
+
+<!-- ── Content ──────────────────────────────── -->
+<div class="page-content">
+
+  <a href="dashboard.html" class="back-link">← Back to Dashboard</a>
+
+  <!-- Alert -->
+  <div id="detail-alert" class="alert" style="display:none;"></div>
+
+  <!-- Page header -->
+  <div class="page-header" style="margin-bottom:20px;">
+    <div style="flex:1;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;flex-wrap:wrap;">
+        <span id="inc-id-label" style="font-size:13px;color:var(--text-dim);font-family:monospace;"></span>
+        <span id="inc-status-badge"></span>
+        <span id="inc-priority-badge"></span>
+        <span id="inc-type-badge"></span>
+      </div>
+      <h1 class="page-title" id="inc-title" style="font-size:28px;"></h1>
+    </div>
+    <div style="display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap;flex-shrink:0;">
+      <button class="btn btn-ghost" id="edit-btn">✏️ Edit</button>
+      <button class="btn btn-primary" id="save-btn" style="display:none;">💾 Save</button>
+      <button class="btn btn-ghost" id="cancel-btn" style="display:none;">✕ Cancel</button>
+      <button class="btn btn-danger" id="delete-btn">🗑 Delete</button>
+    </div>
+  </div>
+
+  <!-- Detail Grid -->
+  <div class="detail-grid">
+
+    <!-- LEFT: Main info -->
+    <div>
+
+      <!-- Description -->
+      <div class="card" style="margin-bottom:20px;">
+        <div class="section-label">Description</div>
+        <div id="inc-description" class="detail-description"></div>
+
+        <div class="section-label" style="margin-top:20px;">Tags</div>
+        <div id="inc-tags"></div>
+      </div>
+
+      <!-- Attachments -->
+      <div class="card" style="margin-bottom:20px;">
+        <div class="section-label">Attachments</div>
+        <div id="inc-attachments"></div>
+      </div>
+
+      <!-- Status History (timeline) -->
+      <div class="card">
+        <div class="section-label">Status History</div>
+        <ul class="timeline" id="status-timeline"></ul>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: Sidebar -->
+    <div>
+
+      <!-- Status actions -->
+      <div class="card" style="margin-bottom:16px;">
+        <div class="section-label">Update Status</div>
+        <div class="status-actions" id="status-actions">
+          <div class="spinner"></div>
+        </div>
+      </div>
+
+      <!-- Incident meta -->
+      <div class="card info-card">
+        <div class="section-label">Incident Details</div>
+        <div class="info-row">
+          <span class="info-key">Reported By</span>
+          <span class="info-value" id="info-creator">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Department</span>
+          <span class="info-value" id="info-department">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Created</span>
+          <span class="info-value" id="info-created">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Last Updated</span>
+          <span class="info-value" id="info-updated">—</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div><!-- /detail-grid -->
+
+</div><!-- /page-content -->
+
+<!-- ── Delete Confirmation Modal ─────────────── -->
+<div class="modal-overlay" id="delete-modal">
+  <div class="modal">
+    <h2 class="modal-title">Delete Incident?</h2>
+    <p class="modal-body">
+      This will permanently delete this incident and all its history. This action <strong>cannot be undone</strong>.
+    </p>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" id="cancel-delete-btn">Cancel</button>
+      <button class="btn btn-danger" id="confirm-delete-btn">Yes, Delete</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/incident-detail.js"></script>
+
+</body>
+</html>
