@@ -1,0 +1,499 @@
+/**
+ * Navigation Bar Styles
+ */
+
+/* Navigation bar */
+.navigation-bar {
+  /* Display flex */
+  display: flex;
+  /* Justify content space-between */
+  justify-content: space-between;
+  /* Align items center */
+  align-items: center;
+  /* Padding */
+  padding: 1rem 2rem;
+  /* Background color DHL Red */
+  background-color: #BA0C2F;
+  /* Text color white */
+  color: white;
+  /* Box shadow */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  /* Width 100% */
+  width: 100%;
+  /* Box sizing */
+  box-sizing: border-box;
+  /* Margin 0 */
+  margin: 0;
+}
+
+/* Nav branding */
+.nav-branding {
+  /* Display flex */
+  display: flex;
+  /* Align items center */
+  align-items: center;
+  /* Gap */
+  gap: 1rem;
+  /* Flex 1 */
+  flex: 1;
+}
+
+/* Logo */
+.nav-logo {
+  /* Display flex */
+  display: flex;
+  /* Align items center */
+  align-items: center;
+  /* Gap */
+  gap: 0.75rem;
+  /* Font size */
+  font-size: 1.5rem;
+  /* Font weight */
+  font-weight: bold;
+  /* Letter spacing */
+  letter-spacing: 2px;
+}
+
+/* Logo text */
+.logo-text {
+  /* Color yellow */
+  color: #FFCD00;
+  /* Font weight */
+  font-weight: 700;
+  /* Font size */
+  font-size: 1.8rem;
+}
+
+/* Logo separator */
+.logo-separator {
+  /* Width and height */
+  width: 2px;
+  height: 2rem;
+  /* Background color yellow */
+  background-color: #FFCD00;
+  /* Border radius */
+  border-radius: 1px;
+}
+
+/* Nav title */
+.nav-title {
+  /* Margin */
+  margin: 0;
+  /* Font size */
+  font-size: 1.3rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Color white */
+  color: white;
+  /* Letter spacing */
+  letter-spacing: 0.5px;
+}
+
+/* Nav links */
+.nav-links {
+  /* Display flex */
+  display: flex;
+  /* List style none */
+  list-style: none;
+  /* Margin 0 padding 0 */
+  margin: 0;
+  padding: 0;
+  /* Gap */
+  gap: 0.5rem;
+}
+
+/* Nav link item */
+.nav-links li {
+  /* Display inline */
+  display: inline;
+}
+
+/* Nav link button */
+.nav-link {
+  /* Padding */
+  padding: 0.5rem 1rem;
+  /* Background color transparent */
+  background-color: transparent;
+  /* Color white */
+  color: white;
+  /* Border */
+  border: none;
+  /* Border radius */
+  border-radius: 0;
+  /* Font size */
+  font-size: 0.9rem;
+  /* Font weight */
+  font-weight: 500;
+  /* Cursor pointer */
+  cursor: pointer;
+  /* Transition */
+  transition: all 0.2s ease;
+  /* Font family inherit */
+  font-family: inherit;
+  /* Letter spacing */
+  letter-spacing: 0.3px;
+}
+
+/* Nav link hover */
+.nav-link:hover {
+  /* Background color transparent */
+  background-color: transparent;
+  /* Color yellow */
+  color: #FFCD00;
+  /* Border none */
+  border: none;
+  /* Text decoration underline */
+  text-decoration: underline;
+  /* Underline offset */
+  text-underline-offset: 4px;
+}
+
+/* Nav link active */
+.nav-link:active {
+  /* Transform */
+  transform: translateY(1px);
+}
+
+/* Nav logout button */
+.nav-logout-btn {
+  /* Padding */
+  padding: 0.65rem 1.5rem;
+  /* Background color yellow */
+  background-color: #FFCD00;
+  /* Color dark */
+  color: #333;
+  /* Border none */
+  border: none;
+  /* Border radius */
+  border-radius: 2px;
+  /* Font size */
+  font-size: 0.95rem;
+  /* Font weight */
+  font-weight: 600;
+  /* Cursor pointer */
+  cursor: pointer;
+  /* Transition */
+  transition: all 0.2s ease;
+  /* Font family inherit */
+  font-family: inherit;
+  /* Flex shrink 0 */
+  flex-shrink: 0;
+}
+
+/* Nav logout button hover */
+.nav-logout-btn:hover {
+  /* Background color darker yellow */
+  background-color: #FFB81C;
+  /* Box shadow */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Nav logout button active */
+.nav-logout-btn:active {
+  /* Transform */
+  transform: translateY(1px);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  /* Navigation bar */
+  .navigation-bar {
+    /* Flex direction column */
+    flex-direction: column;
+    /* Align items flex-start */
+    align-items: flex-start;
+    /* Gap */
+    gap: 1rem;
+    /* Padding */
+    padding: 1rem;
+  }
+
+  /* Nav branding */
+  .nav-branding {
+    /* Width 100% */
+    width: 100%;
+  }
+
+  /* Nav title */
+  .nav-title {
+    /* Font size */
+    font-size: 1.1rem;
+  }
+
+  /* Nav links */
+  .nav-links {
+    /* Width 100% */
+    width: 100%;
+    /* Flex wrap */
+    flex-wrap: wrap;
+  }
+
+  /* Nav link button */
+  .nav-link {
+    /* Flex 1 */
+    flex: 1;
+    /* Min width */
+    min-width: 120px;
+  }
+
+  /* Nav logout button */
+  .nav-logout-btn {
+    /* Width 100% */
+    width: 100%;
+  }
+}
+
+/* Sidebar styles */
+.navigation-sidebar {
+  width: 240px;
+  height: 100vh;
+  background: #BA0C2F;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+  border-right: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  flex-shrink: 0;
+  flex-grow: 0;
+  min-width: 240px;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.dhl-logo {
+  width: 72px;
+  height: auto;
+  display: block;
+}
+
+.sidebar-subtitle {
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.88);
+  font-weight: 600;
+}
+
+.sidebar-title {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-module-group {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.sidebar-module-title {
+  margin: 0 0 0.35rem 0;
+  padding: 0 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.72);
+}
+
+.sidebar-module-item {
+  width: 100%;
+  padding: 0.75rem 0.875rem;
+  border: none;
+  background: transparent;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.sidebar-module-item:hover {
+  background: rgba(255,255,255,0.12);
+  color: #FFCD00;
+}
+
+.sidebar-module-label {
+  display: block;
+}
+
+.sidebar-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.75rem 0.875rem;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.sidebar-item:hover {
+  background: rgba(255,255,255,0.12);
+  color: #FFCD00;
+}
+
+.sidebar-item:active {
+  background: rgba(255,255,255,0.18);
+}
+
+.sidebar-item .sidebar-icon { color: #FFCD00; }
+.sidebar-item .sidebar-label { color: #ffffff; }
+
+.sidebar-icon { 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Top bar styles */
+.topbar {
+  height: 64px;
+  background: #BA0C2F;
+  color: white;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  flex-shrink: 0;
+}
+
+.topbar-search {
+  flex: 1;
+  max-width: 500px;
+}
+
+.topbar-search input {
+  width: 100%;
+  padding: 0.5rem 0.875rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.1);
+  color: #ffe8a3;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.topbar-search input::placeholder {
+  color: rgba(255,205,0,0.8);
+}
+
+.topbar-search input:focus {
+  outline: none;
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.4);
+}
+
+.topbar-actions { 
+  display: flex; 
+  align-items: center; 
+  gap: 1rem;
+  position: relative;
+}
+
+.profile-btn { 
+  background: transparent; 
+  border: none; 
+  cursor: pointer; 
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-icon {
+  width: 28px;
+  height: 28px;
+  color: #ffcd00;
+  filter: drop-shadow(0 0 6px rgba(255,205,0,0.55));
+}
+
+.profile-icon path {
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.profile-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  background: white;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  border-radius: 4px;
+  min-width: 180px;
+}
+
+.profile-menu-item { 
+  display: block; 
+  padding: 0.75rem 1rem; 
+  background: transparent; 
+  border: none; 
+  width: 100%; 
+  text-align: left; 
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.profile-menu-item:hover {
+  background: #f5f5f5;
+  color: #BA0C2F;
+}
+
+/* Layout adjustments for protected layout */
+.protected-layout {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+}
+
+.protected-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #f8f9fa;
+  overflow: auto;
+}
