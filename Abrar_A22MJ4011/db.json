@@ -1,0 +1,637 @@
+{
+  "users": [
+    {
+      "id": "user-1",
+      "username": "admin",
+      "password": "admin123",
+      "role": "admin",
+      "name": "Admin User"
+    },
+    {
+      "id": "user-2",
+      "username": "editor",
+      "password": "editor123",
+      "role": "editor",
+      "name": "DHL Editor"
+    },
+    {
+      "id": "user-3",
+      "username": "uipath-bot",
+      "password": "uipath123",
+      "role": "bot",
+      "name": "UiPath Bot"
+    }
+  ],
+  "articles": [
+    {
+      "id": "b4767ff2-a1cf-4810-b144-12c5dcd6828b",
+      "title": "Address Validation Procedure",
+      "summary": "This SOP outlines the steps to correct an invalid customer address due to a missing postcode. It provides a clear process for adding the postcode, revalidating the address, and proceeding with the booking.",
+      "steps": [
+        "Step 1: Manually add the missing postcode to the customer address.",
+        "Step 2: Revalidate the address to ensure it is correct.",
+        "Step 3: Save the updated address and continue with the booking process."
+      ],
+      "tags": [
+        "address validation",
+        "postcode correction",
+        "booking process"
+      ],
+      "category": "General",
+      "rawInput": "Customer address invalid. Team chat says postcode missing. Fix: Add postcode manually, Revalidate address, Save and continue booking.",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:17:55.849Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:17:55.849Z",
+      "updatedAt": "2026-05-15T14:17:55.849Z"
+    },
+    {
+      "id": "b78eaa9b-ca48-4329-9181-6cf5cb4c08b0",
+      "title": "Customer Credit Approval and Onboarding Process",
+      "summary": "This SOP outlines the procedures for approving customer credit and onboarding new customers. It ensures a standardized approach to evaluating creditworthiness and integrating new clients into the system.",
+      "steps": [
+        "Step 1: Gather necessary documentation from the customer, including financial statements and credit history.",
+        "Step 2: Evaluate the customer's creditworthiness based on the provided information and internal criteria.",
+        "Step 3: Approve or deny the credit application and communicate the decision to the customer.",
+        "Step 4: If approved, initiate the onboarding process by entering customer details into the system and providing necessary training or resources."
+      ],
+      "tags": [
+        "Customer Service",
+        "Credit Approval",
+        "Onboarding"
+      ],
+      "category": "General",
+      "rawInput": "Word Document: Customer Credit Approval and New Customer Onboarding Process.docx. Convert it to a suitable format",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:18:00.240Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:18:00.240Z",
+      "updatedAt": "2026-05-15T14:18:00.240Z"
+    },
+    {
+      "id": "6ad47d7f-6b1c-4508-9aed-1aad478e65a4",
+      "title": "User Authorization Error Resolution",
+      "summary": "This SOP outlines the steps to resolve the AUTH_401 error code, which indicates that a user is not authorized to access a specific module. It provides guidance on checking user group access and ensuring proper role assignment.",
+      "steps": [
+        "Step 1: Check the Active Directory (AD) group access for the user.",
+        "Step 2: Ensure the user is assigned to the OPS_FWD_ROLE group.",
+        "Step 3: Logout of the system and log back in to apply any changes."
+      ],
+      "tags": [
+        "Authorization",
+        "Error Resolution",
+        "User Access"
+      ],
+      "category": "System",
+      "rawInput": "Error Code: AUTH_401 User not authorized to access module. Resolution: - Check AD group access - User must be in OPS_FWD_ROLE - Logout and login again",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:18:04.619Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:18:04.619Z",
+      "updatedAt": "2026-05-15T14:18:04.619Z"
+    },
+    {
+      "id": "bf3d34b8-533d-4a27-88b5-6431977afb92",
+      "title": "Troubleshooting Label Printing Issues",
+      "summary": "This SOP outlines the steps to resolve common label printing problems, particularly those related to printer cache issues. It provides a systematic approach to restart the printer service, clear the print queue, and ensure optimal printing quality.",
+      "steps": [
+        "Step 1: Restart the printer service to refresh the printer's connection.",
+        "Step 2: Clear the print queue to remove any stuck print jobs.",
+        "Step 3: Reprint the label to check if the issue is resolved.",
+        "Step 4: If the label is still unclear, replace the toner cartridge."
+      ],
+      "tags": [
+        "printing",
+        "troubleshooting",
+        "labels"
+      ],
+      "category": "System",
+      "rawInput": "Label not printing properly. Usually printer cache issue. Restart printer service, Clear queue, Reprint label. If still blur, change toner.",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:18:09.582Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:18:09.582Z",
+      "updatedAt": "2026-05-15T14:18:09.582Z"
+    },
+    {
+      "id": "017ad3e8-17be-4237-bad0-36e43d1cfc8b",
+      "title": "HTTP Request Handling and File Processing Workflow",
+      "summary": "This SOP outlines the procedure for handling HTTP requests and processing files within the DHL system. It details the steps for sending requests, managing file lists, and checking for duplicates in the workflow.",
+      "steps": [
+        "Step 1: Initiate an HTTP POST request with the specified URL and parameters, ensuring the content type is set to application/json.",
+        "Step 2: Assign values to variables for tracking created, duplicate, and error counts during the workflow execution.",
+        "Step 3: Fetch files from the drive, read the text file, and split the content into a list for further processing.",
+        "Step 4: For each file in the list, check for duplicates by invoking the appropriate workflow and updating the duplicate count accordingly.",
+        "Step 5: Process the content of non-duplicate files and log the structured JSON values for further analysis."
+      ],
+      "tags": [
+        "HTTP Request",
+        "File Processing",
+        "Workflow"
+      ],
+      "category": "System",
+      "rawInput": "@ (3) Sequence A A @ Gl HTTP Request TA Request method post v Request URL (0 putocaoscaoooiapiaut 12) Parameters Headers ctick to open afc) click to open in 2) Request body type Text. Text content type application/json X v @ Text ) (username:uipath-bot,passwc @ Text encoding ures x v@ 2 Assign cA To variable (out ) (3 token @ Setvalue (3 systemTextReguiarExpressions.Regex. 2 @ O Assign TA To variable (out ) (3 createdCount @ Set value ((h 0 ole O2 Assign TA To variable (out ) (3 duplicateCount @ Set value 3 0 ol @) 32 Assign tA To variable (out ) (3 errorCount @ Set value x ole) O Assign Ia To variable (out ) 0 togText l@ Set value (y 0 @ (S FetchFromDrive - Invoke Workflow File (.. : A Workflow file name Open workflow WorkflowsFetchFromDrivexaml X v@ Arguments Refresh arguments 1 item(s) in Dictionary ole B Read Text File A : A File (local path) Use a File Resource () CoH Tempel cll O Assign TA To variable (out ) (3 fileList l@ Set value ( New List(Of StringXfileListRaw.Split(Nev . @ 82 Log Message tA Message (3 fileList count: fileList.CountToString @ Log Level info v@ CJ For Each currentFilePath AA In 1) fiteList Oo @ Ly Body A A J Trycatch A: A l Ly Try A: oa BN @ 2 DuplicateCheck - Invoke Workflow File (.. : A Workflow file name Open workflow (Workiows ouplatechecioamt X Arguments Refresh arguments El item(s) in Dictlonary L l@ B Read Text File A A File (local path) Use a File Resource (3 CADHL Tempidupcheck tx ole Os Assign IA To variable (out) (3 IsDuplicate @ Set value (3 dupCheckRawTrim(ToLower() strue 7 @ 2 x fa Condition () isDuplicate z true 0 Ic) Ls Then tA @ Assign PA To variable (out) ) duplicateCount @ Set value (3 duplicateCount 1 Wo l@ @ Ly Else TA @ QR ProcessContent - Invoke Workflow File (... : A Workflow file name Open workflow WorkflowsAProcessContent.xaml X v @ Arguments Refresh arguments 3 item(s) in Dictionary Ol @ 05 Log Message Ia Message (3 structuredjson value: 4 structuredjso 7 l@ Log Level tnfo @ nD PostToWebApp - Invoke Workflow File",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:18:52.403Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:18:52.403Z",
+      "updatedAt": "2026-05-15T14:18:52.403Z"
+    },
+    {
+      "id": "84e182de-abbd-4801-9e18-8da3f1b06537",
+      "title": "New Staff Setup Procedure",
+      "summary": "This SOP outlines the steps required to set up new staff members within the organization. It includes the creation of accounts, granting access to necessary systems, and sharing relevant documentation.",
+      "steps": [
+        "Step 1: Create Active Directory (AD) account for the new staff member.",
+        "Step 2: Provide access to the company email account.",
+        "Step 3: Assign SAP and CW1 roles to the new staff member.",
+        "Step 4: Share the Standard Operating Procedures (SOP) folder with the new staff member.",
+        "Step 5: Note that delays may occur if the SAP request is not approved."
+      ],
+      "tags": [
+        "staff onboarding",
+        "account setup",
+        "system access"
+      ],
+      "category": "General",
+      "rawInput": "New staff setup steps: ✔ Create AD account ✔ Give email access ✔ SAP + CW1 role ✔ Share SOP folder Delay usually because SAP request not approved",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:18:58.001Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:18:58.001Z",
+      "updatedAt": "2026-05-15T14:18:58.001Z"
+    },
+    {
+      "id": "a1d825ea-4351-41a5-b993-dc7727733c83",
+      "title": "POD Upload Procedure",
+      "summary": "This SOP outlines the steps to successfully upload Proof of Delivery (POD) images. It includes instructions on image compression and post-upload actions to ensure successful submission.",
+      "steps": [
+        "Step 1: Compress the image file before uploading to reduce its size.",
+        "Step 2: Use JPEG format for better compatibility over PNG.",
+        "Step 3: After uploading the image, refresh the screen twice to confirm the upload."
+      ],
+      "tags": [
+        "POD",
+        "upload",
+        "image compression"
+      ],
+      "category": "System",
+      "rawInput": "POD upload failed again 😓 Error msg: “File size too large” Just compress the image before uploading. JPEG works better than PNG. After upload, refresh screen twice.",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:19:01.432Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:19:01.432Z",
+      "updatedAt": "2026-05-15T14:19:01.432Z"
+    },
+    {
+      "id": "582b0063-13e3-49aa-a4a0-b1cb41e4deb8",
+      "title": "Untitled",
+      "summary": "",
+      "steps": [],
+      "tags": [],
+      "category": "General",
+      "rawInput": "",
+      "source": "manual",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:19:02.861Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:19:02.861Z",
+      "updatedAt": "2026-05-15T14:19:02.861Z"
+    },
+    {
+      "id": "a3880d4b-90be-40c2-9cf4-d135f937cf46",
+      "title": "Handling Orchestrator Errors in Document Uploads",
+      "summary": "This SOP outlines the steps to take when encountering errors related to the Document Upload Queue in the Orchestrator. It specifically addresses the handling of runtime execution errors and missing queue issues.",
+      "steps": [
+        "Step 1: Verify the folder path for the Orchestrator and ensure it is correctly configured.",
+        "Step 2: Check the status of the Document Upload Queue to confirm its existence.",
+        "Step 3: If a 404 error occurs, review the transaction item and ensure it is correctly referenced in the queue."
+      ],
+      "tags": [
+        "Orchestrator",
+        "Error Handling",
+        "Document Upload"
+      ],
+      "category": "System",
+      "rawInput": "3 wustd HadllodlliVil itt iT Uli Lic yutuc . nN Orchestrator folder path smhabrar@graduate.utm.mys workspace X cl smhabrar@graduate.utm.mys workspace ues Shared DocumentUploadQuete Xv@ If atransactionitemwas @) Runtime execution error X Condition a : Source: Get a transaction item from the queue l ) transite Message: Status code: 404 (Not Found). Orchestrator response: 1 DocumentUploadQueue does not exist. Error code: 1002 l Exception Type: UiPath.Core.Activities.OrchestratorHttpException en l Details v l Openlogs Copy to Clipboard OK Then LS : - A @ 1 Process the transaction Item : A @ (3) Assign values from transaction item specific content to varlables : A (o om minal Q@ Errors",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:19:15.692Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:19:15.692Z",
+      "updatedAt": "2026-05-15T14:19:15.692Z"
+    },
+    {
+      "id": "f0e793e3-0fd6-4c7c-aca9-349f67458378",
+      "title": "Document Format Conversion Procedure",
+      "summary": "This SOP outlines the steps required to convert a Word document into a suitable format for distribution and use. It ensures that documents are accessible and compatible with various systems.",
+      "steps": [
+        "Step 1: Open the Word document that needs to be converted.",
+        "Step 2: Select 'File' from the menu and choose 'Save As'.",
+        "Step 3: In the 'Save as type' dropdown menu, select the desired format (e.g., PDF, TXT, etc.) and click 'Save'."
+      ],
+      "tags": [
+        "document conversion",
+        "formatting",
+        "SOP"
+      ],
+      "category": "General",
+      "rawInput": "Word Document: SOP.docx. Convert it to a suitable format",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:19:19.330Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:19:19.330Z",
+      "updatedAt": "2026-05-15T14:19:19.330Z"
+    },
+    {
+      "id": "3983fa45-2183-4dd5-8b61-d6c47d8684a4",
+      "title": "Booking Checklist for Shipments",
+      "summary": "This SOP outlines the essential steps for preparing a booking checklist for shipments, ensuring all necessary details are confirmed before dispatch. It emphasizes the importance of correct incoterms and pickup date verification.",
+      "steps": [
+        "Step 1: Verify the customer's purchase order (PO) for accuracy.",
+        "Step 2: Confirm the correct incoterms are applied to the shipment.",
+        "Step 3: Ensure the pickup date is confirmed with the logistics team."
+      ],
+      "tags": [
+        "booking",
+        "checklist",
+        "shipping"
+      ],
+      "category": "Delivery",
+      "rawInput": "Uo ial Booking ChecklistECustomeg POX Correct incotermB Pickup date confirmed @Welght Scineosweriziiagpiisiy felted 5",
+      "source": "uipath-drive",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:19:25.390Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:19:25.390Z",
+      "updatedAt": "2026-05-15T14:19:25.390Z"
+    },
+    {
+      "id": "1d4ad62e-816f-4399-831d-1f35687d8f72",
+      "title": "Resolving Shipment Routing Code Issues",
+      "summary": "This SOP outlines the steps to take when a shipment is stuck due to an invalid routing code. It provides a clear process for refreshing the shipment ID and reprocessing the shipment to ensure timely delivery.",
+      "steps": [
+        "Step 1: Log out of the system to refresh the session.",
+        "Step 2: Log back into the system and locate the shipment ID that is experiencing issues.",
+        "Step 3: Reprocess the shipment to update the routing code and resolve any errors."
+      ],
+      "tags": [
+        "shipment",
+        "routing code",
+        "reprocessing"
+      ],
+      "category": "Delivery",
+      "rawInput": "Hey teamishipmentiz845 12igotstuckiadainssystem saysginvaiid Routing Code last time this happened we refreshed theishipmentidatallogged outand reprocessed YAlsol",
+      "source": "uipath-drive",
+      "status": "Reviewed",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:19:32.530Z",
+          "by": "uipath-bot"
+        },
+        {
+          "status": "Reviewed",
+          "changedAt": "2026-05-15T14:20:43.264Z",
+          "by": "admin"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:19:32.530Z",
+      "updatedAt": "2026-05-15T14:20:43.264Z",
+      "updatedBy": "admin"
+    },
+    {
+      "id": "22bb7e8b-5f9b-400d-9876-86726557c245",
+      "title": "Untitled",
+      "summary": "",
+      "steps": [],
+      "tags": [],
+      "category": "General",
+      "rawInput": "",
+      "source": "manual",
+      "status": "Draft",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:19:33.873Z",
+          "by": "uipath-bot"
+        }
+      ],
+      "createdBy": "uipath-bot",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:19:33.873Z",
+      "updatedAt": "2026-05-15T14:19:33.873Z"
+    },
+    {
+      "id": "9cb0cce8-5ef5-4f3a-9329-f5c9b926df23",
+      "title": "UIPath Methods for Project Implementation in DHL DAC 3.0",
+      "summary": "This SOP outlines the methods utilized in UIPath for effective project implementation. It provides a structured approach to ensure consistency and efficiency in automation processes.",
+      "steps": [
+        "Step 1: Identify the project requirements and objectives.",
+        "Step 2: Design the automation workflow using UIPath.",
+        "Step 3: Test the automation to ensure it meets the specified requirements."
+      ],
+      "tags": [
+        "UIPath",
+        "Automation",
+        "Project Management"
+      ],
+      "category": "System",
+      "rawInput": "This is the methods used in UIPath for our project",
+      "source": "manual",
+      "status": "Published",
+      "statusHistory": [
+        {
+          "status": "Draft",
+          "changedAt": "2026-05-15T14:22:09.042Z",
+          "by": "admin"
+        },
+        {
+          "status": "Reviewed",
+          "changedAt": "2026-05-15T14:22:53.217Z",
+          "by": "admin"
+        },
+        {
+          "status": "Published",
+          "changedAt": "2026-05-15T14:23:17.264Z",
+          "by": "admin"
+        }
+      ],
+      "createdBy": "admin",
+      "fileAttachments": [],
+      "createdAt": "2026-05-15T14:22:09.042Z",
+      "updatedAt": "2026-05-15T14:23:17.264Z",
+      "updatedBy": "admin"
+    }
+  ],
+  "duplicateHashes": [
+    {
+      "id": "4b6a3cc2-e8f0-45ec-b79f-2a416e90ae4a",
+      "hash": "107d7dc6994e897f238e9d963b2ff0a9",
+      "checkedAt": "2026-05-15T14:17:51.519Z"
+    },
+    {
+      "id": "81dfca35-2994-4710-a839-8eeac29c2c6d",
+      "hash": "a05481855d46eafc10ab6c3d4ad87912",
+      "checkedAt": "2026-05-15T14:17:55.906Z"
+    },
+    {
+      "id": "7c6b8b2a-fe4e-46a7-ac0d-97b8f7aedfd8",
+      "hash": "2876dddb201d20b42b09dbea54842444",
+      "checkedAt": "2026-05-15T14:18:00.275Z"
+    },
+    {
+      "id": "f9e35c17-290b-4a37-bf70-9a89f48d825e",
+      "hash": "f476c2415b1ad81bff8ffdb4b9eda739",
+      "checkedAt": "2026-05-15T14:18:04.655Z"
+    },
+    {
+      "id": "66b4471d-3512-43d3-b7fb-f1433127154b",
+      "hash": "0f82def4b4e115dd3eb23ceec323ced9",
+      "checkedAt": "2026-05-15T14:18:09.632Z"
+    },
+    {
+      "id": "950e154b-dae1-4b36-b359-206640befd64",
+      "hash": "e7ef88c7266c1d0e37a94a923707a4bb",
+      "checkedAt": "2026-05-15T14:18:52.441Z"
+    },
+    {
+      "id": "ed892789-3f89-47ac-a153-6c90c9698b4f",
+      "hash": "9518109ccf5fece0e222ae08f51d5f1f",
+      "checkedAt": "2026-05-15T14:18:58.041Z"
+    },
+    {
+      "id": "90d2f2b9-34a7-4746-aac3-e81847685a7e",
+      "hash": "767214cab759ceae052282d34c63dca6",
+      "checkedAt": "2026-05-15T14:19:01.492Z"
+    },
+    {
+      "id": "a98bca79-d0ff-4b4e-b531-7850283c864e",
+      "hash": "be28a64d53a6547e254f88c327c30061",
+      "checkedAt": "2026-05-15T14:19:02.898Z"
+    },
+    {
+      "id": "49455989-8b07-43b5-8849-3d99e8a0ca74",
+      "hash": "5efd4261d6cb2e14ddf1c4d26fbba76c",
+      "checkedAt": "2026-05-15T14:19:15.730Z"
+    },
+    {
+      "id": "17bca63d-d7c9-4a43-920c-86a6702b04a1",
+      "hash": "7edefe7ee8e9e4a600ce662eaa77604f",
+      "checkedAt": "2026-05-15T14:19:19.364Z"
+    },
+    {
+      "id": "428b0a6c-4494-49fc-9ed0-be4ee4e01902",
+      "hash": "72b3e03e2073dabca6b25b7f58281e33",
+      "checkedAt": "2026-05-15T14:19:25.430Z"
+    },
+    {
+      "id": "55f0bcf4-4354-4080-b0d5-d4f657bee543",
+      "hash": "c54d15612440d4db3c8bb94ff3e968b7",
+      "checkedAt": "2026-05-15T14:19:32.572Z"
+    }
+  ],
+  "logs": [
+    {
+      "id": "629938d1-d48b-4582-b5d5-ab575efd0498",
+      "message": "DHL KB Automation Run - 15/05/2026 17:19 | ======================== | Created: 9 | Duplicates Skipped: 0 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T09:19:13.859Z"
+    },
+    {
+      "id": "60031f59-bf87-4c15-8256-8c42e6eaae70",
+      "message": "DHL KB Automation Run - 15/05/2026 17:20 | ======================== | Created: 0 | Duplicates Skipped: 9 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T09:20:04.509Z"
+    },
+    {
+      "id": "a82bcf5f-058b-4023-b76c-0292a9470001",
+      "message": "DHL KB Automation Run - 15/05/2026 17:31 | ======================== | Created: 3 | Duplicates Skipped: 9 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T09:31:32.273Z"
+    },
+    {
+      "id": "08aeab60-c7a6-4f51-b0fd-22437bc494e4",
+      "message": "DHL KB Automation Run - 15/05/2026 17:33 | ======================== | Created: 0 | Duplicates Skipped: 12 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T09:33:09.085Z"
+    },
+    {
+      "id": "5002223c-15de-42ed-b709-66ff5c7ae2ab",
+      "message": "DHL KB Automation Run - 15/05/2026 17:38 | ======================== | Created: 0 | Duplicates Skipped: 12 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T09:38:15.029Z"
+    },
+    {
+      "id": "3b957cab-e69a-4570-b616-60fcfe5794d4",
+      "message": "DHL KB Automation Run - 15/05/2026 17:42 | ======================== | Created: 1 | Duplicates Skipped: 12 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T09:42:51.030Z"
+    },
+    {
+      "id": "5e6efb82-eb1d-4797-8f8a-8b85ce90880a",
+      "message": "DHL KB Automation Run - 15/05/2026 17:47 | ======================== | Created: 13 | Duplicates Skipped: 0 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T09:47:31.641Z"
+    },
+    {
+      "id": "2c6c3162-085c-415c-b00e-5fd0790969a7",
+      "message": "DHL KB Automation Run - 15/05/2026 18:14 | ======================== | Created: 13 | Duplicates Skipped: 0 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T10:14:48.862Z"
+    },
+    {
+      "id": "90aa3a40-878d-4e41-a2fb-1028bd59d0cd",
+      "message": "DHL KB Automation Run - 15/05/2026 18:26 | ======================== | Created: 13 | Duplicates Skipped: 0 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T10:26:22.147Z"
+    },
+    {
+      "id": "3b95f958-3c1e-4d27-9666-7a4c91918fb3",
+      "message": "DHL KB Automation Run - 15/05/2026 21:15 | ======================== | Created: 0 | Duplicates Skipped: 13 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T13:15:55.393Z"
+    },
+    {
+      "id": "85fee7f9-2ef7-4137-8cb2-00d4e5c1f593",
+      "message": "DHL KB Automation Run - 15/05/2026 21:23 | ======================== | Created: 13 | Duplicates Skipped: 0 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T13:23:01.065Z"
+    },
+    {
+      "id": "da42c4bb-f1e0-4efb-bafb-ad9e2293f30d",
+      "message": "DHL KB Automation Run - 15/05/2026 21:37 | ======================== | Created: 13 | Duplicates Skipped: 0 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T13:37:23.942Z"
+    },
+    {
+      "id": "d6d5e794-b28c-4236-8cf9-060b3cf9ce70",
+      "message": "DHL KB Automation Run - 15/05/2026 21:40 | ======================== | Created: 0 | Duplicates Skipped: 13 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T13:40:49.857Z"
+    },
+    {
+      "id": "bae70f89-3112-4af9-8e5f-f2e67e802498",
+      "message": "DHL KB Automation Run - 15/05/2026 21:42 | ======================== | Created: 0 | Duplicates Skipped: 13 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T13:42:17.240Z"
+    },
+    {
+      "id": "f430087a-b341-4c01-be3d-538ec2621dce",
+      "message": "DHL KB Automation Run - 15/05/2026 21:49 | ======================== | Created: 12 | Duplicates Skipped: 0 | Errors: 1 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T13:49:31.694Z"
+    },
+    {
+      "id": "4028cbf2-9f3a-4e1e-989f-614b2b8ac6c5",
+      "message": "DHL KB Automation Run - 15/05/2026 22:01 | ======================== | Created: 13 | Duplicates Skipped: 0 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T14:01:28.898Z"
+    },
+    {
+      "id": "b736f562-32cf-4550-8ed9-d16867b01794",
+      "message": "DHL KB Automation Run - 15/05/2026 22:06 | ======================== | Created: 0 | Duplicates Skipped: 13 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T14:06:00.182Z"
+    },
+    {
+      "id": "d73ea93a-ddb9-4040-9296-64585b1f23a1",
+      "message": "DHL KB Automation Run - 15/05/2026 22:19 | ======================== | Created: 13 | Duplicates Skipped: 0 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T14:19:33.923Z"
+    },
+    {
+      "id": "8e8537a1-d41d-4dc1-8880-9161dcebec3e",
+      "message": "DHL KB Automation Run - 15/05/2026 22:24 | ======================== | Created: 0 | Duplicates Skipped: 13 | Errors: 0 | ========================",
+      "level": "info",
+      "createdAt": "2026-05-15T14:24:11.567Z"
+    }
+  ]
+}
