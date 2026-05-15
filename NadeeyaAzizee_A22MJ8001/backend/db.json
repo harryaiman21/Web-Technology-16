@@ -1,0 +1,286 @@
+{
+  "incidents": [
+    {
+      "id": "INC-45732507",
+      "title": "Minor Delay in Parcel Delivery",
+      "description": "Dear Customer Service Team,\r\n\r\nI would like to raise a minor concern regarding my recent parcel delivery.\r\nThe parcel arrived slightly later than the estimated delivery date provided\r\nin the tracking system.\r\n\r\nAlthough I understand that small delays may occasionally happen, I would\r\nappreciate more accurate delivery updates in the future to help customers\r\nplan accordingly.\r\n\r\nThank you for your attention to this matter.\r\n\r\nYours sincerely,\r\nNadeeya\r\n",
+      "tags": [
+        "Late Delivery"
+      ],
+      "status": "Draft",
+      "createdBy": "nadeeya@graduate.utm.my",
+      "createdAt": "2026-05-15T07:12:08.7585989Z",
+      "source": "Email",
+      "attachments": [],
+      "hash": "4FBFC7C4",
+      "history": [
+        {
+          "status": "Draft",
+          "date": "2026-05-15T07:12:08.7586151Z"
+        }
+      ],
+      "summary": "Customer experienced a minor delay in parcel delivery and requests more accurate tracking updates.",
+      "priority": "Low"
+    },
+    {
+      "id": "INC-9B610ED5",
+      "title": "Packaging Slightly Damaged During Delivery",
+      "description": "Dear Customer Service Team,\r\n\r\nI recently received a parcel delivered through your service and noticed\r\nthat the outer packaging was slightly damaged upon arrival. Fortunately,\r\nthe item inside was not affected.\r\n\r\nI am writing this feedback so that extra care can be taken when handling\r\nparcels in transit to avoid possible damage in future deliveries.\r\n\r\nThank you for your time and consideration.\r\n\r\nYours sincerely,\r\nNadeeya\r\n",
+      "tags": [
+        "Damaged Parcel"
+      ],
+      "status": "Draft",
+      "createdBy": "nadeeya@graduate.utm.my",
+      "createdAt": "2026-05-15T07:12:09.6131130Z",
+      "source": "Email",
+      "attachments": [],
+      "hash": "359D72D7",
+      "history": [
+        {
+          "status": "Draft",
+          "date": "2026-05-15T07:12:09.6131253Z"
+        }
+      ],
+      "summary": "Customer received a parcel with minor damage to the outer packaging.",
+      "priority": "Low"
+    },
+    {
+      "id": "INC-B76B7183",
+      "title": "Tracking Information Not Updated Promptly",
+      "description": "Dear Customer Service Team,\r\n\r\nI would like to provide feedback regarding the tracking system for my\r\nrecent parcel delivery. During transit, the tracking information was not\r\nupdated regularly, which made it difficult to know the parcel’s current\r\nstatus.\r\n\r\nThe parcel was eventually delivered successfully, but more consistent\r\nupdates would improve the customer experience and reduce uncertainty.\r\n\r\nThank you for considering this feedback.\r\n\r\nYours sincerely,\r\nNadeeya\r\n",
+      "tags": [
+        "Others"
+      ],
+      "status": "Draft",
+      "createdBy": "dyazizee@gmail.com",
+      "createdAt": "2026-05-15T07:12:09.6960255Z",
+      "source": "Email",
+      "attachments": [],
+      "hash": "613C0162",
+      "history": [
+        {
+          "status": "Draft",
+          "date": "2026-05-15T07:12:09.6960341Z"
+        }
+      ],
+      "summary": "Customer experienced uncertainty with parcel tracking updates, leading to a less-than-ideal delivery experience."
+    },
+    {
+      "id": "INC-63D0AE57",
+      "title": "Failed Delivery Attempts Without Notification",
+      "description": "Dear Customer Service Team,\r\n\r\nI was surprised to see that my parcel was marked as having multiple failed\r\ndelivery attempts, despite not receiving any notification or contact from\r\nthe courier.\r\n\r\nI was available at the address during the stated times, and no attempt was\r\nmade to reach me. This raises concerns about the accuracy of the delivery\r\nreporting.\r\n\r\nPlease arrange for a redelivery and ensure proper communication moving\r\nforward.\r\n\r\nYours sincerely,\r\nNadeeya\r\n",
+      "tags": [
+        "Others"
+      ],
+      "status": "Draft",
+      "createdBy": "dyazizee@gmail.com",
+      "createdAt": "2026-05-15T07:12:09.7491753Z",
+      "source": "Email",
+      "attachments": [],
+      "hash": "6449D9F7",
+      "history": [
+        {
+          "status": "Draft",
+          "date": "2026-05-15T07:12:09.7491838Z"
+        }
+      ],
+      "summary": "Customer received no notification despite multiple failed delivery attempts.",
+      "priority": "High"
+    },
+    {
+      "id": "INC-FCC69922",
+      "title": "Overcharged Shipping Fees",
+      "description": "Dear Customer Service Team,\r\n\r\nI am writing to raise a concern regarding the shipping charges applied to\r\nmy recent parcel. The fees appear to be significantly higher than initially\r\nquoted.\r\n\r\nI request a breakdown of the charges and clarification on the discrepancy.\r\nIf an error has occurred, I expect a refund for the excess amount paid.\r\n\r\nTransparency in pricing is essential, and I hope this matter can be\r\nresolved promptly.\r\n\r\nThank you.\r\n\r\nYours sincerely,\r\nNadeeya\r\n",
+      "tags": [
+        "Price Error"
+      ],
+      "status": "Draft",
+      "createdBy": "nadeeya@graduate.utm.my",
+      "createdAt": "2026-05-15T07:12:09.7926294Z",
+      "source": "Email",
+      "attachments": [],
+      "hash": "5A6C8608",
+      "history": [
+        {
+          "status": "Draft",
+          "date": "2026-05-15T07:12:09.7926393Z"
+        }
+      ],
+      "summary": "Customer claims incorrect shipping charge and requests refund."
+    },
+    {
+      "id": "INC-B20E06AD",
+      "title": "Complaint Regarding Delayed Delivery",
+      "description": "Dear Customer Service Team at DHL,\r\n\r\nI am writing to report a significant delay in the delivery of my parcel.\r\nAccording to the tracking information, the parcel was expected to arrive\r\nseveral days ago, but it has yet to be delivered. The delay has caused\r\ninconvenience, as the contents were time-sensitive.\r\n\r\nWhile I understand that unforeseen circumstances may arise, I did not\r\nreceive any prior notification or explanation regarding the delay. This\r\nlack of communication has made it difficult to plan accordingly.\r\n\r\nI kindly request an update on the current status of my parcel and a clear\r\nexplanation for the delay. Additionally, I would appreciate assurance that\r\nappropriate measures are being taken to prevent such issues in the future.\r\n\r\nThank you for your prompt attention.\r\n\r\nYours sincerely,\r\nDee\r\n",
+      "tags": [
+        "Late Delivery"
+      ],
+      "status": "Draft",
+      "createdBy": "nadeeya@graduate.utm.my",
+      "createdAt": "2026-05-15T07:12:09.8642928Z",
+      "source": "Email",
+      "attachments": [],
+      "hash": "49A38E0C",
+      "history": [
+        {
+          "status": "Draft",
+          "date": "2026-05-15T07:12:09.8643007Z"
+        }
+      ],
+      "summary": "Customer experienced significant delay in parcel delivery, impacting time-sensitivity of contents."
+    },
+    {
+      "id": "INC-6243B24F",
+      "title": "Parcel Stuck in Transit Without Updates",
+      "description": "Dear Customer Service Team,\r\n\r\nI am writing to inquire about a parcel that appears to be stuck in transit.\r\nThe tracking status has not been updated for several days.\r\n\r\nThis lack of progress and communication is concerning, as I have no\r\nvisibility on when the parcel will arrive.\r\n\r\nI request a detailed update on the parcel’s status and expected delivery\r\ntimeline. Please also investigate the cause of the delay.\r\n\r\nI look forward to your prompt reply.\r\n\r\nYours sincerely,\r\nAzaya\r\n",
+      "tags": [
+        "Late Delivery"
+      ],
+      "status": "Draft",
+      "createdBy": "wavesby.azaya@gmail.com",
+      "createdAt": "2026-05-15T07:12:09.9899297Z",
+      "source": "Email",
+      "attachments": [],
+      "hash": "555EE110",
+      "history": [
+        {
+          "status": "Draft",
+          "date": "2026-05-15T07:12:09.9899389Z"
+        }
+      ],
+      "summary": "Parcel stuck in transit, no tracking updates."
+    },
+    {
+      "id": "INC-C9E21528",
+      "title": "Unprofessional Behavior of Delivery Personnel",
+      "description": "Dear Customer Service Team at ,\r\n\r\nI would like to report an issue regarding the conduct of a delivery\r\npersonnel assigned to my recent parcel.\r\n\r\nDuring the delivery, the staff member displayed unprofessional behavior,\r\nincluding poor communication and lack of courtesy. This created an\r\nuncomfortable experience.\r\n\r\nCustomer service extends beyond delivery accuracy, and I believe this\r\nmatter should be addressed seriously. I request that appropriate action be\r\ntaken and that your staff be reminded of expected service standards.\r\n\r\nThank you for your attention.\r\n\r\nYours sincerely,\r\nAzaya\r\n",
+      "tags": [
+        "Others"
+      ],
+      "status": "Draft",
+      "createdBy": "wavesby.azaya@gmail.com",
+      "createdAt": "2026-05-15T07:12:10.0242872Z",
+      "source": "Email",
+      "attachments": [],
+      "hash": "76508754",
+      "history": [
+        {
+          "status": "Draft",
+          "date": "2026-05-15T07:12:10.0244643Z"
+        }
+      ],
+      "summary": "Customer experienced uncomfortable delivery experience due to unprofessional staff behavior."
+    },
+    {
+      "id": "INC-D56226D9",
+      "title": "Incorrect Item Delivered",
+      "description": "Dear Customer Service Team at DHL,\r\n\r\nI recently received a parcel through your service; however, the contents do\r\nnot match what I ordered. It appears that the wrong item was delivered.\r\n\r\nThis error has caused inconvenience and delay in receiving the correct\r\nproduct. I request guidance on returning the incorrect item and receiving\r\nthe correct one as soon as possible.\r\n\r\nPlease also clarify whether any additional charges will be covered, as this\r\nmistake was not on my part.\r\n\r\nI appreciate your prompt response.\r\n\r\nYours sincerely,\r\nDyazizee\r\n",
+      "tags": [
+        "Late Delivery"
+      ],
+      "status": "Draft",
+      "createdBy": "dyazizee@gmail.com",
+      "createdAt": "2026-05-15T07:12:10.0780388Z",
+      "source": "Email",
+      "attachments": [],
+      "hash": "5B6805B",
+      "history": [
+        {
+          "status": "Draft",
+          "date": "2026-05-15T07:12:10.0780461Z"
+        }
+      ],
+      "summary": "Customer received wrong item instead of ordered product, causing delay and inconvenience."
+    },
+    {
+      "id": "INC-A38B1DC0",
+      "title": "Parcel Marked Delivered but Not Received",
+      "description": "Dear Customer Service Team at DHL,\r\n\r\nI am contacting you regarding a parcel that has been marked as “delivered”\r\nin your system, despite not being received by me.\r\n\r\nI have checked with neighbors and reviewed my surroundings, but the parcel\r\ncannot be located. This raises concerns about the accuracy of the delivery\r\nprocess.\r\n\r\nI request an immediate investigation into this matter and clarification on\r\nwhere the parcel was delivered. Please advise on the next steps, including\r\ncompensation if the parcel cannot be recovered.\r\n\r\nThank you for your assistance.\r\n\r\nYours sincerely,\r\nAya\r\n",
+      "tags": [
+        "Others"
+      ],
+      "status": "Draft",
+      "createdBy": "ayazayarhu@gmail.com",
+      "createdAt": "2026-05-15T07:12:10.1018874Z",
+      "source": "Email",
+      "attachments": [],
+      "hash": "5A6D0792",
+      "history": [
+        {
+          "status": "Draft",
+          "date": "2026-05-15T07:12:10.1018953Z"
+        }
+      ],
+      "summary": "Customer reports missing parcel despite delivery confirmation.",
+      "priority": "Medium"
+    }
+  ],
+  "users": [
+    {
+      "id": "u001",
+      "username": "admin",
+      "email": "admin@company.com",
+      "role": "Admin",
+      "createdAt": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": "u002",
+      "username": "john.doe",
+      "email": "john.doe@company.com",
+      "role": "User",
+      "createdAt": "2026-02-15T00:00:00Z"
+    }
+  ],
+  "tags": [
+    {
+      "id": "tag_late_deliveries",
+      "name": "Late Deliveries"
+    },
+    {
+      "id": "tag_address_issue",
+      "name": "Address Issue"
+    },
+    {
+      "id": "tag_damaged_parcels",
+      "name": "Damaged Parcels"
+    },
+    {
+      "id": "tag_system_errors",
+      "name": "System Errors"
+    },
+    {
+      "id": "tag_customer_complaints",
+      "name": "Customer Complaints"
+    },
+    {
+      "id": "tag_1778177459953",
+      "name": "Price Error"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src_email",
+      "name": "Email"
+    },
+    {
+      "id": "src_whatsapp",
+      "name": "WhatsApp"
+    },
+    {
+      "id": "src_teams",
+      "name": "Teams"
+    },
+    {
+      "id": "src_image",
+      "name": "Image"
+    },
+    {
+      "id": "src_screenshot",
+      "name": "Screenshot"
+    },
+    {
+      "id": "src_handwriting_instruction",
+      "name": "Handwriting instruction"
+    }
+  ]
+}
