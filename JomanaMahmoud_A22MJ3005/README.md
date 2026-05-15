@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1>📦 DHL Incident Report System (IRS) — RegEx & Cloud Integration </h1>
 
-## Getting Started
+A resilient, full-stack incident management pipeline combining UiPath RPA for data acquisition, RegEx for high-speed pattern matching, and a Next.js + Supabase cloud dashboard for real-time monitoring.
 
-First, run the development server:
+Demo Video Link: https://drive.google.com/drive/folders/11O5cVxNCGGTi2Zn4Gd3MwassLLn7DQpi?usp=drive_link 
 
-```bash
+<h2>🚀 System Architecture</h2>
+
+<pre>
+┌─────────────────────────────────────────────────────────────┐
+│  Next.js Frontend (Vercel/Local)                            │
+│  ├─ Dashboard (Real-time Supabase Sync)                     │
+│  ├─ Incident Details (RegEx Output + Raw Text)              │
+│  └─ Status Management (Draft → Reviewed → Completed)        │
+└────────────────────┬────────────────────────────────────────┘
+                     │  Real-time Subscription / REST
+                     ▼
+┌─────────────────────────────────────────────────────────────┐
+│  Cloud Layer (Supabase)                                     │
+│  ├─ PostgreSQL Database (Incidents Table)                    │
+│  ├─ Row Level Security (RLS)                                 │
+│  └─ Auth & API Gateway                                      │
+└────────────────────┬────────────────────────────────────────┘
+                     │  HTTPS (REST API)
+                     ▼
+┌─────────────────────────────────────────────────────────────┐
+│  RPA Worker (UiPath)                                        │
+│  ├─ Google Drive Polling                                    │
+│  ├─ Waterfall RegEx Extraction                              │
+│  └─ Deduplication Logic (drive_id check)                    │
+└─────────────────────────────────────────────────────────────┘
+</pre>
+
+<h2> 📂 Project Structure </h2>
+
+<pre> 
+DHLWebTech2026/
+├── rpa_uipath/
+│   ├── DHLIRSProcessor.xaml    # Main Robot logic (RegEx Engine)
+│   ├── project.json            # Dependencies
+│   └── README.md               # RPA Setup & SSL Fixes
+├── web_dashboard/
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── dashboard/      # Incident Viewer
+│   │   │   └── login/          # Auth Page
+│   │   └── lib/
+│   │       └── supabase.ts     # Cloud Client
+│   └── .env.local              # API Keys (URL & Anon Key)
+└── README.md                   # This file
+</pre>
+
+<h1>⚙️ Quick Start</h1> 
+1. Database (Supabase)
+Run this SQL in your Supabase Editor:
+
+<pre>
+-- 🛠️ Database Setup: Incidents Table
+-- Run this in the Supabase SQL Editor to initialize your repository.
+
+CREATE TABLE public.incidents (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  tracking_id text NULL,
+  customer_name text NULL,
+  issue_summary text NULL,
+  priority text NULL,
+  status text DEFAULT 'In Progress',
+  source text DEFAULT 'google_drive'::text,
+  drive_id text NULL UNIQUE, 
+  file_path text NULL,
+  incident_text text NULL,   
+  user_id uuid NULL,
+  created_at timestamp with time zone DEFAULT now(),
+  CONSTRAINT incidents_pkey PRIMARY KEY (id),
+  CONSTRAINT incidents_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users (id)
+) TABLESPACE pg_default;
+</pre>
+
+2. RPA (UiPath) <br>
+
+<ul>Open DHLIRSProcessor.xaml.</ul>
+<ul>Check the "Disable SSL verification" box in the HTTP Request activity.</ul>
+<ul>Update headers with your Supabase URL and Keys.</ul>
+
+3. Dashboard (Next.js)
+<pre>
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+</pre>
