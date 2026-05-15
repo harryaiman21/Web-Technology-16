@@ -1,0 +1,43 @@
+{
+    "articles": [
+      {
+              "id": 1,
+              "title": "DHL Standard Delivery SOP",
+              "summary": "Standard Operating Procedure for DHL delivery operations",
+              "content": "This document outlines the standard procedures for DHL delivery operations including pickup, sorting, and delivery protocols.",
+              "tags": "delivery, SOP, operations",
+              "status": "Published",
+              "createdAt": "2026-05-01",
+              "author": "admin@dhl.com"
+      },
+          {
+                  "id": 2,
+                  "title": "DHL Customs Clearance Guide",
+                  "summary": "Guide for international customs clearance procedures",
+                  "content": "Detailed guide covering customs documentation, duties, taxes and clearance procedures for international shipments.",
+                  "tags": "customs, international, clearance",
+                  "status": "Reviewed",
+                  "createdAt": "2026-05-02",
+                  "author": "admin@dhl.com"
+          },
+          {
+                  "id": 3,
+                  "title": "DHL Warehouse Safety Protocol",
+                  "summary": "Safety protocols for DHL warehouse operations",
+                  "content": "Comprehensive safety guidelines for warehouse staff including equipment handling, hazardous materials, and emergency procedures.",
+                  "tags": "safety, warehouse, protocol",
+                  "status": "Draft",
+                  "createdAt": "2026-05-03",
+                  "author": "admin@dhl.com"
+          }
+    ],
+    "users": [
+          {
+                  "id": 1,
+                  "email": "admin@dhl.com",
+                  "password": "admin123",
+                  "name": "Admin User",
+                  "role": "admin"
+          }
+    ]
+}
