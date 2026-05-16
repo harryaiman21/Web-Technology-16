@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 
 
-# Link to the video: [youtube.com]([http://localhost:3000](https://youtu.be/dwQUOM5ZwMU))
+# Link to the video: [youtube.com](https://youtu.be/dwQUOM5ZwMU)
 ## Getting Started
 
 First, run the development server:
